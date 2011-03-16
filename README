@@ -1,6 +1,6 @@
 Installation:
 
-   git clone git://github.com/fl4t/Dotvin.git ~/.vim
+   git clone git://github.com/fl4t/Dotvim.git ~/.vim
 
 Create symlinks:
 
