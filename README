@@ -1,1 +1,10 @@
-dotfiles on my macbook
+Installation:
+
+   git clone git://github.com/fl4t/Dotvin.git ~/.vim
+
+Create symlinks:
+
+   ln -s ~/dotfiles/vimrc ~/.vimrc
+   ln -s ~/dotfiles/gvimrc ~/.gvimrc
+
+
