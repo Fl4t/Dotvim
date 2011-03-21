@@ -1,13 +1,15 @@
 " --------------------------------------------------------------
 " file: 	~/.vimrc
 " author: 	Fl4t
-" vim:fenc=utf-8:nu:ai:si:et:ts=4:sw=4:fdm=indent:fdn=1:ft=vim:
 " --------------------------------------------------------------
 
 map ; :
 syntax on
-filetype indent plugin on
-colorscheme miromiro
+if has ("unix")
+   colorscheme miromiro
+endif
+filetype plugin indent on
+filetype indent on
 
 " Surtout rien d'ennuyeux
 set noerrorbells        " pas de clignotement quand erreur
@@ -19,18 +21,19 @@ autocmd winenter * setl cursorline
 set visualbell t_vb=
 set guicursor=a:blinkon0
 
-set t_Co=256            " force 256-color mode
+"set t_Co=256            " force 256-color mode
 set nocompatible        " leave the old ways behind...
 set nowrap              " don't wrap lines
-set nobackup            " disable backup files (filename~)
-set showmode 		" show mode at bottom of screen
-set showmatch		" affiche les paires de parenthèses (),{},[]
+set showmode 		    " show mode at bottom of screen
+set showcmd             " voir les touches tappées
+set showmatch		    " affiche les paires de parenthèses (),{},[]
 set splitbelow          " place new files below the current
 set clipboard+=unnamed  " yank and copy to X clipboard
 set encoding=utf-8      " UTF-8 encoding for all new files
 set backspace=2         " full backspacing capabilities (indent,eol,start)
+set backup              " sauvegarde
 set number              " show line numbers
-set ww=b,s,h,l,<,>,[,]  " whichwrap -- left/right keys can traverse up/down
+"set ww=b,s,h,l,<,>,[,]  " whichwrap -- left/right keys can traverse up/down
 set linebreak           " attempt to wrap lines cleanly
 set wildmenu            " enhanced tab-completion shows all matching cmds in a popup menu
 set wildmode=list:longest,full
@@ -40,17 +43,23 @@ let g:loaded_matchparen=1
 set expandtab           " insert spaces instead of tabs
 set tabstop=3           " tabs appear as n number of columns
 set shiftwidth=3        " n cols for auto-indenting
-set autoindent          " auto indents next new line
+set textwidth=150       " largeur possible du texte
+set shiftround          " arrondi l'indentation
+set scrolloff=10        " laisser des lignes en dessus et dessous
 
 " searching
 set hlsearch            " highlight all search results
 set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " uppercase causes case-sensitive search
+set wrapscan            " la recherche reprend au depart
 
 " keep cursor centered
-:nnoremap j jzz
-:nnoremap k kzz
+" :nnoremap j jzz
+" :nnoremap k kzz
+
+" sauvegarder les fichier ~ dans ~/.savefile
+set backupdir=$HOME/.savefile
 
 " change la touche par defaut de vim
 let mapleader=","
@@ -96,27 +105,9 @@ if has('mouse')
    set mouse=a
 endif
 
-" Map keys to toggle functions
-function! MapToggle(key, opt)
-  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
-  exec 'nnoremap '.a:key.' '.cmd
-  exec 'inoremap '.a:key." \<C-O>".cmd
-endfunction
-
-command! -nargs=+ MapToggle call MapToggle(<f-args>)
-" Keys & functions
-MapToggle <F2> paste
-MapToggle <F3> spell
-MapToggle <F4> number
-MapToggle <F7> hlsearch
-MapToggle <F8> wrap
-
 " LaTeX settings
 set grepprg=grep\ -nH\ $*
 let g:tex_flavor='latex'
-
-" space bar un-highligts search
-:noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
 " Allows writing to files with root priviledges
 cmap w!! w !sudo tee % > /dev/null
@@ -142,3 +133,38 @@ endif
 
 " Pour utiliser la synthaxe mysql dans macvim
 let g:sql_type_default = 'mysql'
+
+" --------------------------------------------------------------
+" key 
+" --------------------------------------------------------------
+
+" space bar un-highligts search
+:noremap <silent> <Space> :silent noh<Bar>echo<CR>
+
+" Cleartext when press f6
+fun CleanText()
+   let curcol = col(".")
+   let curline = line(".")
+   exe ":retab"
+$//ge"xe ":%s/
+/ /ge"xe ":%s/
+   exe ":%s/ \\+$//e"
+   call cursor(curline, curcol)
+endfun
+
+" Map keys to toggle functions
+function! MapToggle(key, opt)
+  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+  exec 'nnoremap '.a:key.' '.cmd
+  exec 'inoremap '.a:key." \<C-O>".cmd
+endfunction
+
+" Keys & functions
+
+command! -nargs=+ MapToggle call MapToggle(<f-args>)
+MapToggle <F2> paste
+MapToggle <F3> spell
+MapToggle <F4> number
+MapToggle <F5> wrap
+map <F6> :call CleanText()<CR>
+MapToggle <F7> hlsearch
