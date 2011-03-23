@@ -1,0 +1,2 @@
+html5.vim-0.27.vba: call delete('/Users/fl4t/.vim/autoload/htmlcomplete.vim')
+supertab.vba: call delete('/Users/fl4t/.vim/doc/supertab.txt')|call delete('/Users/fl4t/.vim/plugin/supertab.vim')
