@@ -23,6 +23,10 @@
 :IndentGuidesDisable	indent_guides.txt	/*:IndentGuidesDisable*
 :IndentGuidesEnable	indent_guides.txt	/*:IndentGuidesEnable*
 :IndentGuidesToggle	indent_guides.txt	/*:IndentGuidesToggle*
+:MkVimball	pi_vimball.txt	/*:MkVimball*
+:RmVimball	pi_vimball.txt	/*:RmVimball*
+:UseVimball	pi_vimball.txt	/*:UseVimball*
+:VimballList	pi_vimball.txt	/*:VimballList*
 <F5>	checksyntax.txt	/*<F5>*
 NERDComAbout	NERD_commenter.txt	/*NERDComAbout*
 NERDComAlignedComment	NERD_commenter.txt	/*NERDComAlignedComment*
@@ -58,6 +62,7 @@ NERDComYankComment	NERD_commenter.txt	/*NERDComYankComment*
 NERDCommenter	NERD_commenter.txt	/*NERDCommenter*
 NERDCommenterContents	NERD_commenter.txt	/*NERDCommenterContents*
 NERD_commenter.txt	NERD_commenter.txt	/*NERD_commenter.txt*
+Vimball-copyright	pi_vimball.txt	/*Vimball-copyright*
 checksyntax#Check()	checksyntax.txt	/*checksyntax#Check()*
 checksyntax.txt	checksyntax.txt	/*checksyntax.txt*
 g:SuperTabCompletionContexts	supertab.txt	/*g:SuperTabCompletionContexts*
@@ -73,6 +78,8 @@ g:SuperTabNoCompleteAfter	supertab.txt	/*g:SuperTabNoCompleteAfter*
 g:SuperTabNoCompleteBefore	supertab.txt	/*g:SuperTabNoCompleteBefore*
 g:SuperTabRetainCompletionDuration	supertab.txt	/*g:SuperTabRetainCompletionDuration*
 g:checksyntax	checksyntax.txt	/*g:checksyntax*
+g:vimball_home	pi_vimball.txt	/*g:vimball_home*
+g:vimball_mkdir	pi_vimball.txt	/*g:vimball_mkdir*
 i_<F5>	checksyntax.txt	/*i_<F5>*
 indent-guides	indent_guides.txt	/*indent-guides*
 indent-guides-about	indent_guides.txt	/*indent-guides-about*
@@ -85,6 +92,7 @@ indent-guides-mappings	indent_guides.txt	/*indent-guides-mappings*
 indent-guides-options	indent_guides.txt	/*indent-guides-options*
 indent-guides-terminal-vim	indent_guides.txt	/*indent-guides-terminal-vim*
 indent_guides.txt	indent_guides.txt	/*indent_guides.txt*
+pi_vimball.txt	pi_vimball.txt	/*pi_vimball.txt*
 supertab	supertab.txt	/*supertab*
 supertab-completioncontexts	supertab.txt	/*supertab-completioncontexts*
 supertab-contextdefault	supertab.txt	/*supertab-contextdefault*
@@ -103,3 +111,10 @@ supertab-options	supertab.txt	/*supertab-options*
 supertab-preventcomplete	supertab.txt	/*supertab-preventcomplete*
 supertab-usage	supertab.txt	/*supertab-usage*
 supertab.txt	supertab.txt	/*supertab.txt*
+vba	pi_vimball.txt	/*vba*
+vimball	pi_vimball.txt	/*vimball*
+vimball-contents	pi_vimball.txt	/*vimball-contents*
+vimball-extract	pi_vimball.txt	/*vimball-extract*
+vimball-history	pi_vimball.txt	/*vimball-history*
+vimball-intro	pi_vimball.txt	/*vimball-intro*
+vimball-manual	pi_vimball.txt	/*vimball-manual*

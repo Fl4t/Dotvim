@@ -1,13 +1,19 @@
 " --------------------------------------------------------------
-" file: 	~/.vimrc
-" author: 	Fl4t
+" file:  ~/.vimrc
+" author:   Fl4t
 " --------------------------------------------------------------
 
 map ; :
 syntax on
 if has ("unix")
    colorscheme miromiro
+elseif has ("mac")
+   colorscheme vydark
 endif
+if has('gui_running')
+  set guifont=Consolas:h14
+endif
+
 filetype plugin indent on
 filetype indent on
 
@@ -24,9 +30,9 @@ set guicursor=a:blinkon0
 "set t_Co=256            " force 256-color mode
 set nocompatible        " leave the old ways behind...
 set nowrap              " don't wrap lines
-set showmode 		    " show mode at bottom of screen
+set showmode          " show mode at bottom of screen
 set showcmd             " voir les touches tappées
-set showmatch		    " affiche les paires de parenthèses (),{},[]
+set showmatch         " affiche les paires de parenthèses (),{},[]
 set splitbelow          " place new files below the current
 set clipboard+=unnamed  " yank and copy to X clipboard
 set encoding=utf-8      " UTF-8 encoding for all new files
@@ -93,11 +99,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020   ctermbg=3
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4
 
 if has("autocmd")
-    " always jump to the last cursor position
-    autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
-    autocmd BufRead *.txt set tw=80 " limit width to n cols for txt files
-    autocmd BufRead ~/.mutt/temp/mutt-* set tw=80 ft=mail nocindent spell   " width, mail syntax hilight, spellcheck
-    autocmd FileType tex set tw=80   " wrap at 80 chars for LaTeX files
+   " always jump to the last cursor position
+   autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
+   autocmd BufRead *.txt set tw=80 " limit width to n cols for txt files
+   autocmd BufRead ~/.mutt/temp/mutt-* set tw=80 ft=mail nocindent spell   " width, mail syntax hilight, spellcheck
+   autocmd FileType tex set tw=80   " wrap at 80 chars for LaTeX files
 endif
 
 " In many terminal emulators the mouse works just fine, thus enable it.
@@ -126,31 +132,15 @@ fun! <SID>SetStatusLine() " Set up the status line
 endfun
 call <SID>SetStatusLine()
 
-" Police
-if has('gui_running')
-  set guifont=Menlo:h14
-endif
-
 " Pour utiliser la synthaxe mysql dans macvim
 let g:sql_type_default = 'mysql'
 
 " --------------------------------------------------------------
-" key 
+" key
 " --------------------------------------------------------------
 
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
-
-" Cleartext when press f6
-fun CleanText()
-   let curcol = col(".")
-   let curline = line(".")
-   exe ":retab"
-$//ge"xe ":%s/
-/ /ge"xe ":%s/
-   exe ":%s/ \\+$//e"
-   call cursor(curline, curcol)
-endfun
 
 " Map keys to toggle functions
 function! MapToggle(key, opt)
@@ -166,5 +156,4 @@ MapToggle <F2> paste
 MapToggle <F3> spell
 MapToggle <F4> number
 MapToggle <F5> wrap
-map <F6> :call CleanText()<CR>
-MapToggle <F7> hlsearch
+MapToggle <F6> hlsearch
