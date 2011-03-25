@@ -2,8 +2,6 @@
 " Last Change: 2010 Jan 20th
 
 " best schemes
-amenu T&hemes.&Best.Asu1dark :colo asu1dark<CR>
-amenu T&hemes.&Best.Tango :colo tango<CR>
 amenu T&hemes.&Best.RootWater :colo rootwater<CR>
 amenu T&hemes.&Best.Getafe :colo getafe<CR>
 amenu T&hemes.&Best.Tir-black :colo tir_black<CR>
@@ -11,7 +9,8 @@ amenu T&hemes.&Best.Vitamins :colo vitamins<CR>
 amenu T&hemes.&Best.Mustang :colo mustang<CR>
 amenu T&hemes.&Best.Desert :colo desert<CR>
 amenu T&hemes.&Best.Molokai :colo molokai<CR>
-amenu T&hemes.&Best.Wombat :colo Wombat<CR>
+amenu T&hemes.&Best.Wombat :colo wombat<CR>
+amenu T&hemes.&Best.Zenburn :colo zenburn<CR>
 amenu T&hemes.-s1- :
 
 " default schemes

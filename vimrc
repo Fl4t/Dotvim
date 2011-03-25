@@ -15,7 +15,6 @@ if has('gui_running')
 endif
 
 filetype plugin indent on
-filetype indent on
 
 " Surtout rien d'ennuyeux
 set noerrorbells        " pas de clignotement quand erreur
@@ -141,6 +140,10 @@ let g:sql_type_default = 'mysql'
 
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
+
+" Use Q for formatting the current paragraph (or visual selection)
+vmap Q gq
+nmap Q gqap
 
 " Map keys to toggle functions
 function! MapToggle(key, opt)
