@@ -3,6 +3,8 @@
 " author:   Fl4t
 " --------------------------------------------------------------
 
+" Donne le droit a la mise a jour auto des sripts vim
+let g:GetLatestVimScripts_allowautoinstall=1
 map ; :
 syntax on
 if has ("unix")
@@ -152,8 +154,20 @@ function! MapToggle(key, opt)
   exec 'inoremap '.a:key." \<C-O>".cmd
 endfunction
 
-" Keys & functions
+" make p in Visual mode replace the selected text with the yank register
+vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 
+" Easy window navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+"simple matching pairs easily, with Tab
+nnoremap <Tab> %
+vnoremap <Tab> %
+
+" Keys & functions
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
 MapToggle <F2> paste
 MapToggle <F3> spell

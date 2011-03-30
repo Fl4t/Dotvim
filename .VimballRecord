@@ -1,2 +1,3 @@
 html5.vim-0.27.vba: call delete('/Users/fl4t/.vim/autoload/htmlcomplete.vim')
 supertab.vba: call delete('/Users/fl4t/.vim/doc/supertab.txt')|call delete('/Users/fl4t/.vim/plugin/supertab.vim')
+getscript.vba: call delete('/Users/fl4t/.vim/plugin/getscriptPlugin.vim')|call delete('/Users/fl4t/.vim/autoload/getscript.vim')|call delete('/Users/fl4t/.vim/GetLatest/GetLatestVimScripts.dist')|call delete('/Users/fl4t/.vim/doc/pi_getscript.txt')
