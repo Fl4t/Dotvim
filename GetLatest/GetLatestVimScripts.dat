@@ -1,11 +1,13 @@
-criptID SourceID Filename
+ScriptID SourceID Filename
 --------------------------
+
 # Les lignes commençant par '#' sont des commentaires
 # Les deux premières lignes sont nécessaires
 #
 # Script permettant d'avoir une complétion grace à la touche <tab>
 # le premier numéro a été obtenu dans l'url du script:
 # http://www.vim.org/scripts/script.php?script_id=1643
+
 39   1 :AutoInstall: matchit.zip
 415  1 :AutoInstall: zenburn.vim
 642  1 :AutoInstall: getscript.vim
@@ -20,4 +22,4 @@ criptID SourceID Filename
 1189 1 :AutoInstall: matrix.vim
 1572 1 :AutoInstall: sqlcomplete.vim
 2222 1 :AutoInstall: cmdline-complete.vim
-521 1 :AutoInstall: mru.vim
+521  1 :AutoInstall: mru.vim
