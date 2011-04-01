@@ -3,8 +3,6 @@
 " author:   Fl4t
 " --------------------------------------------------------------
 
-" Donne le droit a la mise a jour auto des sripts vim
-let g:GetLatestVimScripts_allowautoinstall=1
 map ; :
 syntax on
 if has ("unix")
@@ -119,7 +117,6 @@ let g:tex_flavor='latex'
 " Allows writing to files with root priviledges
 cmap w!! w !sudo tee % > /dev/null
 
-" colorise les balises html dans php
 let php_sql_query = 1 "Coloration des requetes SQL
 let php_htmlInStrings = 1 "Coloration des balises HTML
 
@@ -133,12 +130,14 @@ fun! <SID>SetStatusLine() " Set up the status line
 endfun
 call <SID>SetStatusLine()
 
-" Pour utiliser la synthaxe mysql dans macvim
-let g:sql_type_default = 'mysql'
-
 " --------------------------------------------------------------
 " key
 " --------------------------------------------------------------
+
+" Changement de racourcis pour supertab
+"let g:SuperTabMappingForward = '<c-space>'
+"let g:SuperTabMappingBackward = '<s-c-space>'
+let g:SuperTabDefaultCompletionType = "context"
 
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
@@ -169,8 +168,10 @@ vnoremap <Tab> %
 
 " Keys & functions
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
-MapToggle <F2> paste
-MapToggle <F3> spell
-MapToggle <F4> number
-MapToggle <F5> wrap
-MapToggle <F6> hlsearch
+MapToggle <F2> spell
+MapToggle <F3> number
+MapToggle <F4> wrap
+" Plugin NERD Tree
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
+" Plugin Taglist
+nnoremap <silent> <F12> :TlistToggle<CR>
