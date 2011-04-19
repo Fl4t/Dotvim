@@ -3,15 +3,15 @@
 " author:   Fl4t
 " --------------------------------------------------------------
 
-map ; :
 syntax on
-if has ("unix")
-   colorscheme miromiro
-elseif has ("mac")
-   colorscheme vydark
+
+if &t_Co < 256
+else
+   colorscheme miromiro 
 endif
+
 if has('gui_running')
-  set guifont=Consolas:h14
+  set guifont=Envy\ Code\ R:h13
 endif
 
 filetype plugin indent on
@@ -26,19 +26,18 @@ autocmd winenter * setl cursorline
 set visualbell t_vb=
 set guicursor=a:blinkon0
 
-"set t_Co=256            " force 256-color mode
 set nocompatible        " leave the old ways behind...
 set nowrap              " don't wrap lines
-set showmode          " show mode at bottom of screen
+set showmode            " show mode at bottom of screen
 set showcmd             " voir les touches tappées
-set showmatch         " affiche les paires de parenthèses (),{},[]
+set showmatch           " affiche les paires de parenthèses (),{},[]
 set splitbelow          " place new files below the current
 set clipboard+=unnamed  " yank and copy to X clipboard
 set encoding=utf-8      " UTF-8 encoding for all new files
 set backspace=2         " full backspacing capabilities (indent,eol,start)
 set backup              " sauvegarde
 set number              " show line numbers
-"set ww=b,s,h,l,<,>,[,]  " whichwrap -- left/right keys can traverse up/down
+"set ww=b,s,h,l,<,>,[,] " whichwrap -- left/right keys can traverse up/down
 set linebreak           " attempt to wrap lines cleanly
 set wildmenu            " enhanced tab-completion shows all matching cmds in a popup menu
 set wildmode=list:longest,full
@@ -137,7 +136,7 @@ call <SID>SetStatusLine()
 " Changement de racourcis pour supertab
 "let g:SuperTabMappingForward = '<c-space>'
 "let g:SuperTabMappingBackward = '<s-c-space>'
-let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabDefaultCompletionType = "context"
 
 " space bar un-highligts search
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
