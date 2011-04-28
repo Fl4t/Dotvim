@@ -2,5 +2,5 @@ getscript.vba: call delete('/Users/fl4t/.vim/plugin/getscriptPlugin.vim')|call d
 checksyntax.vba: call delete('/Users/fl4t/.vim/doc/checksyntax.txt')|call delete('/Users/fl4t/.vim/plugin/checksyntax.vim')|call delete('/Users/fl4t/.vim/autoload/checksyntax.vim')
 ctags_highlighting.vba: call delete('/Users/fl4t/.vim/plugin/ctags_highlighting.vim')|call delete('/Users/fl4t/.vim/mktypes.py')|call delete('/Users/fl4t/.vim/extra_source/mktypes/setup.py')|call delete('/Users/fl4t/.vim/doc/ctags_highlighting.txt')
 netrw.vba: call delete('/Users/fl4t/.vim/plugin/netrwPlugin.vim')|call delete('/Users/fl4t/.vim/autoload/netrw.vim')|call delete('/Users/fl4t/.vim/autoload/netrwFileHandlers.vim')|call delete('/Users/fl4t/.vim/autoload/netrwSettings.vim')|call delete('/Users/fl4t/.vim/doc/pi_netrw.txt')|call delete('/Users/fl4t/.vim/syntax/netrw.vim')
-zenburn.vba: call delete('/Users/fl4t/.vim/colors/zenburn.vim')
 supertab.vba: call delete('/Users/fl4t/.vim/doc/supertab.txt')|call delete('/Users/fl4t/.vim/plugin/supertab.vim')
+zenburn.vba: call delete('/Users/fl4t/.vim/colors/zenburn.vim')

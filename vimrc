@@ -104,6 +104,9 @@ if has("autocmd")
    autocmd FileType tex set tw=80   " wrap at 80 chars for LaTeX files
 endif
 
+" VB.NET highlighting
+autocmd BufNewFile,BufRead *.vb set ft=vbnet
+
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
    set mouse=a

@@ -32,10 +32,12 @@ ScriptID SourceID Filename
 1075 15352 :AutoInstall: netrw.vim
 #snipmate completion
 2540 11006 :AutoInstall: snipMate.zip
+#rename :REN :DEL
+3555 15499 :AutoInstall: ren.vim
 
 #colorscheme
 #1778 6657 :AutoInstall: wombat.vim
-415 15463 :AutoInstall: zenburn.vim
+415 15531 :AutoInstall: zenburn.vim
 #2340 9750 :AutoInstall: molokai.vim
 #3445 15109 :AutoInstall: getafe.vim
 #2140 14251 :AutoInstall: xoria256.vim
