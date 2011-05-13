@@ -125,36 +125,36 @@ fun! <SID>SetStatusLine() " Set up the status line
 endfun
 call <SID>SetStatusLine()
 
-"" pas de correction orthographique par défaut
-"set nospell
+" pas de correction orthographique par défaut
+set nospell
 
-"" automatique pour les fichiers .txt et .tex
-"augroup filetypedetect
-"au BufNewFile,BufRead *.txt setlocal spell spelllang=fr
-"au BufNewFile,BufRead *.tex setlocal spell spelllang=fr
-"augroup END
+" automatique pour les fichiers .txt et .tex
+augroup filetypedetect
+au BufNewFile,BufRead *.txt setlocal spell spelllang=fr
+au BufNewFile,BufRead *.tex setlocal spell spelllang=fr
+augroup END
 
-"" painless spell checking
-"" for French, you'll need
-"" wget http://ftp.vim.org/pub/vim/runtime/spell/fr.utf-8.sug
-"" wget http://ftp.vim.org/pub/vim/runtime/spell/fr.utf-8.spl
-"" which you may move into ~/.vim/spell
-"function s:spell_fr()
-   "if !exists("s:spell_check") || s:spell_check == 0
-      "echo "Correction orthographique activée (français)"
-      "let s:spell_check = 1
+" painless spell checking
+" for French, you'll need
+" wget http://ftp.vim.org/pub/vim/runtime/spell/fr.utf-8.sug
+" wget http://ftp.vim.org/pub/vim/runtime/spell/fr.utf-8.spl
+" which you may move into ~/.vim/spell
+function s:spell_fr()
+   if !exists("s:spell_check") || s:spell_check == 0
+      echo "Correction orthographique activée (français)"
+      let s:spell_check = 1
       "setlocal spell spelllang=fr
-      "else
-      "echo "Correction orthographique désactivée"
+      else
+      echo "Correction orthographique désactivée"
       "let s:spell_check = 0
-      "setlocal spell spelllang=
-   "endif
-"endfunction
+      setlocal spell spelllang=
+   endif
+endfunction
 
-"" mapping français
-"noremap <F2> :call <SID>spell_fr()<CR>
-"inoremap <F2> <C-o>:call <SID>spell_fr()<CR>
-"vnoremap <F2> <C-o>:call <SID>spell_fr()<CR>
+" mapping français
+noremap <F2> :call <SID>spell_fr()<CR>
+inoremap <F2> <C-o>:call <SID>spell_fr()<CR>
+vnoremap <F2> <C-o>:call <SID>spell_fr()<CR>
 
 " --------------------------------------------------------------
 " key
