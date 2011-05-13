@@ -6,3 +6,7 @@ Create symlinks:
 
    ln -s ~/dotfiles/vimrc ~/.vimrc
    ln -s ~/dotfiles/gvimrc ~/.gvimrc
+
+Tout est ici: 
+   
+   http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
