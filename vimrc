@@ -11,10 +11,11 @@ filetype plugin indent on
 
 "set t_Co=256
 if &t_Co < 256
-      colorscheme miro8   " colourscheme for the 8 colour linux term
-   else
-      colorscheme miromiro
+   colorscheme miro8   " colourscheme for the 8 colour linux term
+else
+   colorscheme miromiro
 endif
+"set magic               "Set magic on, for regular expressions
 set nocompatible        " leave the old ways behind...
 syntax on               " activer les couleurs
 set noerrorbells        " pas de clignotement quand erreur
@@ -38,7 +39,7 @@ set number              " voir les lignes par defaut
 set linebreak           " attempt to wrap lines cleanly
 set wildmenu            " menu en carré
 set wildmode=list:longest,full " la tronche des possibilité de completion
-"let g:loaded_matchparen=1
+let g:loaded_matchparen=1 " desactive le surlignage des paires de paranthese
 set backup              " sauvegarde
 set backupdir=$HOME/.savefile " sauvegarder les fichier ~ dans ~/.savefile
 set shell=/bin/bash     " langage shell par default
@@ -86,9 +87,25 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"}}}
 let g:indent_guides_enable_on_vim_startup=1 " active les guides au démarrage
 let g:indent_guides_start_level=2 " active a partir du deuxième niveau
 let g:indent_guides_guide_size=1 " largeur de 1 caractère
-let g:indent_guides_auto_colors = 0 " désactive les couleurs automatique du thème
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020   ctermbg=3
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4"}}}
+"let g:indent_guides_auto_colors = 0 " désactive les couleurs automatique du thème
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4"}}}
+
+" Minibuffer plugin"{{{
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplorerMoreThanOne = 2
+let g:miniBufExplModSelTarget = 0
+let g:miniBufExplUseSingleClick = 1
+let g:miniBufExplMapWindowNavVim = 1
+let g:miniBufExplVSplit = 25
+let g:miniBufExplSplitBelow=1
+
+let g:bufExplorerSortBy = "name"
+
+autocmd BufRead,BufNew :call UMiniBufExplorer
+
+map <leader>u :TMiniBufExplorer<cr>
+"}}}
 
 " saute a la derniere position du curseur"{{{
 if has("autocmd")
@@ -116,18 +133,21 @@ cmap w!! w !sudo tee % > /dev/null
 let php_sql_query = 1 "Coloration des requetes SQL
 let php_htmlInStrings = 1 "Coloration des balises HTML
 
-" Barre de statut"{{{
-"set laststatus=1 " montre la ligne de statut que si il y a plus de 2 fenetres
+"" Barre de statut"{{{
+"" Set up the status line
+"fun! <SID>SetStatusLine()
+   "let l:s1="%-3.3n\\ %f\\ %h%m%r%w"
+   "let l:s2="[%{strlen(&filetype)?&filetype:'?'},%{&encoding},%{&fileformat}]%{fugitive#statusline()}%{Tlist_Get_Tagname_By_Line()}"
+   "let l:s3="%=\\ 0x%-8B\\ \\ %-14.(%l,%c%V%)\\ %<%P"
+   "execute "set statusline=" . l:s1 . l:s2 . l:s3
+"endfun
+""set laststatus=1 " montre la ligne de statut que si il y a plus de 2 fenetres
 set laststatus=2 " toujours
-fun! <SID>SetStatusLine() " Set up the status line
-   let l:s1="%-3.3n\\ %f\\ %h%m%r%w"
-   let l:s2="[%{strlen(&filetype)?&filetype:'?'},%{&encoding},%{&fileformat}]"
-   let l:s3="%=\\ 0x%-8B\\ \\ %-14.(%l,%c%V%)\\ %<%P"
-   execute "set statusline=" . l:s1 . l:s2 . l:s3
-endfun
-call <SID>SetStatusLine()"}}}
+"call <SID>SetStatusLine()
+set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+""}}}
 
-" orthographe""{{{
+" orthographe"{{{
 " pas de correction orthographique par défaut
 set nospell
 
@@ -168,7 +188,11 @@ endfunction"}}}
 " mapping français
 noremap <F2> :call <SID>spell_fr()<CR>
 inoremap <F2> <C-o>:call <SID>spell_fr()<CR>
-vnoremap <F2> <C-o>:call <SID>spell_fr()<CR>"}}}
+vnoremap <F2> <C-o>:call <SID>spell_fr()<CR>
+
+" Orthographe suivant/precedent
+map <leader>fn ]s
+map <leader>fp [s
 
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
 " Keys & functions
@@ -177,22 +201,33 @@ MapToggle <F4> paste
 MapToggle <F5> hlsearch
 MapToggle <F6> wrap
 
+" Plugin Indent-guides
+nnoremap <silent> <F7> :IndentGuidesToggle<CR>
+
+" Plugin NERD Tree
+nnoremap <silent> <F8> :NERDTreeToggle<CR>
+
+" Plugin Taglist
+nnoremap <silent> <F12> :TlistToggle<CR>
+
 " change la touche par defaut de vim qui est \
 let mapleader=","
-
-" Recharger vimrc apres modification
-:nmap <Leader>rv :source $MYVIMRC
 
 " Modifier le vimrc
 :nmap <Leader>mv :e $MYVIMRC
 
-" Changement de racourcis pour supertab
-"let g:SuperTabMappingForward = '<c-space>'
-"let g:SuperTabMappingBackward = '<s-c-space>'
-"let g:SuperTabDefaultCompletionType = "context"
+" When vimrc is edited, reload it
+autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
 
 " Enleve le surlignage apres une recherche
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
+
+" Close all the buffers
+map <leader>bdall :1,300 bd!<cr>
+
+" Use the arrows to something usefull
+map <right> :bn<cr>
+map <left> :bp<cr>
 
 " Use Q for formatting the current paragraph (or visual selection)
 vmap Q gq
@@ -211,9 +246,3 @@ map <C-l> <C-w>l
 "simple matching pairs easily, with Tab
 nnoremap <Tab> %
 vnoremap <Tab> %
-
-" Plugin NERD Tree
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
-
-" Plugin Taglist
-nnoremap <silent> <F12> :TlistToggle<CR>
