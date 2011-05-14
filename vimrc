@@ -91,21 +91,17 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020   ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4"}}}
 
-" Minibuffer plugin"{{{
-let g:miniBufExplModSelTarget = 1
+"" MiniBufExp plugin"{{{
 let g:miniBufExplorerMoreThanOne = 2
-let g:miniBufExplModSelTarget = 0
+let g:miniBufExplModSelTarget = 1
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplVSplit = 25
-let g:miniBufExplSplitBelow=1
+let g:miniBufExplSplitBelow=0
 
-let g:bufExplorerSortBy = "name"
+"let g:bufExplorerSortBy = "name"
 
-autocmd BufRead,BufNew :call UMiniBufExplorer
-
-map <leader>u :TMiniBufExplorer<cr>
-"}}}
+"autocmd BufRead,BufNew :call UMiniBufExplorer
+""}}}
 
 " saute a la derniere position du curseur"{{{
 if has("autocmd")
@@ -206,6 +202,9 @@ nnoremap <silent> <F7> :IndentGuidesToggle<CR>
 
 " Plugin NERD Tree
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
+
+" Plugin MiniBufExp
+nnoremap <silent> <F9> :TMiniBufExplorer<CR>
 
 " Plugin Taglist
 nnoremap <silent> <F12> :TlistToggle<CR>
