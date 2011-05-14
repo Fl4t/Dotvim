@@ -143,10 +143,10 @@ function s:spell_fr()
    if !exists("s:spell_check") || s:spell_check == 0
       echo "Correction orthographique activée (français)"
       let s:spell_check = 1
-      "setlocal spell spelllang=fr
+      setlocal spell spelllang=fr
       else
       echo "Correction orthographique désactivée"
-      "let s:spell_check = 0
+      let s:spell_check = 0
       setlocal spell spelllang=
    endif
 endfunction
