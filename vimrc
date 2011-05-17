@@ -129,6 +129,9 @@ cmap w!! w !sudo tee % > /dev/null
 let php_sql_query = 1 "Coloration des requetes SQL
 let php_htmlInStrings = 1 "Coloration des balises HTML
 
+" Supprime automatiquement les espaces de fin de ligne
+autocmd BufWritePre * :%s/\s\+$//e
+
 "" Barre de statut"{{{
 "" Set up the status line
 "fun! <SID>SetStatusLine()
