@@ -33,8 +33,7 @@ set lazyredraw                " Don't update the display while executing macros
 
 nmap <Leader>mv :e $MYVIMRC   " Modifier le vimrc
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vim_runtime/vimrc
-"}}}
+autocmd! bufwritepost vimrc source ~/.vim/vimrc "}}}
 
 ""Interface""{{{
 set number                    " voir les lignes par defaut
@@ -51,7 +50,7 @@ set guicursor=a:blinkon0      " pas de curseur qui clignote
 set laststatus=2              " toujours voir la barre de statut
 set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
 
-autocmd GUIEnter * set vb t_vb="}}}
+autocmd GUIEnter * set vb t_vb= "}}}
 
 ""Couleurs""{{{
 syntax on               " activer les couleurs
@@ -73,7 +72,7 @@ set shiftwidth=3        " pareil mais pour >> <<
 set textwidth=150       " largeur possible du texte
 set shiftround          " tab toujours multiple de shiftwidth
 " Supprime automatiquement les espaces de fin de ligne
-autocmd BufWritePre * :%s/\s\+$//e"}}}
+autocmd BufWritePre * :%s/\s\+$//e "}}}
 
 ""Édition""{{{
 set nocursorline        " ne montre pas la ligne courante
@@ -117,8 +116,7 @@ function s:spell_fr()
 endfunction
 " Orthographe suivant/precedent
 map <leader>fn ]s
-map <leader>fp [s
-"}}}
+map <leader>fp [s"}}}
 
 " sav
 " let php_sql_query = 1 "Coloration des requetes SQL
@@ -150,8 +148,7 @@ if has("autocmd")
    autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
    autocmd BufRead *.txt set tw=150 " limit width to n cols for txt files
    "autocmd FileType tex set tw=150   " wrap at 150 chars for LaTeX files
-endif
-"}}}
+endif"}}}
 
 " Permet de voir les espaces et tab en trop
 " Symbolisé par un X
@@ -172,7 +169,8 @@ command! -nargs=+ MapToggle call MapToggle(<f-args>)
 MapToggle <F3> number
 MapToggle <F4> paste
 MapToggle <F5> hlsearch
-MapToggle <F6> wrap"}}}"}}}
+MapToggle <F6> wrap"}}}
+"}}}
 
 ""Replis""{{{
 set foldenable          " ferme les replis existant par defaut
@@ -244,5 +242,4 @@ nnoremap <silent> <F8> :NERDTreeToggle<CR>
 nnoremap <silent> <F9> :TMiniBufExplorer<CR>
 
 " Plugin Taglist
-nnoremap <silent> <F12> :TlistToggle<CR>
-"}}}
+nnoremap <silent> <F12> :TlistToggle<CR>"}}}
