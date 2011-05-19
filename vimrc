@@ -3,6 +3,22 @@
 " author:   Fl4t
 " --------------------------------------------------------------
 
+" F2  : orthographe
+" F3  : numéro
+" F4  : mode coller
+" F5  : warp/nowarp
+" F8  : NerdTree
+" F9  : ident-guides
+" F11 : MiniBufExp
+" F12 : Taglist
+
+" ,cd : ce rendre dans le repertoire du fichier courant
+" ,fn : faute suivante
+" ,fp : faute précédente
+" ,bdall : delete tout les buffers
+" <right> : buffer précédent
+" <left> : buffer suivant
+
 ""General""{{{
 " Plugin Pathogen (a mettre devant filetype)
 call pathogen#runtime_append_all_bundles()
@@ -30,6 +46,20 @@ set virtualedit=all           " pour ce déplacer même si il n'y a pas de carac
 set hidden                    " detruit un buffer apres l'avoir fermé
 set lazyredraw                " Don't update the display while executing macros
 
+" Map keys to toggle functions"{{{
+function! MapToggle(key, opt)
+  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+  exec 'nnoremap '.a:key.' '.cmd
+  exec 'inoremap '.a:key." \<C-O>".cmd
+endfunction
+
+command! -nargs=+ MapToggle call MapToggle(<f-args>)
+" Keys & functions
+MapToggle <F3> number
+MapToggle <F4> paste
+MapToggle <F5> wrap
+MapToggle <F6> cursorline
+"}}}
 
 nmap <Leader>mv :e $MYVIMRC   " Modifier le vimrc
 " When vimrc is edited, reload it
@@ -48,27 +78,39 @@ set visualbell t_vb=          " pas de clignotement
 set noerrorbells              " pas de clignotement quand erreur
 set guicursor=a:blinkon0      " pas de curseur qui clignote
 set laststatus=2              " toujours voir la barre de statut
-set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
-
-autocmd GUIEnter * set vb t_vb= "}}}
+set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}\ %{fugitive#statusline()}\ %{Tlist_Get_Tagname_By_Line()}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+"set statusline=%<%F%h%m%r%h%w%y\ %{&ff}\ %{strftime(\"%c\",getftime(expand(\"%:p\")))}%=\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+""}}}
 
 ""Couleurs""{{{
 syntax on               " activer les couleurs
-
+" colorise au lancement du fichier
+" plus long mais meilleur rendu
 syntax sync fromstart
 autocmd BufEnter * :syntax sync fromstart
+" sav
+" let php_sql_query = 1 "Coloration des requetes SQL
+" let php_htmlInStrings = 1 "Coloration des balises HTML
 
+" Réglages pour le php
+let php_sql_query = 1
+let php_baselib = 1
+let php_htmlInStrings = 1
+let php_noShortTags = 1
+let php_folding = 1
+" colourscheme for the 8 colour linux term
 if &t_Co < 256
-   colorscheme miro8   " colourscheme for the 8 colour linux term
+   colorscheme miro8
 else
    colorscheme miromiro
-endif"}}}
+endif
+"}}}
 
 ""Indentation""{{{
 set expandtab           " insert des espaces au lieu de tab
-set tabstop=3           " nombre d'éspaces par tab
-set softtabstop=3       " nombre d'espace pour une tab en mode edition
-set shiftwidth=3        " pareil mais pour >> <<
+set tabstop=4           " nombre d'éspaces par tab
+set softtabstop=4       " nombre d'espace pour une tab en mode edition
+set shiftwidth=4        " pareil mais pour >> <<
 set textwidth=150       " largeur possible du texte
 set shiftround          " tab toujours multiple de shiftwidth
 " Supprime automatiquement les espaces de fin de ligne
@@ -88,46 +130,23 @@ set selection=inclusive " comportement de la selection
 
 "orthographe"{{{
 " mapping français
-noremap <F2> :call <SID>spell_fr()<CR>
-inoremap <F2> <C-o>:call <SID>spell_fr()<CR>
-vnoremap <F2> <C-o>:call <SID>spell_fr()<CR>
+map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 " pas de correction orthographique par défaut
 set nospell
 " automatique pour les fichiers .txt et .tex
 augroup filetypedetect
-au BufNewFile,BufRead *.txt setlocal spell spelllang=fr
-au BufNewFile,BufRead *.tex setlocal spell spelllang=fr
+   au BufNewFile,BufRead *.txt setlocal spell spelllang=fr
+   au BufNewFile,BufRead *.tex setlocal spell spelllang=fr
 augroup END
-" painless spell checking
-" for French, you'll need
-" wget http://ftp.vim.org/pub/vim/runtime/spell/fr.utf-8.sug
-" wget http://ftp.vim.org/pub/vim/runtime/spell/fr.utf-8.spl
-" which you may move into ~/.vim/spell
-function s:spell_fr()
-   if !exists("s:spell_check") || s:spell_check == 0
-      echo "Correction orthographique activée (français)"
-      let s:spell_check = 1
-      setlocal spell spelllang=fr
-      else
-      echo "Correction orthographique désactivée"
-      let s:spell_check = 0
-      setlocal spell spelllang=
-   endif
-endfunction
-" Orthographe suivant/precedent
 map <leader>fn ]s
 map <leader>fp [s"}}}
 
-" sav
-" let php_sql_query = 1 "Coloration des requetes SQL
-" let php_htmlInStrings = 1 "Coloration des balises HTML
+" saute a la derniere position du curseur"{{{
+if has("autocmd")
+   autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
+   autocmd BufRead *.txt set tw=150 " limit width to n cols for txt files
+endif"}}}
 
-" Réglages pour le php
-let php_sql_query = 1
-let php_baselib = 1
-let php_htmlInStrings = 1
-let php_noShortTags = 1
-let php_folding = 1
 ret diffopt=filler,iwhite,vertical  " Options pour le mode diff
 map <leader>bdall :1,300 bd!<cr> " Close all the buffers
 " Use the arrows to something usefull
@@ -143,33 +162,13 @@ vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 nnoremap <Tab> %
 vnoremap <Tab> %
 
-" saute a la derniere position du curseur"{{{
-if has("autocmd")
-   autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
-   autocmd BufRead *.txt set tw=150 " limit width to n cols for txt files
-   "autocmd FileType tex set tw=150   " wrap at 150 chars for LaTeX files
-endif"}}}
-
 " Permet de voir les espaces et tab en trop
 " Symbolisé par un X
 set list
-set lcs:tab:>-,trail:X
+"set lcs:tab:>-,trail:X
+set lcs:trail:X
 " permet de pouvoir enregistrer sans taper sudo
 cmap w!! w !sudo tee % > /dev/null
-
-" Map keys to toggle functions"{{{
-function! MapToggle(key, opt)
-  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
-  exec 'nnoremap '.a:key.' '.cmd
-  exec 'inoremap '.a:key." \<C-O>".cmd
-endfunction
-
-command! -nargs=+ MapToggle call MapToggle(<f-args>)
-" Keys & functions
-MapToggle <F3> number
-MapToggle <F4> paste
-MapToggle <F5> hlsearch
-MapToggle <F6> wrap"}}}
 "}}}
 
 ""Replis""{{{
@@ -203,7 +202,10 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-set splitbelow          " ouvre un nouveau fichier en dessous du précédent"}}}
+set splitbelow          " ouvre un nouveau fichier en dessous du précédent
+" cd to the directory containing the file in the buffer
+nmap  ,cd :lcd %:h
+"}}}
 
 ""Fichier/Backup""{{{
 set autoread        " recharge auto quand un fichier est modifié
@@ -213,7 +215,7 @@ set writebackup      " ecrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/.savefile " dossier des .backup
 set directory=$HOME/.swap " dossier des .swp"}}}
 
-""Plugin""{{{
+""Plugins""{{{
 " indent-guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " active les guides au démarrage
 let g:indent_guides_start_level=2 " active a partir du deuxième niveau
@@ -229,17 +231,21 @@ let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplSplitBelow=0
 
-" VB.NET highlighting
+" Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
-
-" Plugin Indent-guides
-nnoremap <silent> <F7> :IndentGuidesToggle<CR>
 
 " Plugin NERD Tree
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
 
+" Plugin Indent-guides
+nnoremap <silent> <F9> :IndentGuidesToggle<CR>
+
 " Plugin MiniBufExp
-nnoremap <silent> <F9> :TMiniBufExplorer<CR>
+nnoremap <silent> <F11> :TMiniBufExplorer<CR>
 
 " Plugin Taglist
-nnoremap <silent> <F12> :TlistToggle<CR>"}}}
+nnoremap <silent> <F12> :TlistToggle<CR>
+
+" Plugin jQuery
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+"}}}
