@@ -7,23 +7,31 @@
 " F3  : numéro
 " F4  : mode coller
 " F5  : warp/nowarp
+" F6  : cursorline
+" F7  : tab/espace
 " F8  : NerdTree
 " F9  : ident-guides
 " F11 : MiniBufExp
 " F12 : Taglist
 
+" jj : <Esc>
+" ,v : split vertical + switch
+" ,h : split horizontal + switch
 " ,cd : ce rendre dans le repertoire du fichier courant
 " ,fn : faute suivante
 " ,fp : faute précédente
 " ,bdall : delete tout les buffers
 " <right> : buffer précédent
 " <left> : buffer suivant
+" <S-Enter> : insert une ligne vide au dessus
+" <Enter> : insert une ligne en dessous
 
 ""General""{{{
 " Plugin Pathogen (a mettre devant filetype)
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
+set ofu=syntaxcomplete#Complete "OmniComp
 set nocompatible              " leave the old ways behind...
 set history=400               " historique des commandes vim
 set shell=/bin/bash           " langage shell par default
@@ -59,6 +67,7 @@ MapToggle <F3> number
 MapToggle <F4> paste
 MapToggle <F5> wrap
 MapToggle <F6> cursorline
+MapToggle <F7> list
 "}}}
 
 nmap <Leader>mv :e $MYVIMRC   " Modifier le vimrc
@@ -161,12 +170,13 @@ vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 "simple matching pairs easily, with Tab
 nnoremap <Tab> %
 vnoremap <Tab> %
-
+imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
+map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
+map <Enter> o<ESC>
 " Permet de voir les espaces et tab en trop
 " Symbolisé par un X
-set list
-"set lcs:tab:>-,trail:X
-set lcs:trail:X
+set nolist
+set lcs:tab:>-,trail:X
 " permet de pouvoir enregistrer sans taper sudo
 cmap w!! w !sudo tee % > /dev/null
 "}}}
@@ -204,7 +214,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 set splitbelow          " ouvre un nouveau fichier en dessous du précédent
 " cd to the directory containing the file in the buffer
-nmap  ,cd :lcd %:h
+" Vertical and horizontal split then hop to a new buffer
+noremap <Leader>v :vsp^M^W^W<cr>
+noremap <Leader>h :split^M^W^W<cr>
 "}}}
 
 ""Fichier/Backup""{{{
