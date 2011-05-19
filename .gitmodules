@@ -52,3 +52,9 @@
 [submodule "bundle/autocomplpop"]
 	path = bundle/autocomplpop
 	url = https://github.com/vim-scripts/AutoComplPop.git
+[submodule "bundle/enter-ident"]
+	path = bundle/enter-ident
+	url = https://github.com/vim-scripts/Enter-Indent.git
+[submodule "bundle/delimitmate"]
+	path = bundle/delimitmate
+	url = https://github.com/Raimondi/delimitMate.git
