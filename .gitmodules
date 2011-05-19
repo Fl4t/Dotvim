@@ -49,3 +49,6 @@
 [submodule "bundle/getafe"]
 	path = bundle/getafe
 	url = git@github.com:Fl4t/getafe.git
+[submodule "bundle/checksyntax"]
+	path = bundle/checksyntax
+	url = https://github.com/tomtom/checksyntax_vim.git
