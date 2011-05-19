@@ -43,15 +43,9 @@
 [submodule "bundle/fokus"]
 	path = bundle/fokus
 	url = https://github.com/vim-scripts/fokus.git
-[submodule "bundle/vividchalk"]
-	path = bundle/vividchalk
-	url = https://github.com/tpope/vim-vividchalk.git
 [submodule "bundle/getafe"]
 	path = bundle/getafe
 	url = git@github.com:Fl4t/getafe.git
 [submodule "bundle/checksyntax"]
 	path = bundle/checksyntax
 	url = https://github.com/tomtom/checksyntax_vim.git
-[submodule "bundle/autocomplpop"]
-	path = bundle/autocomplpop
-	url = https://github.com/vim-scripts/AutoComplPop.git
