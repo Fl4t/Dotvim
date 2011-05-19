@@ -20,7 +20,7 @@
 " ,cd : ce rendre dans le repertoire du fichier courant
 " ,fn : faute suivante
 " ,fp : faute précédente
-" ,bdall : delete tout les buffers
+" ,bda : delete tout les buffers
 " <right> : buffer précédent
 " <left> : buffer suivant
 " <S-Enter> : insert une ligne vide au dessus
@@ -156,7 +156,7 @@ if has("autocmd")
 endif"}}}
 
 ret diffopt=filler,iwhite,vertical  " Options pour le mode diff
-map <leader>bdall :1,300 bd!<cr> " Close all the buffers
+map <leader>bda :1,300 bd!<cr> " Close all the buffers
 " Use the arrows to something usefull
 map <right> :bn<cr>
 map <left> :bp<cr>
