@@ -16,18 +16,3 @@ set fuoptions=maxvert,maxhorz " fullscreen options (MacVim), redimensionne vim a
 au GUIEnter * set fullscreen
 " pas de clignotement etc
 au GUIEnter * set vb t_vb=
-
-" Donne le chemain pour le plugin Taglist de vim.
-let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
-
-" Mettre la fenetre taglist a droite.
-let Tlist_Use_Right_Window = 1
-
-" Show the bookmarks table on startup
-let NERDTreeShowBookmarks=1
-
-" Don't display these kinds of files
-let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
-            \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
-            \ '\.embed\.manifest$', '\.embed\.manifest.res$',
-            \ '\.intermediate\.manifest$', '^mt.dep$' ]

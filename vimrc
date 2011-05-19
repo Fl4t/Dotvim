@@ -9,8 +9,8 @@
 " F5  : warp/nowarp
 " F6  : cursorline
 " F7  : tab/espace
-" F8  : NerdTree
-" F9  : ident-guides
+" F8  : ident-guides
+" F10 : NerdTree
 " F11 : MiniBufExp
 " F12 : Taglist
 
@@ -142,11 +142,6 @@ set selection=inclusive " comportement de la selection
 map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 " pas de correction orthographique par défaut
 set nospell
-" automatique pour les fichiers .txt et .tex
-augroup filetypedetect
-   au BufNewFile,BufRead *.txt setlocal spell spelllang=fr
-   au BufNewFile,BufRead *.tex setlocal spell spelllang=fr
-augroup END
 map <leader>fn ]s
 map <leader>fp [s"}}}
 
@@ -215,6 +210,7 @@ map <C-l> <C-w>l
 set splitbelow          " ouvre un nouveau fichier en dessous du précédent
 " cd to the directory containing the file in the buffer
 nmap  ,cd :lcd %:h
+
 " Vertical and horizontal split then hop to a new buffer
 noremap <Leader>v :vsp^M^W^W<cr>
 noremap <Leader>h :split^M^W^W<cr>
@@ -247,17 +243,29 @@ let g:miniBufExplSplitBelow=0
 " Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 
-" Plugin NERD Tree
-nnoremap <silent> <F8> :NERDTreeToggle<CR>
-
 " Plugin Indent-guides
-nnoremap <silent> <F9> :IndentGuidesToggle<CR>
+nnoremap <silent> <F8> :IndentGuidesToggle<CR>
+
+" Plugin NERD Tree
+nnoremap <silent> <F10> :NERDTreeToggle<CR>
+" Show the bookmarks table on startup
+let NERDTreeShowBookmarks=1
+" Don't display these kinds of files
+let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
+            \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
+            \ '\.embed\.manifest$', '\.embed\.manifest.res$',
+            \ '\.intermediate\.manifest$', '^mt.dep$' ]
 
 " Plugin MiniBufExp
 nnoremap <silent> <F11> :TMiniBufExplorer<CR>
 
 " Plugin Taglist
 nnoremap <silent> <F12> :TlistToggle<CR>
+
+" Donne le chemain pour le plugin Taglist de vim.
+let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
+" Mettre la fenetre taglist a droite.
+let Tlist_Use_Right_Window = 1
 
 " Plugin jQuery
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
