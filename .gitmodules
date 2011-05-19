@@ -52,3 +52,6 @@
 [submodule "bundle/checksyntax"]
 	path = bundle/checksyntax
 	url = https://github.com/tomtom/checksyntax_vim.git
+[submodule "bundle/autocomplpop"]
+	path = bundle/autocomplpop
+	url = https://github.com/vim-scripts/AutoComplPop.git
