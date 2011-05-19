@@ -214,6 +214,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 set splitbelow          " ouvre un nouveau fichier en dessous du précédent
 " cd to the directory containing the file in the buffer
+nmap  ,cd :lcd %:h
 " Vertical and horizontal split then hop to a new buffer
 noremap <Leader>v :vsp^M^W^W<cr>
 noremap <Leader>h :split^M^W^W<cr>
