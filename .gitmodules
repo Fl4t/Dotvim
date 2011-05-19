@@ -49,9 +49,6 @@
 [submodule "bundle/checksyntax"]
 	path = bundle/checksyntax
 	url = https://github.com/tomtom/checksyntax_vim.git
-[submodule "bundle/autocomplpop"]
-	path = bundle/autocomplpop
-	url = https://github.com/vim-scripts/AutoComplPop.git
 [submodule "bundle/enter-ident"]
 	path = bundle/enter-ident
 	url = https://github.com/vim-scripts/Enter-Indent.git
