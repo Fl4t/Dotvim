@@ -14,6 +14,8 @@ set fuoptions=maxvert,maxhorz " fullscreen options (MacVim), redimensionne vim a
 
 " fullscreen au lancement
 au GUIEnter * set fullscreen
+" pas de clignotement etc
+au GUIEnter * set vb t_vb=
 
 " Donne le chemain pour le plugin Taglist de vim.
 let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
