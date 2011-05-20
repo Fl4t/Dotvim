@@ -67,3 +67,6 @@
 [submodule "bundle/solarized"]
 	path = bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "snippets"]
+	path = snippets
+	url = https://github.com/scrooloose/snipmate-snippets.git

@@ -249,6 +249,9 @@ let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplSplitBelow=0
 
+" Snippets
+source ~/.vim/snippets/support_functions.vim
+
 " PIV plugin
 let g:DisableAutoPHPFolding = 0
 
