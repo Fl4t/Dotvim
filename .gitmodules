@@ -67,3 +67,6 @@
 [submodule "bundle/piv"]
 	path = bundle/piv
 	url = https://github.com/spf13/PIV.git
+[submodule "bundle/snipmate-snippets"]
+	path = bundle/snipmate-snippets
+	url = https://github.com/scrooloose/snipmate-snippets.git
