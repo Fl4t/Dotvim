@@ -88,9 +88,11 @@ set visualbell t_vb=          " pas de clignotement
 set noerrorbells              " pas de clignotement quand erreur
 set guicursor=a:blinkon0      " pas de curseur qui clignote
 set laststatus=2              " toujours voir la barre de status
-set stl=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
+set stl=%f\ %m\ %r\ Buf:\ #%n\ [%b][0x%B]
+set statusline+=\ [%{getcwd()}] " current directory
 set stl+=%{fugitive#statusline()}
 set stl+=%{Tlist_Get_Tagname_By_Line()}
+set statusline+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
 if has("gui_running")
     set statusline += %#warningmsg#
     set statusline += %{SyntasticStatuslineFlag()}
@@ -240,12 +242,19 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020   ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4
 
-"" MiniBufExp plugin
+" MiniBufExp plugin
 let g:miniBufExplorerMoreThanOne = 2
 let g:miniBufExplModSelTarget = 1
 let g:miniBufExplUseSingleClick = 1
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplSplitBelow=0
+
+" PIV plugin
+let g:DisableAutoPHPFolding = 0
+
+" SuperTab plugin
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
