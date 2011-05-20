@@ -10,8 +10,9 @@
 " F6  : cursorline
 " F7  : tab/espace
 " F8  : ident-guides
-" F10 : NerdTree
-" F11 : MiniBufExp
+" F9  : MiniBufExp
+" F10 : Gundo
+" F11 : NerdTree
 " F12 : Taglist
 
 " jj : <Esc>
@@ -90,9 +91,11 @@ set laststatus=2              " toujours voir la barre de status
 set stl=%f\ %m\ %r\ Line:\ %l/%L[%p%%]\ Col:\ %c\ Buf:\ #%n\ [%b][0x%B]
 set stl+=%{fugitive#statusline()}
 set stl+=%{Tlist_Get_Tagname_By_Line()}
-set statusline += %#warningmsg#
-set statusline += %{SyntasticStatuslineFlag()}
-set statusline += %*
+if has("gui_running")
+    set statusline += %#warningmsg#
+    set statusline += %{SyntasticStatuslineFlag()}
+    set statusline += %*
+endif
 ""}}}
 
 ""Couleurs""{{{
@@ -250,8 +253,14 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 " Plugin Indent-guides
 nnoremap <silent> <F8> :IndentGuidesToggle<CR>
 
+" Plugin MiniBufExp
+nnoremap <silent> <F9> :TMiniBufExplorer<CR>
+
+" Plugin Gundo
+nnoremap <silent> <F10> :GundoToggle<CR>
+
 " Plugin NERD Tree
-nnoremap <silent> <F10> :NERDTreeToggle<CR>
+nnoremap <silent> <F11> :NERDTreeToggle<CR>
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
 " Don't display these kinds of files
@@ -259,9 +268,6 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
             \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
             \ '\.embed\.manifest$', '\.embed\.manifest.res$',
             \ '\.intermediate\.manifest$', '^mt.dep$' ]
-
-" Plugin MiniBufExp
-nnoremap <silent> <F11> :TMiniBufExplorer<CR>
 
 " Plugin Taglist
 nnoremap <silent> <F12> :TlistToggle<CR>
