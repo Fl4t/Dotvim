@@ -145,6 +145,7 @@ set textwidth=0         " pas de limite de largeur du texte
 set nowrap              " pas de retour a la ligne par defaut
 set linebreak           " Coupe pas les mots au warp
 set selection=inclusive " comportement de la selection
+set ofu=syntaxcomplete#Complete
 
 "orthographe"{{{
 " mapping français
