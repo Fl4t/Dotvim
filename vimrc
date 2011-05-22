@@ -52,14 +52,14 @@ set ttyscroll=1               " désactive le scroll des tty
 set shellslash
 set cpoptions +=$             " pour avoir un dollars lorsque l'on change, touche c
 set virtualedit=all           " pour ce déplacer même si il n'y a pas de caractère
-set hidden                    " detruit un buffer apres l'avoir fermé
+set hidden                    " permet le switch de buffer meme si on a pas sauvegardé
 set lazyredraw                " Don't update the display while executing macros
 
 " Map keys to toggle functions"{{{
 function! MapToggle(key, opt)
-  let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
-  exec 'nnoremap '.a:key.' '.cmd
-  exec 'inoremap '.a:key." \<C-O>".cmd
+    let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
+    exec 'nnoremap '.a:key.' '.cmd
+    exec 'inoremap '.a:key." \<C-O>".cmd
 endfunction
 
 command! -nargs=+ MapToggle call MapToggle(<f-args>)
@@ -73,7 +73,8 @@ MapToggle <F7> list
 
 nmap <Leader>mv :e $MYVIMRC   " Modifier le vimrc
 " When vimrc is edited, reload it
-autocmd! bufwritepost vimrc source ~/.vim/vimrc "}}}
+autocmd! bufwritepost ~/.vimrc source $MYVIMRC
+"}}}
 
 ""Interface""{{{
 set number                    " voir les lignes par defaut
@@ -117,10 +118,11 @@ let php_htmlInStrings = 1
 let php_noShortTags = 1
 let php_folding = 1
 " colourscheme for the 8 colour linux term
+set t_Co=256
 if &t_Co < 256
-   colorscheme miro8
+    colorscheme miro8
 else
-   colorscheme miromiro
+    colorscheme miromiro
 endif
 "}}}
 
@@ -129,7 +131,6 @@ set expandtab           " insert des espaces au lieu de tab
 set tabstop=4           " nombre d'éspaces par tab
 set softtabstop=4       " nombre d'espace pour une tab en mode edition
 set shiftwidth=4        " pareil mais pour >> <<
-set textwidth=150       " largeur possible du texte
 set shiftround          " tab toujours multiple de shiftwidth
 " Supprime automatiquement les espaces de fin de ligne
 autocmd BufWritePre * :%s/\s\+$//e "}}}
@@ -141,7 +142,6 @@ set showmatch           " affiche les paires de parenthèses (),{},[]
 set matchtime=3         " durée de cette affichage
 let g:loaded_matchparen=1 " desactive le surlignage des paires de paranthese
 set scrolloff=10        " laisser des lignes en dessus et dessous"
-set textwidth=0         " pas de limite de largeur du texte
 set nowrap              " pas de retour a la ligne par defaut
 set linebreak           " Coupe pas les mots au warp
 set selection=inclusive " comportement de la selection
@@ -157,8 +157,8 @@ map <leader>fp [s"}}}
 
 " saute a la derniere position du curseur"{{{
 if has("autocmd")
-   autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
-   autocmd BufRead *.txt set tw=150 " limit width to n cols for txt files
+    autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
+    autocmd BufRead *.txt set wm=1 " limit width to n cols for txt files
 endif"}}}
 
 ret diffopt=filler,iwhite,vertical  " Options pour le mode diff
@@ -179,9 +179,8 @@ imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams 
 map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
 map <Enter> o<ESC>
 " Permet de voir les espaces et tab en trop
-" Symbolisé par un X
 set nolist
-set lcs:tab:>-,trail:X
+set listchars:tab:▸\ ,trail:✖
 " permet de pouvoir enregistrer sans taper sudo
 cmap w!! w !sudo tee % > /dev/null
 "}}}
@@ -194,9 +193,10 @@ set fillchars=fold:·    " affiche des ..... apres le nom du replis
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 set foldcolumn=0        " pas de marge a gauche pour les replis
-" Récupére la sélection après une (dés)indentation shift
+" Récupére la sélection après une indentation shift
 vnoremap <silent> < <gv
-vnoremap <silent> > >gv"}}}
+vnoremap <silent> > >gv
+"}}}
 
 ""Recherche""{{{
 set hlsearch            " surligne les recherches
@@ -218,12 +218,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 set splitbelow          " ouvre un nouveau fichier en dessous du précédent
-" cd to the directory containing the file in the buffer
-nmap  ,cd :lcd %:h
-
+nmap  ,cd :lcd %:h<cr>  "cd to the directory containing the file in the buffer
 " Vertical and horizontal split then hop to a new buffer
 noremap <Leader>v :vsp^M^W^W<cr>
-noremap <Leader>h :split^M^W^W<cr>
+noremap <Leader>h :sp^M^W^W<cr>
 "}}}
 
 ""Fichier/Backup""{{{
