@@ -34,9 +34,6 @@
 [submodule "bundle/minibufexpl"]
 	path = bundle/minibufexpl
 	url = https://github.com/fholgado/minibufexpl.vim.git
-[submodule "bundle/ctags_highlighting"]
-	path = bundle/ctags_highlighting
-	url = https://github.com/vim-scripts/CTAGS-Highlighting.git
 [submodule "bundle/fokus"]
 	path = bundle/fokus
 	url = https://github.com/vim-scripts/fokus.git
