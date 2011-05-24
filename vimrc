@@ -10,7 +10,7 @@
 " F6  : cursorline
 " F7  : tab/espace
 " F8  : ident-guides
-" F9  : MiniBufExp
+" F9  :
 " F10 : Gundo
 " F11 : NerdTree
 " F12 : Taglist
@@ -94,11 +94,6 @@ set statusline+=\ [%{getcwd()}] " current directory
 set stl+=%{fugitive#statusline()}
 set stl+=%{Tlist_Get_Tagname_By_Line()}
 set statusline+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
-if has("gui_running")
-    set statusline += %#warningmsg#
-    set statusline += %{SyntasticStatuslineFlag()}
-    set statusline += %*
-endif
 ""}}}
 
 ""Couleurs""{{{
@@ -241,12 +236,12 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020   ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4
 
-" MiniBufExp plugin
-let g:miniBufExplorerMoreThanOne = 2
-let g:miniBufExplModSelTarget = 1
-let g:miniBufExplUseSingleClick = 1
-let g:miniBufExplMapWindowNavVim = 1
-let g:miniBufExplSplitBelow=0
+"" MiniBufExp plugin
+"let g:miniBufExplorerMoreThanOne = 2
+"let g:miniBufExplModSelTarget = 1
+"let g:miniBufExplUseSingleClick = 1
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplSplitBelow=0
 
 " Snippets
 source ~/.vim/snippets/support_functions.vim
@@ -256,7 +251,7 @@ let g:DisableAutoPHPFolding = 0
 
 " SuperTab plugin
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
@@ -264,8 +259,8 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 " Plugin Indent-guides
 nnoremap <silent> <F8> :IndentGuidesToggle<CR>
 
-" Plugin MiniBufExp
-nnoremap <silent> <F9> :TMiniBufExplorer<CR>
+"" Plugin MiniBufExp
+"nnoremap <silent> <F9> :TMiniBufExplorer<CR>
 
 " Plugin Gundo
 nnoremap <silent> <F10> :GundoToggle<CR>
