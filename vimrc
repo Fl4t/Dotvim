@@ -107,11 +107,11 @@ autocmd BufEnter * :syntax sync fromstart
 " let php_htmlInStrings = 1 "Coloration des balises HTML
 
 " Réglages pour le php
-let php_sql_query = 1
-let php_baselib = 1
-let php_htmlInStrings = 1
-let php_noShortTags = 1
-let php_folding = 1
+"let php_sql_query = 1
+"let php_baselib = 1
+"let php_htmlInStrings = 1
+"let php_noShortTags = 1
+"let php_folding = 1
 " colourscheme for the 8 colour linux term
 set t_Co=256
 if &t_Co < 256
