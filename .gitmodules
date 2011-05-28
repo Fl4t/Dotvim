@@ -58,3 +58,6 @@
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = https://Fl4t@github.com/Fl4t/snipmate.vim.git
+[submodule "bundle/zenburn"]
+	path = bundle/zenburn
+	url = https://github.com/vim-scripts/Zenburn.git
