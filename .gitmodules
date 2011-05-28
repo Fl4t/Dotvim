@@ -67,3 +67,6 @@
 [submodule "bundle/vbnet"]
 	path = bundle/vbnet
 	url = https://github.com/vim-scripts/vbnet.vim.git
+[submodule "bundle/matrix"]
+	path = bundle/matrix
+	url = https://github.com/vim-scripts/matrix.vim--Yang.git
