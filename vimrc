@@ -73,7 +73,7 @@ MapToggle <F7> list
 
 nmap <Leader>mv :e $MYVIMRC   " Modifier le vimrc
 " When vimrc is edited, reload it
-autocmd! bufwritepost ~/.vimrc source $MYVIMRC
+"autocmd! bufwritepost ~/.vimrc source $MYVIMRC
 "}}}
 
 ""Interface""{{{
@@ -91,8 +91,8 @@ set guicursor=a:blinkon0      " pas de curseur qui clignote
 set laststatus=2              " toujours voir la barre de status
 set stl=%f\ %m\ %r\ Buf:\ #%n\ [%b][0x%B]
 set statusline+=\ [%{getcwd()}] " current directory
-set stl+=%{fugitive#statusline()}
-set stl+=%{Tlist_Get_Tagname_By_Line()}
+set stl+=\ %{fugitive#statusline()}
+set stl+=\ %{Tlist_Get_Tagname_By_Line()}
 set statusline+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
 ""}}}
 
