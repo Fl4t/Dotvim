@@ -9,7 +9,8 @@ set lines=999
 set columns=999
 
 " il est beauuuu
-colorscheme getafe
+colorscheme solarized
+set bg=dark
 set fuoptions=maxvert,maxhorz " fullscreen options (MacVim), redimensionne vim au maximum quand j'enleve le mode plein ecran
 
 " fullscreen au lancement
