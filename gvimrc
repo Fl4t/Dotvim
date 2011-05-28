@@ -8,7 +8,10 @@ set guifont=Envy\ Code\ R:h13
 set lines=999
 set columns=999
 
-" il est beauuuu
+" surligne la ligne courante
+set cursorline
+
+" solarized
 colorscheme solarized
 set bg=dark
 set fuoptions=maxvert,maxhorz " fullscreen options (MacVim), redimensionne vim au maximum quand j'enleve le mode plein ecran
