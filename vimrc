@@ -79,7 +79,8 @@ nmap <Leader>mv :e $MYVIMRC   " Modifier le vimrc
 ""Interface""{{{
 set number                    " voir les lignes par defaut
 set numberwidth=1             " 1 ligne = 1 numero
-set shortmess=atI             " donne des messages court avec ^G et supprime le :tutor
+set shortmess+=filmnrxoOtT     " abbrev. of messages (avoids 'hit editednter')
+set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility"
 set showmode                  " montre le mode dans lequel je suis
 set showcmd                   " voir les touches tapées
 set wildmenu                  " menu en carré
