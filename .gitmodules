@@ -64,9 +64,6 @@
 [submodule "bundle/matrix"]
 	path = bundle/matrix
 	url = https://github.com/vim-scripts/matrix.vim--Yang.git
-[submodule "bundle/easytags"]
-	path = bundle/easytags
-	url = https://github.com/xolox/vim-easytags.git
 [submodule "bundle/command-t"]
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T.git
