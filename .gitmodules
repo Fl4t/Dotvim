@@ -52,12 +52,6 @@
 [submodule "bundle/solarized"]
 	path = bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
-[submodule "snippets"]
-	path = snippets
-	url = https://github.com/scrooloose/snipmate-snippets.git
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://Fl4t@github.com/Fl4t/snipmate.vim.git
 [submodule "bundle/zenburn"]
 	path = bundle/zenburn
 	url = https://github.com/vim-scripts/Zenburn.git
@@ -70,3 +64,12 @@
 [submodule "bundle/matrix"]
 	path = bundle/matrix
 	url = https://github.com/vim-scripts/matrix.vim--Yang.git
+[submodule "bundle/easytags"]
+	path = bundle/easytags
+	url = https://github.com/xolox/vim-easytags.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = https://github.com/wincent/Command-T.git
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
+	url = git@github.com:Fl4t/vim-snipmate.git
