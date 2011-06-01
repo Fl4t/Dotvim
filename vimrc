@@ -38,6 +38,7 @@ set history=400               " historique des commandes vim
 set shell=/bin/bash           " langage shell par default
 set encoding=utf-8            " UTF-8
 set fileencoding=utf-8        " UTF-8
+set fileformat=unix
 set backspace=2               " regle le comportement de backspace
 set mouse=a                   " active la souris pour toujours
 set mousehide                 " hide mouse when typing
@@ -79,7 +80,7 @@ nmap <Leader>mv :e $MYVIMRC   " Modifier le vimrc
 ""Interface""{{{
 set number                    " voir les lignes par defaut
 set numberwidth=1             " 1 ligne = 1 numero
-set shortmess+=filmnrxoOtT     " abbrev. of messages (avoids 'hit editednter')
+set shortmess=aTi             " format of messages (avoids 'hit editednter')
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility"
 set showmode                  " montre le mode dans lequel je suis
 set showcmd                   " voir les touches tapées
@@ -116,6 +117,18 @@ if &t_Co < 256
     colorscheme miro8
 else
     colorscheme miromiro
+endif
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
+if exists('*HexHighlight()')
+  nmap <leader>h :call HexHighlight()<Return>
 endif
 "}}}
 
@@ -213,8 +226,8 @@ map <C-l> <C-w>l
 set splitbelow          " ouvre un nouveau fichier en dessous du précédent
 nmap  ,cd :lcd %:h<cr>  "cd to the directory containing the file in the buffer
 " Vertical and horizontal split then hop to a new buffer
-noremap <Leader>v :vsp^M^W^W<cr>
-noremap <Leader>h :sp^M^W^W<cr>
+"noremap <Leader>v :vsp^M^W^W<cr>
+"noremap <Leader>h :sp^M^W^W<cr>
 "}}}
 
 ""Fichier/Backup""{{{
@@ -241,15 +254,12 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 "let g:miniBufExplMapWindowNavVim = 1
 "let g:miniBufExplSplitBelow=0
 
-" Snippets
-source ~/.vim/snippets/support_functions.vim
-
 " PIV plugin
 let g:DisableAutoPHPFolding = 0
 
 " SuperTab plugin
 let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
@@ -281,6 +291,10 @@ let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
 " Mettre la fenetre taglist a droite.
 let Tlist_Use_Right_Window = 1
 
-" Plugin jQuery
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+"" Plugin Command-t
+"let g:CommandTSearchPath = /Users/fl4t/
+
+" Plugin MRU
+noremap <silent> <Leader>m :MRU<cr>
+
 "}}}
