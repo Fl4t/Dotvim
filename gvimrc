@@ -11,9 +11,8 @@ set columns=999
 " surligne la ligne courante
 set cursorline
 
-" solarized
-colorscheme solarized
-set bg=dark
+" warez mon colorscheme
+colorscheme warez
 set fuoptions=maxvert,maxhorz " fullscreen options (MacVim), redimensionne vim au maximum quand j'enleve le mode plein ecran
 
 " fullscreen au lancement

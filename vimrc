@@ -72,11 +72,10 @@ MapToggle <F6> cursorline
 MapToggle <F7> list
 "}}}
 
-nmap <Leader>mv :e $MYVIMRC   " Modifier le vimrc
+nmap <Leader>ev :e $MYVIMRC   " Modifier le vimrc
 " When vimrc is edited, reload it
 "autocmd! bufwritepost ~/.vimrc source $MYVIMRC
 "}}}
-
 ""Interface""{{{
 set number                    " voir les lignes par defaut
 set numberwidth=1             " 1 ligne = 1 numero
@@ -96,8 +95,9 @@ set statusline+=\ [%{getcwd()}] " current directory
 set stl+=\ %{fugitive#statusline()}
 set stl+=\ %{Tlist_Get_Tagname_By_Line()}
 set statusline+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 ""}}}
-
 ""Couleurs""{{{
 syntax on               " activer les couleurs
 " colorise au lancement du fichier
@@ -131,7 +131,6 @@ if exists('*HexHighlight()')
   nmap <leader>h :call HexHighlight()<Return>
 endif
 "}}}
-
 ""Indentation""{{{
 set expandtab           " insert des espaces au lieu de tab
 set tabstop=4           " nombre d'éspaces par tab
@@ -140,7 +139,6 @@ set shiftwidth=4        " pareil mais pour >> <<
 set shiftround          " tab toujours multiple de shiftwidth
 " Supprime automatiquement les espaces de fin de ligne
 autocmd BufWritePre * :%s/\s\+$//e "}}}
-
 ""Édition""{{{
 set nocursorline        " ne montre pas la ligne courante
 set nostartofline       " conserve la colonne
@@ -190,7 +188,6 @@ set listchars:tab:▸\ ,trail:✖
 " permet de pouvoir enregistrer sans taper sudo
 cmap w!! w !sudo tee % > /dev/null
 "}}}
-
 ""Replis""{{{
 set foldenable          " ferme les replis existant par defaut
 set foldmethod=marker   " c'est les markeurs qui délimite les replis
@@ -203,7 +200,6 @@ set foldcolumn=0        " pas de marge a gauche pour les replis
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
 "}}}
-
 ""Recherche""{{{
 set hlsearch            " surligne les recherches
 set incsearch           " increment search
@@ -214,7 +210,6 @@ set wrapscan            " la recherche reprend au depart
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
 " Mode magic pour les expressions regulieres
 set magic"}}}
-
 ""Buffer/Fenêtres/Tabs""{{{
 set hidden          " Pour pouvoir changer de buffer sans sauvegarder
 set wmh=0           " Nombre minimal de lignes pour une fenêtre
@@ -229,7 +224,6 @@ nmap  ,cd :lcd %:h<cr>  "cd to the directory containing the file in the buffer
 "noremap <Leader>v :vsp^M^W^W<cr>
 "noremap <Leader>h :sp^M^W^W<cr>
 "}}}
-
 ""Fichier/Backup""{{{
 set autoread        " recharge auto quand un fichier est modifié
 set autowrite       " sauvegarde auto quand on quitte ou qu'on change de buffer
@@ -237,7 +231,6 @@ set backup          " sauvegarde
 set writebackup      " ecrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/.savefile " dossier des .backup
 set directory=$HOME/.swap " dossier des .swp"}}}
-
 ""Plugins""{{{
 " indent-guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " active les guides au démarrage
