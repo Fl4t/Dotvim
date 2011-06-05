@@ -12,6 +12,7 @@ set columns=999
 set cursorline
 
 " warez mon colorscheme
+set bg=dark
 colorscheme warez
 set fuoptions=maxvert,maxhorz " fullscreen options (MacVim), redimensionne vim au maximum quand j'enleve le mode plein ecran
 

@@ -104,6 +104,7 @@ syntax on               " activer les couleurs
 " plus long mais meilleur rendu
 syntax sync fromstart
 autocmd BufEnter * :syntax sync fromstart
+
 " Réglages pour le php
 let php_sql_query = 1
 let php_baselib = 1
@@ -191,7 +192,7 @@ cmap w!! w !sudo tee % > /dev/null
 ""Replis""{{{
 set foldenable          " ferme les replis existant par defaut
 set foldmethod=marker   " c'est les markeurs qui délimite les replis
-set foldminlines=4      " nombre de ligne mini pour replis
+set foldminlines=2      " nombre de ligne mini pour replis
 set fillchars=fold:·    " affiche des ..... apres le nom du replis
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
@@ -291,3 +292,9 @@ let Tlist_Use_Right_Window = 1
 noremap <silent> <Leader>m :MRU<cr>
 
 "}}}
+
+"hexhighlight
+source ~/.vim/plugins/hexHighlight.vim
+if exists('*HexHighlight()')
+  nmap <leader>h :call HexHighlight()<Return>
+endif
