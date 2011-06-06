@@ -249,11 +249,11 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 "let g:miniBufExplSplitBelow=0
 
 " PIV plugin
-let g:DisableAutoPHPFolding = 0
+"let g:DisableAutoPHPFolding = 0
 
 " SuperTab plugin
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+"let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
