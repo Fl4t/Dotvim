@@ -67,3 +67,6 @@
 [submodule "bundle/tlib-vim"]
 	path = bundle/tlib-vim
 	url = https://github.com/tomtom/tlib_vim.git
+[submodule "bundle/getafe"]
+	path = bundle/getafe
+	url = https://github.com/larssmit/getafe.git
