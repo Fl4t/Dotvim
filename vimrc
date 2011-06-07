@@ -241,22 +241,18 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020   ctermbg=3
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4
 
-"" MiniBufExp plugin
-"let g:miniBufExplorerMoreThanOne = 2
-"let g:miniBufExplModSelTarget = 1
-"let g:miniBufExplUseSingleClick = 1
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplSplitBelow=0
-
-" PIV plugin
-"let g:DisableAutoPHPFolding = 0
-
 " SuperTab plugin
 "let g:SuperTabDefaultCompletionType = "context"
 "let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
+
+"hexhighlight
+source ~/.vim/plugins/hexHighlight.vim
+if exists('*HexHighlight()')
+  nmap <leader>h :call HexHighlight()<Return>
+endif
 
 " Plugin Indent-guides
 nnoremap <silent> <F8> :IndentGuidesToggle<CR>
@@ -292,9 +288,3 @@ let Tlist_Use_Right_Window = 1
 noremap <silent> <Leader>m :MRU<cr>
 
 "}}}
-
-"hexhighlight
-source ~/.vim/plugins/hexHighlight.vim
-if exists('*HexHighlight()')
-  nmap <leader>h :call HexHighlight()<Return>
-endif
