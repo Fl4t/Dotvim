@@ -89,6 +89,7 @@ set wildignore=*.o,*.bak,*.pyc,*.swp,*.jpg,*.gif,*.png
 set visualbell t_vb=          " pas de clignotement
 set noerrorbells              " pas de clignotement quand erreur
 set guicursor=a:blinkon0      " pas de curseur qui clignote
+set cmdheight=2               " 2 lignes en dessous de statusline
 set laststatus=2              " toujours voir la barre de status
 set stl=%f\ %m\ %r\ Buf:\ #%n\ [%b][0x%B]
 set statusline+=\ [%{getcwd()}] " current directory
@@ -144,7 +145,7 @@ autocmd BufWritePre * :%s/\s\+$//e "}}}
 set nocursorline        " ne montre pas la ligne courante
 set nostartofline       " conserve la colonne
 set showmatch           " affiche les paires de parenthèses (),{},[]
-set matchtime=3         " durée de cette affichage
+set matchtime=2         " durée de cette affichage
 let g:loaded_matchparen=1 " desactive le surlignage des paires de paranthese
 set scrolloff=10        " laisser des lignes en dessus et dessous"
 set nowrap              " pas de retour a la ligne par defaut
@@ -213,7 +214,7 @@ set wrapscan            " la recherche reprend au depart
 set magic"}}}
 ""Buffer/Fenêtres/Tabs""{{{
 set hidden          " Pour pouvoir changer de buffer sans sauvegarder
-set wmh=0           " Nombre minimal de lignes pour une fenêtre
+set wmh=1           " Nombre minimal de lignes pour une fenêtre
 " Navigation des fenetres facile
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -229,7 +230,7 @@ nmap  ,cd :lcd %:h<cr>  "cd to the directory containing the file in the buffer
 set autoread        " recharge auto quand un fichier est modifié
 set autowrite       " sauvegarde auto quand on quitte ou qu'on change de buffer
 set backup          " sauvegarde
-set writebackup      " ecrit le backup avant d'écrire le vrai fichier
+set writebackup     " ecrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/.savefile " dossier des .backup
 set directory=$HOME/.swap " dossier des .swp"}}}
 ""Plugins""{{{
