@@ -189,6 +189,9 @@ set nolist
 set listchars:tab:▸\ ,trail:✖
 " permet de pouvoir enregistrer sans taper sudo
 cmap w!! w !sudo tee % > /dev/null
+" Récupére la sélection après une indentation shift
+vnoremap <silent> < <gv
+vnoremap <silent> > >gv
 "}}}
 ""Replis""{{{
 set foldenable          " ferme les replis existant par defaut
@@ -197,10 +200,7 @@ set foldminlines=2      " nombre de ligne mini pour replis
 set fillchars=fold:·    " affiche des ..... apres le nom du replis
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
-set foldcolumn=0        " pas de marge a gauche pour les replis
-" Récupére la sélection après une indentation shift
-vnoremap <silent> < <gv
-vnoremap <silent> > >gv
+"set foldcolumn=0        " pas de marge a gauche pour les replis
 "}}}
 ""Recherche""{{{
 set hlsearch            " surligne les recherches
