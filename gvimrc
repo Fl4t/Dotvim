@@ -2,7 +2,7 @@
 set guioptions=ac
 
 " police
-set guifont=Envy\ Code\ R:h13
+set guifont=Envy\ Code\ R:h12
 
 " Lignes et colones au maximum a l'ouverture
 set lines=999
