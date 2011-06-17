@@ -26,7 +26,6 @@
 " <left> : buffer suivant
 " <S-Enter> : insert une ligne vide au dessus
 " <Enter> : insert une ligne en dessous
-
 ""General""{{{
 " Plugin Pathogen (a mettre devant filetype)
 call pathogen#runtime_append_all_bundles()
@@ -243,8 +242,8 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 "autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4
 
 " SuperTab plugin
-"let g:SuperTabDefaultCompletionType = "context"
-"let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 " Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
