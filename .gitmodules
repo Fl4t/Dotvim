@@ -73,3 +73,6 @@
 [submodule "bundle/warez"]
 	path = bundle/warez
 	url = git@github.com:Fl4t/warez-colorscheme.git
+[submodule "bundle/easytags"]
+	path = bundle/easytags
+	url = https://github.com/xolox/vim-easytags.git
