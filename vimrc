@@ -26,6 +26,7 @@
 " <left> : buffer suivant
 " <S-Enter> : insert une ligne vide au dessus
 " <Enter> : insert une ligne en dessous
+
 ""General""{{{
 " Plugin Pathogen (a mettre devant filetype)
 call pathogen#runtime_append_all_bundles()
@@ -288,3 +289,6 @@ let Tlist_Use_Right_Window = 1
 noremap <silent> <Leader>m :MRU<cr>
 
 "}}}
+""Langage C""{{{
+noremap <leader>C <c-\><c-n>:!gcc -Wall % -o %<.x<cr>
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o"}}}
