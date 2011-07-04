@@ -107,7 +107,7 @@ syntax sync fromstart
 autocmd BufEnter * :syntax sync fromstart
 
 " Réglages pour le php
-let php_sql_query = 1
+"let php_sql_query = 1
 let php_baselib = 1
 let php_htmlInStrings = 1
 let php_noShortTags = 1
@@ -146,7 +146,7 @@ set nocursorline        " ne montre pas la ligne courante
 set nostartofline       " conserve la colonne
 set showmatch           " affiche les paires de parenthèses (),{},[]
 set matchtime=2         " durée de cette affichage
-let g:loaded_matchparen=1 " desactive le surlignage des paires de paranthese
+let g:loaded_matchparen=1 " desactive le surlignage des paires de parantheses
 set scrolloff=10        " laisser des lignes en dessus et dessous"
 set nowrap              " pas de retour a la ligne par defaut
 set linebreak           " Coupe pas les mots au warp
