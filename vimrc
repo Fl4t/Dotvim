@@ -72,7 +72,8 @@ MapToggle <F6> cursorline
 MapToggle <F7> list
 "}}}
 
-nmap <Leader>ev :e $MYVIMRC   " Modifier le vimrc
+nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
+nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
 "}}}
 ""Interface""{{{
 set number                    " voir les lignes par defaut
