@@ -73,8 +73,6 @@ MapToggle <F7> list
 "}}}
 
 nmap <Leader>ev :e $MYVIMRC   " Modifier le vimrc
-" When vimrc is edited, reload it
-"autocmd! bufwritepost ~/.vimrc source $MYVIMRC
 "}}}
 ""Interface""{{{
 set number                    " voir les lignes par defaut
@@ -220,9 +218,6 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 set splitbelow          " ouvre un nouveau fichier en dessous du précédent
 nmap  ,cd :lcd %:h<cr>  "cd to the directory containing the file in the buffer
-" Vertical and horizontal split then hop to a new buffer
-"noremap <Leader>v :vsp^M^W^W<cr>
-"noremap <Leader>h :sp^M^W^W<cr>
 "}}}
 ""Fichier/Backup""{{{
 set autoread        " recharge auto quand un fichier est modifié
@@ -236,9 +231,6 @@ set directory=$HOME/.swap " dossier des .swp"}}}
 let g:indent_guides_enable_on_vim_startup=1 " active les guides au démarrage
 let g:indent_guides_start_level=2 " active a partir du deuxième niveau
 let g:indent_guides_guide_size=1 " largeur de 1 caractère
-"let g:indent_guides_auto_colors = 0 " désactive les couleurs automatique du thème
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#202020   ctermbg=3
-"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#202020   ctermbg=4
 
 " SuperTab plugin
 let g:SuperTabDefaultCompletionType = "context"
@@ -255,9 +247,6 @@ endif
 
 " Plugin Indent-guides
 nnoremap <silent> <F8> :IndentGuidesToggle<CR>
-
-"" Plugin MiniBufExp
-"nnoremap <silent> <F9> :TMiniBufExplorer<CR>
 
 " Plugin Gundo
 nnoremap <silent> <F10> :GundoToggle<CR>
@@ -279,9 +268,6 @@ nnoremap <silent> <F12> :TlistToggle<CR>
 let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
 " Mettre la fenetre taglist a droite.
 let Tlist_Use_Right_Window = 1
-
-"" Plugin Command-t
-"let g:CommandTSearchPath = /Users/fl4t/
 
 " Plugin MRU
 noremap <silent> <Leader>m :MRU<cr>
