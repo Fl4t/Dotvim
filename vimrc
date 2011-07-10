@@ -96,8 +96,6 @@ set statusline+=\ [%{getcwd()}] " current directory
 set stl+=\ %{fugitive#statusline()}
 set stl+=\ %{Tlist_Get_Tagname_By_Line()}
 set statusline+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
-autocmd WinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
 ""}}}
 ""Couleurs""{{{
 syntax on               " activer les couleurs

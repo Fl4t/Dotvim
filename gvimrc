@@ -10,6 +10,8 @@ set columns=999
 
 " surligne la ligne courante
 set cursorline
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 
 " warez mon colorscheme
 set bg=dark
