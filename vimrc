@@ -18,31 +18,32 @@
 " jj : <Esc>
 " ,v : split vertical + switch
 " ,h : split horizontal + switch
-" ,cd : ce rendre dans le repertoire du fichier courant
+" ,cd : ce rendre dans le répertoire du fichier courant
 " ,fn : faute suivante
 " ,fp : faute précédente
-" ,bda : delete tout les buffers
+" ,bda : supprime tout les buffers
 " <right> : buffer précédent
 " <left> : buffer suivant
-" <S-Enter> : insert une ligne vide au dessus
-" <Enter> : insert une ligne en dessous
+" <S-Enter> : insère une ligne vide au dessus
+" <Enter> : insère une ligne en dessous
 
 ""General""{{{
-" Plugin Pathogen (a mettre devant filetype)
+" Plugin Pathogen (à mettre devant filetype)
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
 set ofu=syntaxcomplete#Complete "OmniComp
+set complete=.,w,b,t          " paramètre de complétion
 set nocompatible              " leave the old ways behind...
 set history=400               " historique des commandes vim
-set shell=/bin/bash           " langage shell par default
+set shell=/bin/bash           " langage shell par défaut
 set encoding=utf-8            " UTF-8
 set fileencoding=utf-8        " UTF-8
 set fileformat=unix
-set backspace=2               " regle le comportement de backspace
+set backspace=2               " règle le comportement de backspace
 set mouse=a                   " active la souris pour toujours
 set mousehide                 " hide mouse when typing
-let mapleader=","             " change la touche par defaut de vim qui est \
+let mapleader=","             " change la touche par défaut de vim qui est \
 set clipboard+=unnamed        " yank et aussi copier en mémoire tampon
 set ttyfast                   " affichage rapide en console
 set ttyscroll=1               " désactive le scroll des tty
@@ -76,25 +77,25 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
 "}}}
 ""Interface""{{{
-set number                    " voir les lignes par defaut
-set numberwidth=1             " 1 ligne = 1 numero
+set number                    " voir les lignes par défaut
+set numberwidth=1             " 1 ligne = 1 numéro
 set shortmess=aTi             " format of messages (avoids 'hit editednter')
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility"
 set showmode                  " montre le mode dans lequel je suis
 set showcmd                   " voir les touches tapées
 set wildmenu                  " menu en carré
-set wim=list:longest,full     " la tronche des possibilité de completion
+set wim=list:longest,full     " la tronche des possibilité de complétion
 set wildignore=*.o,*.bak,*.pyc,*.swp,*.jpg,*.gif,*.png
 set visualbell t_vb=          " pas de clignotement
 set noerrorbells              " pas de clignotement quand erreur
 set guicursor=a:blinkon0      " pas de curseur qui clignote
 set cmdheight=2               " 2 lignes en dessous de statusline
-set laststatus=2              " toujours voir la barre de status
+set laststatus=2              " toujours voir la barre de statut
 set stl=%f\ %m\ %r\ Buf:\ #%n\ [%b][0x%B]
-set statusline+=\ [%{getcwd()}] " current directory
+set stl+=\ [%{getcwd()}]      " current directory
 set stl+=\ %{fugitive#statusline()}
 set stl+=\ %{Tlist_Get_Tagname_By_Line()}
-set statusline+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
+set stl+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
 ""}}}
 ""Couleurs""{{{
 syntax on               " activer les couleurs
@@ -131,24 +132,21 @@ if exists('*HexHighlight()')
 endif
 "}}}
 ""Indentation""{{{
-set expandtab           " insert des espaces au lieu de tab
-set tabstop=4           " nombre d'éspaces par tab
-set softtabstop=4       " nombre d'espace pour une tab en mode edition
+set expandtab           " insère des espaces au lieu de tab
+set tabstop=4           " nombre d'espaces par tab
+set softtabstop=4       " nombre d'espace pour une tab en mode édition
 set shiftwidth=4        " pareil mais pour >> <<
 set shiftround          " tab toujours multiple de shiftwidth
 " Supprime automatiquement les espaces de fin de ligne
 autocmd BufWritePre * :%s/\s\+$//e "}}}
 ""Édition""{{{
-set nocursorline        " ne montre pas la ligne courante
 set nostartofline       " conserve la colonne
 set showmatch           " affiche les paires de parenthèses (),{},[]
 set matchtime=2         " durée de cette affichage
-let g:loaded_matchparen=1 " desactive le surlignage des paires de parantheses
+let g:loaded_matchparen=1 " désactive le sur-lignage des paires de parenthèses
 set scrolloff=10        " laisser des lignes en dessus et dessous"
-set nowrap              " pas de retour a la ligne par defaut
+set nowrap              " pas de retour a la ligne par défaut
 set linebreak           " Coupe pas les mots au warp
-set selection=inclusive " comportement de la selection
-set ofu=syntaxcomplete#Complete
 
 "orthographe"{{{
 " mapping français
@@ -158,13 +156,13 @@ set nospell
 map <leader>fn ]s
 map <leader>fp [s"}}}
 
-" saute a la derniere position du curseur"{{{
+" saute a la dernière position du curseur"{{{
 if has("autocmd")
     autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
     autocmd BufRead *.txt set wm=1 " limit width to n cols for txt files
 endif"}}}
 
-ret diffopt=filler,iwhite,vertical  " Options pour le mode diff
+set diffopt=filler,iwhite,vertical  " Options pour le mode diff
 map <leader>bda :1,300 bd!<cr> " Close all the buffers
 " Use the arrows to something usefull
 map <right> :bn<cr>
@@ -172,29 +170,29 @@ map <left> :bp<cr>
 " Use Q for formatting the current paragraph (or visual selection)
 vmap Q gq
 nmap Q gqap
-" Utiliser p en mode visuel pour remplacer le texte selectionne par le text
-" yanker precedement
+" Utiliser p en mode visuel pour remplacer le texte sélectionne par le texte
+" yanker précédemment
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 "simple matching pairs easily, with Tab
 nnoremap <Tab> %
 vnoremap <Tab> %
-imap jj <Esc> " Professor VIM says '87% of users prefer jj over esc', jj abrams disagrees
-map <S-Enter> O<ESC> " awesome, inserts new line without going into insert mode
+" awesome, inserts new line without going into insert mode
+map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 " Permet de voir les espaces et tab en trop
 set nolist
 set listchars:tab:▸\ ,trail:✖
 " permet de pouvoir enregistrer sans taper sudo
 cmap w!! w !sudo tee % > /dev/null
-" Récupére la sélection après une indentation shift
+" Récupère la sélection après une indentation shift
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
 "}}}
 ""Replis""{{{
-set foldenable          " ferme les replis existant par defaut
-set foldmethod=marker   " c'est les markeurs qui délimite les replis
+set foldenable          " ferme les replis existant par défaut
+set foldmethod=marker   " c'est les marqueurs qui délimite les replis
 set foldminlines=2      " nombre de ligne mini pour replis
-set fillchars=fold:·    " affiche des ..... apres le nom du replis
+set fillchars=fold:·    " affiche des ... après le nom du replis
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 "set foldcolumn=0        " pas de marge a gauche pour les replis
@@ -205,26 +203,27 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " uppercase causes case-sensitive search
 set wrapscan            " la recherche reprend au depart
-" Enleve le surlignage apres une recherche
+" Enlève le sur-lignage après une recherche
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
-" Mode magic pour les expressions regulieres
+" Mode magic pour les expressions régulières
 set magic"}}}
 ""Buffer/Fenêtres/Tabs""{{{
 set hidden          " Pour pouvoir changer de buffer sans sauvegarder
 set wmh=1           " Nombre minimal de lignes pour une fenêtre
-" Navigation des fenetres facile
+" Navigation des fenêtres facile
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 set splitbelow          " ouvre un nouveau fichier en dessous du précédent
-nmap  ,cd :lcd %:h<cr>  "cd to the directory containing the file in the buffer
+"cd to the directory containing the file in the buffer
+nmap  <leader>cd :lcd %:h<CR>
 "}}}
 ""Fichier/Backup""{{{
 set autoread        " recharge auto quand un fichier est modifié
 set autowrite       " sauvegarde auto quand on quitte ou qu'on change de buffer
 set backup          " sauvegarde
-set writebackup     " ecrit le backup avant d'écrire le vrai fichier
+set writebackup     " écrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/.savefile " dossier des .backup
 set directory=$HOME/.swap " dossier des .swp"}}}
 ""Plugins""{{{
