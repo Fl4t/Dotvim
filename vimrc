@@ -187,6 +187,8 @@ cmap w!! w !sudo tee % > /dev/null
 " Récupère la sélection après une indentation shift
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
+" Change de répertoire automatiquement ou ce trouve le fichier
+autocmd BufEnter * lcd %:p:h
 "}}}
 ""Replis""{{{
 set foldenable          " ferme les replis existant par défaut
