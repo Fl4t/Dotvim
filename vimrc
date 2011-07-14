@@ -250,6 +250,9 @@ endif
 " Plugin Indent-guides
 nnoremap <silent> <F8> :IndentGuidesToggle<CR>
 
+" Plugin MRU
+let MRU_Add_Menu=0
+
 " Plugin Gundo
 nnoremap <silent> <F10> :GundoToggle<CR>
 
