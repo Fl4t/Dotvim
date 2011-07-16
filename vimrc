@@ -235,7 +235,6 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 
 "hexhighlight
-source ~/.vim/plugins/hexHighlight.vim
 if exists('*HexHighlight()')
   nmap <leader>h :call HexHighlight()<Return>
 endif
