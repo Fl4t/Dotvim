@@ -15,9 +15,6 @@
 " F11 : NerdTree
 " F12 : Taglist
 
-" jj : <Esc>
-" ,v : split vertical + switch
-" ,h : split horizontal + switch
 " ,cd : ce rendre dans le répertoire du fichier courant
 " ,fn : faute suivante
 " ,fp : faute précédente
