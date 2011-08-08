@@ -53,6 +53,7 @@ set cpoptions +=$             " pour avoir un dollars lorsque l'on change, touch
 set virtualedit=all           " pour ce déplacer même si il n'y a pas de caractère
 set hidden                    " permet le switch de buffer meme si on a pas sauvegardé
 set lazyredraw                " Don't update the display while executing macros
+set tm=500                    " Délai raccourci-clavier
 
 " Map keys to toggle functions"{{{
 function! MapToggle(key, opt)
