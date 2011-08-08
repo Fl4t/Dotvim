@@ -261,6 +261,8 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
 
 " Plugin Taglist
 nnoremap <silent> <F12> :TlistToggle<CR>
+hi! link TagListFileName Underlined
+
 
 " Donne le chemain pour le plugin Taglist de vim.
 let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
