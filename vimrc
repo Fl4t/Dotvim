@@ -4,14 +4,14 @@
 " --------------------------------------------------------------
 
 " F2  : orthographe
-" F3  : numéro
-" F4  : mode coller
-" F5  : warp/nowarp
-" F6  : cursorline
-" F7  : tab/espace
+" F3  :
+" F4  :
+" F5  :
+" F6  :
+" F7  :
 " F8  : ident-guides
 " F9  :
-" F10 : Gundo
+" F10 :
 " F11 : NerdTree
 " F12 : Taglist
 
@@ -42,35 +42,14 @@ set mouse=a                   " active la souris pour toujours
 set mousehide                 " hide mouse when typing
 let mapleader=","             " change la touche par défaut de vim qui est \
 set clipboard+=unnamed        " yank et aussi copier en mémoire tampon
-set ttyfast                   " affichage rapide en console
-set ttyscroll=1               " désactive le scroll des tty
-" Set the forward slash to be the slash of note.  Backslashes suck
-" This is really only applicable to Windows but I like to have a vimrc
-" that works no matter what OS I'm currently on
-" c'est Derek qui le dit alors chut.
-set shellslash
+set shellslash                " c'est Derek qui le dit alors chut.
 set cpoptions +=$             " pour avoir un dollars lorsque l'on change, touche c
 set virtualedit=all           " pour ce déplacer même si il n'y a pas de caractère
 set hidden                    " permet le switch de buffer meme si on a pas sauvegardé
 set lazyredraw                " Don't update the display while executing macros
-set tm=500                    " Délai raccourci-clavier
+set tm=600                    " Délai raccourci-clavier
 
-" Map keys to toggle functions"{{{
-function! MapToggle(key, opt)
-    let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
-    exec 'nnoremap '.a:key.' '.cmd
-    exec 'inoremap '.a:key." \<C-O>".cmd
-endfunction
-
-command! -nargs=+ MapToggle call MapToggle(<f-args>)
-" Keys & functions
-MapToggle <F3> number
-MapToggle <F4> paste
-MapToggle <F5> wrap
-MapToggle <F6> cursorline
-MapToggle <F7> list
-"}}}
-
+" Mapping pour éditer le vimrc et le sourcer
 nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
 "}}}
@@ -97,18 +76,7 @@ set stl+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
 ""}}}
 ""Couleurs""{{{
 syntax on               " activer les couleurs
-" colorise au lancement du fichier
-" plus long mais meilleur rendu
-syntax sync fromstart
-autocmd BufEnter * :syntax sync fromstart
 
-" Réglages pour le php
-"let php_sql_query = 1
-let php_baselib = 1
-let php_htmlInStrings = 1
-let php_noShortTags = 1
-let php_folding = 1
-let php_parent_error_close = 1
 " colourscheme for the 8 colour linux term
 set t_Co=256
 if &t_Co < 256
@@ -116,6 +84,7 @@ if &t_Co < 256
 else
     colorscheme miromiro
 endif
+
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -125,9 +94,7 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-if exists('*HexHighlight()')
-  nmap <leader>h :call HexHighlight()<Return>
-endif
+nmap <leader>h :call HexHighlight()<Return>
 "}}}
 ""Indentation""{{{
 set expandtab           " insère des espaces au lieu de tab
@@ -135,6 +102,7 @@ set tabstop=4           " nombre d'espaces par tab
 set softtabstop=4       " nombre d'espace pour une tab en mode édition
 set shiftwidth=4        " pareil mais pour >> <<
 set shiftround          " tab toujours multiple de shiftwidth
+
 " Supprime automatiquement les espaces de fin de ligne
 autocmd BufWritePre * :%s/\s\+$//e "}}}
 ""Édition""{{{
@@ -161,30 +129,41 @@ if has("autocmd")
 endif"}}}
 
 set diffopt=filler,iwhite,vertical  " Options pour le mode diff
-map <leader>bda :1,300 bd!<cr> " Close all the buffers
+
+" Close all the buffers
+map <leader>bda :1,300 bd!<cr>
+
 " Use the arrows to something usefull
 map <right> :bn<cr>
 map <left> :bp<cr>
+
 " Use Q for formatting the current paragraph (or visual selection)
 vmap Q gq
 nmap Q gqap
+
 " Utiliser p en mode visuel pour remplacer le texte sélectionne par le texte
 " yanker précédemment
 vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+
 "simple matching pairs easily, with Tab
 nnoremap <Tab> %
 vnoremap <Tab> %
+
 " awesome, inserts new line without going into insert mode
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
+
 " Permet de voir les espaces et tab en trop
 set nolist
 set listchars:tab:▸\ ,trail:✖
+
 " permet de pouvoir enregistrer sans taper sudo
 cmap w!! w !sudo tee % > /dev/null
+
 " Récupère la sélection après une indentation shift
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
+
 " Change de répertoire automatiquement ou ce trouve le fichier
 autocmd BufEnter * lcd %:p:h
 "}}}
@@ -193,9 +172,9 @@ set foldenable          " ferme les replis existant par défaut
 set foldmethod=marker   " c'est les marqueurs qui délimite les replis
 set foldminlines=2      " nombre de ligne mini pour replis
 set fillchars=fold:·    " affiche des ... après le nom du replis
+
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
-"set foldcolumn=0        " pas de marge a gauche pour les replis
 "}}}
 ""Recherche""{{{
 set hlsearch            " surligne les recherches
@@ -203,21 +182,25 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " uppercase causes case-sensitive search
 set wrapscan            " la recherche reprend au depart
-" Enlève le sur-lignage après une recherche
+
+" Enlève le sur-lignage après une recherche en tapant éspace
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
+
 " Mode magic pour les expressions régulières
-set magic"}}}
+set magic
+"}}}
 ""Buffer/Fenêtres/Tabs""{{{
 set hidden          " Pour pouvoir changer de buffer sans sauvegarder
 set wmh=1           " Nombre minimal de lignes pour une fenêtre
+
 " Navigation des fenêtres facile
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-set splitbelow          " ouvre un nouveau fichier en dessous du précédent
-"cd to the directory containing the file in the buffer
-nmap  <leader>cd :lcd %:h<CR>
+
+" ouvre un nouveau fichier en dessous du précédent
+set splitbelow
 "}}}
 ""Fichier/Backup""{{{
 set autoread        " recharge auto quand un fichier est modifié
@@ -236,18 +219,13 @@ let g:indent_guides_guide_size=1 " largeur de 1 caractère
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
 
 "hexhighlight
-if exists('*HexHighlight()')
-  nmap <leader>h :call HexHighlight()<Return>
-endif
+nmap <leader>h :call HexHighlight()<Return>
 
 " Plugin Indent-guides
 nnoremap <silent> <F8> :IndentGuidesToggle<CR>
 
 " Plugin MRU
-let MRU_Add_Menu=0
-
-" Plugin Gundo
-nnoremap <silent> <F10> :GundoToggle<CR>
+noremap <silent> <Leader>m :MRU<cr> let MRU_Add_Menu=0
 
 " Plugin NERD Tree
 nnoremap <silent> <F11> :NERDTreeToggle<CR>
@@ -263,14 +241,10 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
 nnoremap <silent> <F12> :TlistToggle<CR>
 hi! link TagListFileName Underlined
 
-
 " Donne le chemain pour le plugin Taglist de vim.
 let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
 " Mettre la fenetre taglist a droite.
 let Tlist_Use_Right_Window = 1
-
-" Plugin MRU
-noremap <silent> <Leader>m :MRU<cr>
 
 "}}}
 ""Langage C""{{{
