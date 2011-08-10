@@ -274,5 +274,21 @@ noremap <silent> <Leader>m :MRU<cr>
 
 "}}}
 ""Langage C""{{{
-noremap <leader>C <c-\><c-n>:!gcc -Wall % -o %<.x<cr>
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o"}}}
+" Fonctions pour fichiers C
+au BufEnter,BufNewFile *.c	exe FlangageC()
+
+fun! FlangageC() "{{{
+    noremap <leader>C <c-\><c-n>:!gcc -Wall % -o %<.x<cr>
+    setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+endf
+"}}}
+"}}}
+""PHP""{{{
+" Réglages pour le php
+"let php_sql_query = 1
+let php_baselib = 1
+let php_htmlInStrings = 1
+let php_noShortTags = 1
+let php_folding = 1
+let php_parent_error_close = 1
+"}}}
