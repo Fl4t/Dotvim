@@ -270,17 +270,14 @@ let php_parent_error_close = 1
 " Fonctions pour fichiers LaTeX
 au BufEnter,BufNewFile *.tex	exe Flatex()
 
-function! Flatex() "{{{
-    " Réglages spécifiques gVim
-    if has("gui_running")
-        " Menu spécial LaTeX
-        amenu 137.9 LaTeX.makePDF <ESC>:w<CR>:!pdflatex %<.tex<CR><CR>
-    endif
+function! Flatex()"{{{
     " Largeur de texte standard
     set tw=72
+
     " Sauvegarde et compilation PDFLaTeX (-> PDF)
     noremap <leader>C <ESC>:w<CR>:!pdflatex %<.tex<CR><CR>
 
     " Voir le pdf créé
     noremap <leader>pdf <ESC>:w<CR>:!open %<.pdf<CR><CR>
 endfunction"}}}
+"}}}
