@@ -4,10 +4,6 @@ set guioptions=ac
 " police
 set guifont=Menlo:h12
 
-" Lignes et colones au maximum a l'ouverture
-set lines=999
-set columns=999
-
 " warez mon colorscheme
 set bg=dark
 colorscheme warez
