@@ -224,6 +224,9 @@ nmap <leader>h :call HexHighlight()<Return>
 " Plugin Indent-guides
 nnoremap <silent> <F8> :IndentGuidesToggle<CR>
 
+" Plugin Gundo
+nnoremap <F10> :GundoToggle<CR>
+
 " Plugin MRU
 noremap <silent> <Leader>m :MRU<cr> let MRU_Add_Menu=0
 
