@@ -24,7 +24,7 @@
 " <S-Enter> : insère une ligne vide au dessus
 " <Enter> : insère une ligne en dessous
 
-""General""{{{
+"General"{{{
 " Plugin Pathogen (à mettre devant filetype)
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
@@ -53,7 +53,7 @@ set tm=600                    " Délai raccourci-clavier
 nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
 "}}}
-""Interface""{{{
+"Interface"{{{
 set number                    " voir les lignes par défaut
 set numberwidth=1             " 1 ligne = 1 numéro
 set shortmess=aTi             " format of messages (avoids 'hit editednter')
@@ -74,7 +74,7 @@ set stl+=\ %{fugitive#statusline()}
 set stl+=\ %{Tlist_Get_Tagname_By_Line()}
 set stl+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
 ""}}}
-""Couleurs""{{{
+"Couleurs"{{{
 syntax on               " activer les couleurs
 
 " colourscheme for the 8 colour linux term
@@ -96,7 +96,7 @@ endfunc
 
 nmap <leader>h :call HexHighlight()<Return>
 "}}}
-""Indentation""{{{
+"Indentation"{{{
 set expandtab           " insère des espaces au lieu de tab
 set tabstop=4           " nombre d'espaces par tab
 set softtabstop=4       " nombre d'espace pour une tab en mode édition
@@ -105,7 +105,7 @@ set shiftround          " tab toujours multiple de shiftwidth
 
 " Supprime automatiquement les espaces de fin de ligne
 autocmd BufWritePre * :%s/\s\+$//e "}}}
-""Édition""{{{
+"Édition"{{{
 set nostartofline       " conserve la colonne
 set showmatch           " affiche les paires de parenthèses (),{},[]
 set matchtime=2         " durée de cette affichage
@@ -167,7 +167,7 @@ vnoremap <silent> > >gv
 " Change de répertoire automatiquement ou ce trouve le fichier
 autocmd BufEnter * lcd %:p:h
 "}}}
-""Replis""{{{
+"Replis"{{{
 set foldenable          " ferme les replis existant par défaut
 set foldmethod=marker   " c'est les marqueurs qui délimite les replis
 set foldminlines=2      " nombre de ligne mini pour replis
@@ -176,7 +176,7 @@ set fillchars=fold:·    " affiche des ... après le nom du replis
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 "}}}
-""Recherche""{{{
+"Recherche"{{{
 set hlsearch            " surligne les recherches
 set incsearch           " increment search
 set ignorecase          " case-insensitive search
@@ -189,7 +189,7 @@ set wrapscan            " la recherche reprend au depart
 " Mode magic pour les expressions régulières
 set magic
 "}}}
-""Buffer/Fenêtres/Tabs""{{{
+"Buffer/Fenêtres/Tabs"{{{
 set hidden          " Pour pouvoir changer de buffer sans sauvegarder
 set wmh=1           " Nombre minimal de lignes pour une fenêtre
 
@@ -202,14 +202,14 @@ map <C-l> <C-w>l
 " ouvre un nouveau fichier en dessous du précédent
 set splitbelow
 "}}}
-""Fichier/Backup""{{{
+"Fichier/Backup"{{{
 set autoread        " recharge auto quand un fichier est modifié
 set autowrite       " sauvegarde auto quand on quitte ou qu'on change de buffer
 set backup          " sauvegarde
 set writebackup     " écrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/.savefile " dossier des .backup
 set directory=$HOME/.swap " dossier des .swp"}}}
-""Plugins""{{{
+"Plugins"{{{
 " indent-guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " active les guides au démarrage
 let g:indent_guides_start_level=2 " active a partir du deuxième niveau
@@ -247,7 +247,7 @@ let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
 let Tlist_Use_Right_Window = 1
 
 "}}}
-""Langage C""{{{
+"Langage C"{{{
 " Fonctions pour fichiers C
 au BufEnter,BufNewFile *.c	exe FlangageC()
 
@@ -257,7 +257,7 @@ fun! FlangageC() "{{{
 endf
 "}}}
 "}}}
-""PHP""{{{
+"PHP"{{{
 " Réglages pour le php
 "let php_sql_query = 1
 let php_baselib = 1
@@ -266,7 +266,7 @@ let php_noShortTags = 1
 let php_folding = 1
 let php_parent_error_close = 1
 "}}}
-""LaTeX""{{{
+"LaTeX"{{{
 " Fonctions pour fichiers LaTeX
 au BufEnter,BufNewFile *.tex	exe Flatex()
 
