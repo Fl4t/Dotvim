@@ -281,3 +281,12 @@ function! Flatex()"{{{
     noremap <leader>pdf <ESC>:w<CR>:!open %<.pdf<CR><CR>
 endfunction"}}}
 "}}}
+"Java"{{{
+" Fonctions pour fichiers Java
+au BufEnter,BufNewFile *.java exe Fjava()
+
+function! Fjava()"{{{
+    " Sauvegarde et compilation
+    noremap <leader>C <ESC>:w<CR>:!javac %<.java<CR>
+endfunction"}}}
+"}}}
