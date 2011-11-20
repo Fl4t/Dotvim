@@ -77,13 +77,10 @@ set stl+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
 "Couleurs"{{{
 syntax on               " activer les couleurs
 
-" colourscheme for the 8 colour linux term
-set t_Co=256
-if &t_Co < 256
-    colorscheme miro8
-else
-    colorscheme miromiro
-endif
+"colorscheme
+let g:mirodark_disable_color_approximation=1
+let g:mirodark_enable_higher_contrast_mode=1
+colorscheme mirodark
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
