@@ -82,3 +82,6 @@
 [submodule "bundle/matchtag"]
 	path = bundle/matchtag
 	url = https://github.com/gregsexton/MatchTag.git
+[submodule "bundle/molokai"]
+	path = bundle/molokai
+	url = https://github.com/mrtazz/molokai.vim.git
