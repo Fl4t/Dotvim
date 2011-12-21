@@ -119,10 +119,10 @@ set nospell
 map <leader>fn ]s
 map <leader>fp [s"}}}
 
-" saute a la dernière position du curseur"{{{
+" saute a la dernière position du curseur sauf pour les commits"{{{
 if has("autocmd")
-    autocmd BufReadPost * if line("'\"")>0 && line("'\"")<=line("$")|exe "normal g`\""|endif
-    autocmd BufRead *.txt set wm=1 " limit width to n cols for txt files
+    au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+    \| exe "normal! g`\"" | endif
 endif"}}}
 
 set diffopt=filler,iwhite,vertical  " Options pour le mode diff
