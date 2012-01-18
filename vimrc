@@ -199,6 +199,9 @@ map <C-l> <C-w>l
 
 " ouvre un nouveau fichier en dessous du précédent
 set splitbelow
+
+" permet d'aller a un lien
+noremap <C-@> <C-]>
 "}}}
 "Fichier/Backup"{{{
 set autoread        " recharge auto quand un fichier est modifié
@@ -221,9 +224,6 @@ nmap <leader>h :call HexHighlight()<Return>
 
 " Plugin Indent-guides
 nnoremap <silent> <F8> :IndentGuidesToggle<CR>
-
-" Plugin Gundo
-nnoremap <F10> :GundoToggle<CR>
 
 " Plugin MRU
 noremap <silent> <Leader>m :MRU<cr> let MRU_Add_Menu=0
