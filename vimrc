@@ -78,9 +78,10 @@ set stl+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
 syntax on               " activer les couleurs
 
 "colorscheme
-let g:mirodark_disable_color_approximation=1
-let g:mirodark_enable_higher_contrast_mode=1
-colorscheme mirodark
+"let g:mirodark_disable_color_approximation=1
+"let g:mirodark_enable_higher_contrast_mode=1
+colorscheme solarized
+set bg=light
 
 " Show syntax highlighting groups for word under cursor
 nmap <C-S-P> :call <SID>SynStack()<CR>
