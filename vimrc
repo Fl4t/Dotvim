@@ -208,10 +208,6 @@ set directory=$HOME/.swap " dossier des .swp"}}}
 "Plugins"{{{
 " vim-powerline
 let g:Powerline_symbols = 'fancy' "fancy symbols
-" indent-guides plugin
-let g:indent_guides_enable_on_vim_startup=1 " active les guides au démarrage
-let g:indent_guides_start_level=2 " active a partir du deuxième niveau
-let g:indent_guides_guide_size=1 " largeur de 1 caractère
 
 " Plugin VB.NET highlighting
 autocmd BufNewFile,BufRead *.vb set ft=vbnet
