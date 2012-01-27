@@ -96,9 +96,9 @@ nmap <leader>h :call HexHighlight()<Return>
 "}}}
 "Indentation"{{{
 set expandtab           " insère des espaces au lieu de tab
-set tabstop=4           " nombre d'espaces par tab
-set softtabstop=4       " nombre d'espace pour une tab en mode édition
-set shiftwidth=4        " pareil mais pour >> <<
+set tabstop=2           " nombre d'espaces par tab
+set softtabstop=2       " nombre d'espace pour une tab en mode édition
+set shiftwidth=2        " pareil mais pour >> <<
 set shiftround          " tab toujours multiple de shiftwidth
 
 " Supprime automatiquement les espaces de fin de ligne
