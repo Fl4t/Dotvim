@@ -67,9 +67,6 @@
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-[submodule "bundle/gitv"]
-	path = bundle/gitv
-	url = https://github.com/gregsexton/gitv.git
 [submodule "bundle/mirodark"]
 	path = bundle/mirodark
 	url = https://github.com/djjcast/mirodark.git
