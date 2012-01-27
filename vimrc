@@ -58,7 +58,7 @@ set number                    " voir les lignes par défaut
 set numberwidth=1             " 1 ligne = 1 numéro
 set shortmess=aTi             " format of messages (avoids 'hit editednter')
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility"
-set showmode                  " montre le mode dans lequel je suis
+set noshowmode                " vim-powerline le fait très bien
 set showcmd                   " voir les touches tapées
 set wildmenu                  " menu en carré
 set wim=list:longest,full     " la tronche des possibilité de complétion
@@ -66,13 +66,8 @@ set wildignore=*.o,*.bak,*.pyc,*.swp,*.jpg,*.gif,*.png
 set visualbell t_vb=          " pas de clignotement
 set noerrorbells              " pas de clignotement quand erreur
 set guicursor=a:blinkon0      " pas de curseur qui clignote
-set cmdheight=2               " 2 lignes en dessous de statusline
+set cmdheight=1               " 2 lignes en dessous de statusline
 set laststatus=2              " toujours voir la barre de statut
-set stl=%f\ %m\ %r\ Buf:\ #%n\ [%b][0x%B]
-set stl+=\ [%{getcwd()}]      " current directory
-set stl+=\ %{fugitive#statusline()}
-set stl+=\ %{Tlist_Get_Tagname_By_Line()}
-set stl+=%=%-14.(%l/%L,%c%V%)\ %p%% " Right aligned file nav info"
 ""}}}
 "Couleurs"{{{
 syntax on               " activer les couleurs
@@ -122,8 +117,8 @@ map <leader>fp [s"}}}
 
 " saute a la dernière position du curseur sauf pour les commits"{{{
 if has("autocmd")
-    au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal! g`\"" | endif
+  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g`\"" | endif
 endif"}}}
 
 set diffopt=filler,iwhite,vertical  " Options pour le mode diff
@@ -211,6 +206,8 @@ set writebackup     " écrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/.savefile " dossier des .backup
 set directory=$HOME/.swap " dossier des .swp"}}}
 "Plugins"{{{
+" vim-powerline
+let g:Powerline_symbols = 'fancy' "fancy symbols
 " indent-guides plugin
 let g:indent_guides_enable_on_vim_startup=1 " active les guides au démarrage
 let g:indent_guides_start_level=2 " active a partir du deuxième niveau
@@ -234,9 +231,9 @@ nnoremap <silent> <F11> :NERDTreeToggle<CR>
 let NERDTreeShowBookmarks=1
 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
-            \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
-            \ '\.embed\.manifest$', '\.embed\.manifest.res$',
-            \ '\.intermediate\.manifest$', '^mt.dep$' ]
+      \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
+      \ '\.embed\.manifest$', '\.embed\.manifest.res$',
+      \ '\.intermediate\.manifest$', '^mt.dep$' ]
 
 " Plugin Taglist
 nnoremap <silent> <F12> :TlistToggle<CR>
@@ -253,8 +250,8 @@ let Tlist_Use_Right_Window = 1
 au BufEnter,BufNewFile *.c	exe FlangageC()
 
 fun! FlangageC() "{{{
-    noremap <leader>C <c-\><c-n>:!gcc -Wall % -o %<.x<cr>
-    setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+  noremap <leader>C <c-\><c-n>:!gcc -Wall % -o %<.x<cr>
+  setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 endf
 "}}}
 "}}}
@@ -272,14 +269,14 @@ let php_parent_error_close = 1
 au BufEnter,BufNewFile *.tex	exe Flatex()
 
 function! Flatex()"{{{
-    " Largeur de texte standard
-    set tw=72
+  " Largeur de texte standard
+  set tw=72
 
-    " Sauvegarde et compilation PDFLaTeX (-> PDF)
-    noremap <leader>C <ESC>:w<CR>:!pdflatex %<.tex<CR><CR>
+  " Sauvegarde et compilation PDFLaTeX (-> PDF)
+  noremap <leader>C <ESC>:w<CR>:!pdflatex %<.tex<CR><CR>
 
-    " Voir le pdf créé
-    noremap <leader>pdf <ESC>:w<CR>:!open %<.pdf<CR><CR>
+  " Voir le pdf créé
+  noremap <leader>pdf <ESC>:w<CR>:!open %<.pdf<CR><CR>
 endfunction"}}}
 "}}}
 "Java"{{{
@@ -287,7 +284,7 @@ endfunction"}}}
 au BufEnter,BufNewFile *.java exe Fjava()
 
 function! Fjava()"{{{
-    " Sauvegarde et compilation
-    noremap <leader>C <ESC>:w<CR>:!javac %<.java<CR>
+  " Sauvegarde et compilation
+  noremap <leader>C <ESC>:w<CR>:!javac %<.java<CR>
 endfunction"}}}
 "}}}
