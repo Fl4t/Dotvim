@@ -9,16 +9,17 @@
 " F5  :
 " F6  :
 " F7  :
-" F8  : ident-guides
+" F8  :
 " F9  :
 " F10 :
 " F11 : NerdTree
 " F12 : Taglist
 
-" ,cd : ce rendre dans le répertoire du fichier courant
+" ,h  : hexhighlight
 " ,fn : faute suivante
 " ,fp : faute précédente
-" ,bda : supprime tout les buffers
+" ctrl-@ : aller a un lien dans help
+" ,bda : ferme tout les buffers
 " <right> : buffer précédent
 " <left> : buffer suivant
 " <S-Enter> : insère une ligne vide au dessus
@@ -65,15 +66,13 @@ set wildignore=*.o,*.bak,*.pyc,*.swp,*.jpg,*.gif,*.png
 set visualbell t_vb=          " pas de clignotement
 set noerrorbells              " pas de clignotement quand erreur
 set guicursor=a:blinkon0      " pas de curseur qui clignote
-set cmdheight=1               " 2 lignes en dessous de statusline
+set cmdheight=1               " 1 ligne en dessous de statusline
 set laststatus=2              " toujours voir la barre de statut
 ""}}}
 "Couleurs"{{{
 syntax on               " activer les couleurs
 
 "colorscheme
-"let g:mirodark_disable_color_approximation=1
-"let g:mirodark_enable_higher_contrast_mode=1
 colorscheme solarized
 set bg=light
 
@@ -85,8 +84,6 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
-
-nmap <leader>h :call HexHighlight()<Return>
 "}}}
 "Indentation"{{{
 set expandtab           " insère des espaces au lieu de tab
@@ -175,7 +172,7 @@ set ignorecase          " case-insensitive search
 set smartcase           " uppercase causes case-sensitive search
 set wrapscan            " la recherche reprend au depart
 
-" Enlève le sur-lignage après une recherche en tapant éspace
+" Enlève le sur-lignage après une recherche en tapant espace
 :noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
 " Mode magic pour les expressions régulières
@@ -214,9 +211,6 @@ autocmd BufNewFile,BufRead *.vb set ft=vbnet
 "hexhighlight
 nmap <leader>h :call HexHighlight()<Return>
 
-" Plugin Indent-guides
-nnoremap <silent> <F8> :IndentGuidesToggle<CR>
-
 " Plugin MRU
 noremap <silent> <Leader>m :MRU<cr> let MRU_Add_Menu=0
 
@@ -252,7 +246,6 @@ endf
 "}}}
 "PHP"{{{
 " Réglages pour le php
-"let php_sql_query = 1
 let php_baselib = 1
 let php_htmlInStrings = 1
 let php_noShortTags = 1
