@@ -29,7 +29,6 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
-set ofu=syntaxcomplete#Complete "OmniComp
 set complete=.,w,b,t          " paramètre de complétion
 set nocompatible              " leave the old ways behind...
 set history=400               " historique des commandes vim
