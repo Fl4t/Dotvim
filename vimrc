@@ -33,7 +33,7 @@ filetype plugin indent on
 set complete=.,w,b,t          " paramètre de complétion
 set nocompatible              " leave the old ways behind...
 set history=400               " historique des commandes vim
-set shell=/bin/bash           " langage shell par défaut
+set shell=/bin/zsh            " langage shell par défaut
 set encoding=utf-8            " UTF-8
 set fileencoding=utf-8        " UTF-8
 set fileformat=unix
@@ -47,7 +47,7 @@ set cpoptions +=$             " pour avoir un dollars lorsque l'on change, touch
 set virtualedit=all           " pour ce déplacer même si il n'y a pas de caractère
 set hidden                    " permet le switch de buffer meme si on a pas sauvegardé
 set lazyredraw                " Don't update the display while executing macros
-set tm=600                    " Délai raccourci-clavier
+set tm=500                    " Délai raccourci-clavier
 
 " Mapping pour éditer le vimrc et le sourcer
 nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
@@ -66,7 +66,7 @@ set wildignore=*.o,*.bak,*.pyc,*.swp,*.jpg,*.gif,*.png
 set visualbell t_vb=          " pas de clignotement
 set noerrorbells              " pas de clignotement quand erreur
 set guicursor=a:blinkon0      " pas de curseur qui clignote
-set cmdheight=1               " 1 ligne en dessous de statusline
+set cmdheight=2               " 1 ligne en dessous de statusline
 set laststatus=2              " toujours voir la barre de statut
 ""}}}
 "Couleurs"{{{
