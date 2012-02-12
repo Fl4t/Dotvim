@@ -76,3 +76,6 @@
 [submodule "bundle/vim-getafe"]
 	path = bundle/vim-getafe
 	url = https://github.com/larssmit/vim-getafe.git
+[submodule "bundle/vim-extradite"]
+	path = bundle/vim-extradite
+	url = https://github.com/int3/vim-extradite.git
