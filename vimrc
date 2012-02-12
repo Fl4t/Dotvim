@@ -41,7 +41,7 @@ set backspace=2               " règle le comportement de backspace
 set mouse=a                   " active la souris pour toujours
 set mousehide                 " hide mouse when typing
 let mapleader=","             " change la touche par défaut de vim qui est \
-set clipboard+=unnamed        " yank et aussi copier en mémoire tampon
+set clipboard=unnamed         " yank et aussi copier en mémoire tampon
 set shellslash                " c'est Derek qui le dit alors chut.
 set cpoptions +=$             " pour avoir un dollars lorsque l'on change, touche c
 set virtualedit=all           " pour ce déplacer même si il n'y a pas de caractère
