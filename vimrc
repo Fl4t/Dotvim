@@ -30,24 +30,24 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 filetype plugin indent on
-set complete=.,w,b,t          " paramètre de complétion
-set nocompatible              " leave the old ways behind...
-set history=400               " historique des commandes vim
-set shell=/bin/zsh            " langage shell par défaut
-set encoding=utf-8            " UTF-8
-set fileencoding=utf-8        " UTF-8
+set complete=.,w,b,t   " paramètre de complétion
+set nocompatible       " leave the old ways behind...
+set history=400        " historique des commandes vim
+set shell=/bin/zsh     " langage shell par défaut
+set encoding=utf-8     " UTF-8
+set fileencoding=utf-8 " UTF-8
 set fileformat=unix
-set backspace=2               " règle le comportement de backspace
-set mouse=a                   " active la souris pour toujours
-set mousehide                 " hide mouse when typing
-let mapleader=","             " change la touche par défaut de vim qui est \
-set clipboard=unnamed         " yank et aussi copier en mémoire tampon
-set shellslash                " c'est Derek qui le dit alors chut.
-set cpoptions +=$             " pour avoir un dollars lorsque l'on change, touche c
-set virtualedit=all           " pour ce déplacer même si il n'y a pas de caractère
-set hidden                    " permet le switch de buffer meme si on a pas sauvegardé
-set lazyredraw                " Don't update the display while executing macros
-set tm=500                    " Délai raccourci-clavier
+set backspace=2        " règle le comportement de backspace
+set mouse=a            " active la souris pour toujours
+set mousehide          " hide mouse when typing
+let mapleader=","      " change la touche par défaut de vim qui est \
+set clipboard=unnamed  " yank et aussi copier en mémoire tampon
+set shellslash         " c'est Derek qui le dit alors chut.
+set cpoptions +=$      " pour avoir un dollars lorsque l'on change, touche c
+set virtualedit=all    " pour ce déplacer même si il n'y a pas de caractère
+set hidden             " permet le switch de buffer meme si on a pas sauvegardé
+set lazyredraw         " Don't update the display while executing macros
+set tm=500             " Délai raccourci-clavier
 
 " Mapping pour éditer le vimrc et le sourcer
 nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
@@ -96,8 +96,6 @@ set shiftround          " tab toujours multiple de shiftwidth
 autocmd BufWritePre * :%s/\s\+$//e "}}}
 "Édition"{{{
 set nostartofline       " conserve la colonne
-set showmatch           " affiche les paires de parenthèses (),{},[]
-set matchtime=2         " durée de cette affichage
 let g:loaded_matchparen=1 " désactive le sur-lignage des paires de parenthèses
 set scrolloff=10        " laisser des lignes en dessus et dessous"
 set nowrap              " pas de retour a la ligne par défaut
