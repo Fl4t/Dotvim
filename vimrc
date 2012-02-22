@@ -71,19 +71,8 @@ set laststatus=2              " toujours voir la barre de statut
 ""}}}
 "Couleurs"{{{
 syntax on               " activer les couleurs
-
-"colorscheme
-colorscheme solarized
-set bg=light
-
-" Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
-function! <SID>SynStack()
-  if !exists("*synstack")
-    return
-  endif
-  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-endfunc
+colorscheme solarized   " colorscheme
+set bg=light            " light pour le terminal
 "}}}
 "Indentation"{{{
 set expandtab           " insère des espaces au lieu de tab
@@ -99,7 +88,6 @@ set nostartofline       " conserve la colonne
 let g:loaded_matchparen=1 " désactive le sur-lignage des paires de parenthèses
 set scrolloff=10        " laisser des lignes en dessus et dessous"
 set nowrap              " pas de retour a la ligne par défaut
-set linebreak           " Coupe pas les mots au warp
 
 "orthographe"{{{
 " mapping français
@@ -108,12 +96,6 @@ map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 set nospell
 map <leader>fn ]s
 map <leader>fp [s"}}}
-
-" saute a la dernière position du curseur sauf pour les commits"{{{
-if has("autocmd")
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-        \| exe "normal! g`\"" | endif
-endif"}}}
 
 set diffopt=filler,iwhite,vertical  " Options pour le mode diff
 
@@ -151,9 +133,6 @@ cmap w!! w !sudo tee % > /dev/null
 " Récupère la sélection après une indentation shift
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
-
-" Change de répertoire automatiquement ou ce trouve le fichier
-autocmd BufEnter * lcd %:p:h
 "}}}
 "Replis"{{{
 set foldenable          " ferme les replis existant par défaut
@@ -168,6 +147,14 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 set gdefault " Ne pas taper le g de /truc/truc/g
 "}}}
 " autoCommand"{{{
+if has("autocmd")
+  " saute a la dernière position du curseur sauf pour les commits
+  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
+        \| exe "normal! g`\"" | endif
+
+  " Change de répertoire automatiquement ou ce trouve le fichier
+  au BufEnter * lcd %:p:h
+endif
 "}}}
 "Recherche"{{{
 set hlsearch            " surligne les recherches
@@ -177,7 +164,7 @@ set smartcase           " uppercase causes case-sensitive search
 set wrapscan            " la recherche reprend au depart
 
 " Enlève le sur-lignage après une recherche en tapant espace
-:noremap <silent> <Space> :silent noh<Bar>echo<CR>
+noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
 " Mode magic pour les expressions régulières
 set magic
@@ -252,7 +239,6 @@ endf
 "}}}
 "}}}
 "PHP"{{{
-" Réglages pour le php
 let php_baselib = 1
 let php_htmlInStrings = 1
 let php_noShortTags = 1
