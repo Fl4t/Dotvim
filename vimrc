@@ -11,7 +11,7 @@
 " F7  :
 " F8  :
 " F9  :
-" F10 :
+" F10 : Toggle List
 " F11 : NerdTree
 " F12 : Taglist
 
@@ -144,7 +144,8 @@ map <Enter> o<ESC>
 
 " Permet de voir les espaces et tab en trop
 set nolist
-set listchars:tab:▸\ ,trail:✖
+set listchars=tab:▸\ ,trail:✖,eol:¬
+nnoremap <F10> :set nolist!<CR>
 
 " permet de pouvoir enregistrer sans taper sudo
 cmap w!! w !sudo tee % > /dev/null
