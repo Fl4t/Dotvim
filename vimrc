@@ -166,6 +166,9 @@ set fillchars=fold:·    " affiche des ... après le nom du replis
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 "}}}
+" Commandes"{{{
+set gdefault " Ne pas taper le g de /truc/truc/g
+"}}}
 "Recherche"{{{
 set hlsearch            " surligne les recherches
 set incsearch           " increment search
