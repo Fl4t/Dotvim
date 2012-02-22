@@ -54,9 +54,9 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
 nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
 "}}}
 "Interface"{{{
-set number                    " voir les lignes par défaut
+set relativenumber            " Numero de ligne dynamique à la position
 set numberwidth=1             " 1 ligne = 1 numéro
-set shortmess=aTi             " format of messages (avoids 'hit editednter')
+set shortmess=aTi             " format of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility"
 set noshowmode                " vim-powerline le fait très bien
 set showcmd                   " voir les touches tapées
