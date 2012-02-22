@@ -207,6 +207,8 @@ set backup          " sauvegarde
 set writebackup     " écrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/.savefile " dossier des .backup
 set directory=$HOME/.swap " dossier des .swp"}}}
+set undofile    " undo fonctionne après avoir fermé le fichier
+set undodir=$HOME/.vim/undofile   " dossier des .un
 "Plugins"{{{
 " vim-powerline
 let g:Powerline_symbols = 'fancy' "fancy symbols
