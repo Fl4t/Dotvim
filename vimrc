@@ -201,14 +201,15 @@ set splitbelow
 noremap <C-@> <C-]>
 "}}}
 "Fichier/Backup"{{{
-set autoread        " recharge auto quand un fichier est modifié
-set autowrite       " sauvegarde auto quand on quitte ou qu'on change de buffer
-set backup          " sauvegarde
-set writebackup     " écrit le backup avant d'écrire le vrai fichier
-set backupdir=$HOME/.savefile " dossier des .backup
-set directory=$HOME/.swap " dossier des .swp"}}}
 set undofile    " undo fonctionne après avoir fermé le fichier
+set autoread    " recharge auto quand un fichier est modifié
+set autowrite   " sauvegarde auto quand on quitte ou qu'on change de buffer
+set backup      " sauvegarde
+set writebackup " écrit le backup avant d'écrire le vrai fichier
+set backupdir=$HOME/.vim/savefile " dossier des .backup
+set directory=$HOME/.vim/swapfile " dossier des .swp
 set undodir=$HOME/.vim/undofile   " dossier des .un
+"}}}
 "Plugins"{{{
 " vim-powerline
 let g:Powerline_symbols = 'fancy' "fancy symbols
