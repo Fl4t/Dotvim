@@ -15,6 +15,8 @@
 " F11 : NerdTree
 " F12 : Taglist
 
+" ,ev : edit vimrc
+" ,sv : source vimrc
 " ,h  : hexhighlight
 " ,fn : faute suivante
 " ,fp : faute précédente
