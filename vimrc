@@ -152,8 +152,6 @@ if has("autocmd")
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g`\"" | endif
 
-  " Change de répertoire automatiquement ou ce trouve le fichier
-  au BufEnter * lcd %:p:h
 endif
 "}}}
 "Recherche"{{{
