@@ -82,9 +82,7 @@ set tabstop=2           " nombre d'espaces par tab
 set softtabstop=2       " nombre d'espace pour une tab en mode édition
 set shiftwidth=2        " pareil mais pour >> <<
 set shiftround          " tab toujours multiple de shiftwidth
-
-" Supprime automatiquement les espaces de fin de ligne
-autocmd BufWritePre * :%s/\s\+$//e "}}}
+"}}}
 "Édition"{{{
 set nostartofline       " conserve la colonne
 let g:loaded_matchparen=1 " désactive le sur-lignage des paires de parenthèses
@@ -150,9 +148,25 @@ set gdefault " Ne pas taper le g de /truc/truc/g
 "}}}
 " autoCommand"{{{
 if has("autocmd")
+
+  " Plugin VB.NET highlighting
+  au BufNewFile,BufRead *.vb set ft=vbnet
+
+  " Supprime automatiquement les espaces de fin de ligne
+  au BufWritePre * :%s/\s\+$//e
+
   " saute a la dernière position du curseur sauf pour les commits
   au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
         \| exe "normal! g`\"" | endif
+
+  " Fonctions pour fichiers LaTeX
+  au BufEnter,BufNewFile *.tex	exe Flatex()
+
+  " Fonctions pour fichiers C
+  au BufEnter,BufNewFile *.c	exe FlangageC()
+
+  " Fonctions pour fichiers Java
+  au BufEnter,BufNewFile *.java exe Fjava()
 
 endif
 "}}}
@@ -199,9 +213,6 @@ set undodir=$HOME/.vim/undofile   " dossier des .un
 " vim-powerline
 let g:Powerline_symbols = 'fancy' "fancy symbols
 
-" Plugin VB.NET highlighting
-autocmd BufNewFile,BufRead *.vb set ft=vbnet
-
 "hexhighlight
 nmap <leader>h :call HexHighlight()<Return>
 
@@ -229,14 +240,10 @@ let Tlist_Use_Right_Window = 1
 
 "}}}
 "Langage C"{{{
-" Fonctions pour fichiers C
-au BufEnter,BufNewFile *.c	exe FlangageC()
-
-fun! FlangageC() "{{{
+fun! FlangageC()
   noremap <leader>C <c-\><c-n>:!gcc -Wall % -o %<.x<cr>
   setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 endf
-"}}}
 "}}}
 "PHP"{{{
 let php_baselib = 1
@@ -246,10 +253,7 @@ let php_folding = 1
 let php_parent_error_close = 1
 "}}}
 "LaTeX"{{{
-" Fonctions pour fichiers LaTeX
-au BufEnter,BufNewFile *.tex	exe Flatex()
-
-function! Flatex()"{{{
+function! Flatex()
   " Largeur de texte standard
   set tw=72
 
@@ -258,14 +262,11 @@ function! Flatex()"{{{
 
   " Voir le pdf créé
   noremap <leader>pdf <ESC>:w<CR>:!open %<.pdf<CR><CR>
-endfunction"}}}
+endfunction
 "}}}
 "Java"{{{
-" Fonctions pour fichiers Java
-au BufEnter,BufNewFile *.java exe Fjava()
-
-function! Fjava()"{{{
+function! Fjava()
   " Sauvegarde et compilation
   noremap <leader>C <ESC>:w<CR>:!javac %<.java<CR>
-endfunction"}}}
+endfunction
 "}}}
