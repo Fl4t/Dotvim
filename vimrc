@@ -152,6 +152,9 @@ if has("autocmd")
   " Plugin VB.NET highlighting
   au BufNewFile,BufRead *.vb set ft=vbnet
 
+  " Moteur de template twig
+  au BufNewFile,BufRead *.twig set ft=html
+
   " Supprime automatiquement les espaces de fin de ligne
   au BufWritePre * :%s/\s\+$//e
 
