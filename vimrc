@@ -21,6 +21,7 @@
 " ,fn : faute suivante
 " ,fp : faute précédente
 " ctrl-@ : aller a un lien dans help
+" ,cd : aller au dossier du fichier courant
 " ,bda : ferme tout les buffers
 " <right> : buffer précédent
 " <left> : buffer suivant
@@ -145,6 +146,9 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 "}}}
 " Commandes"{{{
 set gdefault " Ne pas taper le g de /truc/truc/g
+
+" Aller au dossier du fichier courant
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 "}}}
 " autoCommand"{{{
 if has("autocmd")
