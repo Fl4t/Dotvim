@@ -169,6 +169,8 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 " Commandes"{{{
 set gdefault " Ne pas taper le g de /truc/truc/g
 "}}}
+" autoCommand"{{{
+"}}}
 "Recherche"{{{
 set hlsearch            " surligne les recherches
 set incsearch           " increment search
