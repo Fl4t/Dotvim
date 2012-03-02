@@ -51,10 +51,9 @@ set virtualedit=all    " pour ce déplacer même si il n'y a pas de caractère
 set hidden             " permet le switch de buffer meme si on a pas sauvegardé
 set lazyredraw         " Don't update the display while executing macros
 set tm=500             " Délai raccourci-clavier
-
-" Mapping pour éditer le vimrc et le sourcer
-nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
-nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
+set gdefault           " Ne pas taper le g de /truc/truc/g
+set nospell            " pas de correction orthographique par défaut
+set magic              " Mode magic pour les expressions régulières
 "}}}
 "Interface"{{{
 set relativenumber            " Numero de ligne dynamique à la position
@@ -85,20 +84,39 @@ set shiftwidth=2        " pareil mais pour >> <<
 set shiftround          " tab toujours multiple de shiftwidth
 "}}}
 "Édition"{{{
-set nostartofline       " conserve la colonne
-let g:loaded_matchparen=1 " désactive le sur-lignage des paires de parenthèses
-set scrolloff=10        " laisser des lignes en dessus et dessous"
-set nowrap              " pas de retour a la ligne par défaut
+set nostartofline                   " conserve la colonne
+let g:loaded_matchparen=1           " désactive le sur-lignage des paires de parenthèses
+set scrolloff=10                    " laisser des lignes en dessus et dessous"
+set nowrap                          " pas de retour a la ligne par défaut
+set diffopt=filler,iwhite,vertical  " Options pour le mode diff
 
-"orthographe"{{{
+" Permet de voir les espaces et tab en trop
+set nolist
+set listchars=tab:▸\ ,trail:✖,eol:¬
+"}}}
+"Replis"{{{
+set foldenable          " ferme les replis existant par défaut
+set foldmethod=marker   " c'est les marqueurs qui délimite les replis
+set foldminlines=2      " nombre de ligne mini pour replis
+set fillchars=fold:·    " affiche des ... après le nom du replis
+
+" Ces commandes ouvre les replis
+set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
+"}}}
+" Commandes"{{{
+" Aller au dossier du fichier courant
+nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+
+" Mapping pour éditer le vimrc et le sourcer
+nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
+nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
+
 " mapping français
 map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
-" pas de correction orthographique par défaut
-set nospell
-map <leader>fn ]s
-map <leader>fp [s"}}}
 
-set diffopt=filler,iwhite,vertical  " Options pour le mode diff
+" faute suivante/précédente
+map <leader>fn ]s
+map <leader>fp [s
 
 " Close all the buffers
 map <leader>bda :1,300 bd!<cr>
@@ -123,9 +141,7 @@ vnoremap <Tab> %
 map <S-Enter> O<ESC>
 map <Enter> o<ESC>
 
-" Permet de voir les espaces et tab en trop
-set nolist
-set listchars=tab:▸\ ,trail:✖,eol:¬
+" Voir les éspaces/tab en trop
 nnoremap <F10> :set nolist!<CR>
 
 " permet de pouvoir enregistrer sans taper sudo
@@ -134,25 +150,33 @@ cmap w!! w !sudo tee % > /dev/null
 " Récupère la sélection après une indentation shift
 vnoremap <silent> < <gv
 vnoremap <silent> > >gv
-"}}}
-"Replis"{{{
-set foldenable          " ferme les replis existant par défaut
-set foldmethod=marker   " c'est les marqueurs qui délimite les replis
-set foldminlines=2      " nombre de ligne mini pour replis
-set fillchars=fold:·    " affiche des ... après le nom du replis
 
-" Ces commandes ouvre les replis
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
-"}}}
-" Commandes"{{{
-set gdefault " Ne pas taper le g de /truc/truc/g
+" Enlève le sur-lignage après une recherche en tapant espace
+noremap <silent> <Space> :silent noh<Bar>echo<CR>
 
-" Aller au dossier du fichier courant
-nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
+" Navigation des fenêtres facile
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" permet d'aller a un lien
+noremap <C-@> <C-]>
+
+"hexhighlight
+nmap <leader>h :call HexHighlight()<Return>
+
+" Plugin MRU
+noremap <silent> <Leader>m :MRU<cr> let MRU_Add_Menu=0
+
+" Plugin NERD Tree
+nnoremap <silent> <F11> :NERDTreeToggle<CR>
+
+" Plugin TagList
+nnoremap <silent> <F12> :TlistToggle<CR>
 "}}}
 " autoCommand"{{{
 if has("autocmd")
-
   " Plugin VB.NET highlighting
   au BufNewFile,BufRead *.vb set ft=vbnet
 
@@ -174,7 +198,6 @@ if has("autocmd")
 
   " Fonctions pour fichiers Java
   au BufEnter,BufNewFile *.java exe Fjava()
-
 endif
 "}}}
 "Recherche"{{{
@@ -183,28 +206,11 @@ set incsearch           " increment search
 set ignorecase          " case-insensitive search
 set smartcase           " uppercase causes case-sensitive search
 set wrapscan            " la recherche reprend au depart
-
-" Enlève le sur-lignage après une recherche en tapant espace
-noremap <silent> <Space> :silent noh<Bar>echo<CR>
-
-" Mode magic pour les expressions régulières
-set magic
 "}}}
 "Buffer/Fenêtres/Tabs"{{{
 set hidden          " Pour pouvoir changer de buffer sans sauvegarder
 set wmh=1           " Nombre minimal de lignes pour une fenêtre
-
-" Navigation des fenêtres facile
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" ouvre un nouveau fichier en dessous du précédent
-set splitbelow
-
-" permet d'aller a un lien
-noremap <C-@> <C-]>
+set splitbelow      " ouvre un nouveau fichier en dessous du précédent
 "}}}
 "Fichier/Backup"{{{
 set undofile    " undo fonctionne après avoir fermé le fichier
@@ -220,14 +226,6 @@ set undodir=$HOME/.vim/undofile   " dossier des .un
 " vim-powerline
 let g:Powerline_symbols = 'fancy' "fancy symbols
 
-"hexhighlight
-nmap <leader>h :call HexHighlight()<Return>
-
-" Plugin MRU
-noremap <silent> <Leader>m :MRU<cr> let MRU_Add_Menu=0
-
-" Plugin NERD Tree
-nnoremap <silent> <F11> :NERDTreeToggle<CR>
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
 " Don't display these kinds of files
@@ -237,15 +235,13 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
       \ '\.intermediate\.manifest$', '^mt.dep$' ]
 
 " Plugin Taglist
-nnoremap <silent> <F12> :TlistToggle<CR>
 hi! link TagListFileName Underlined
-
 " Donne le chemain pour le plugin Taglist de vim.
 let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
 " Mettre la fenetre taglist a droite.
 let Tlist_Use_Right_Window = 1
-
 "}}}
+"Langages"{{{
 "Langage C"{{{
 fun! FlangageC()
   noremap <leader>C <c-\><c-n>:!gcc -Wall % -o %<.x<cr>
