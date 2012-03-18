@@ -20,7 +20,6 @@
 " ,h  : hexhighlight
 " ,fn : faute suivante
 " ,fp : faute précédente
-" ctrl-@ : aller a un lien dans help
 " ,cd : aller au dossier du fichier courant
 " ,bda : ferme tout les buffers
 " <right> : buffer précédent
@@ -159,9 +158,6 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
-
-" permet d'aller a un lien
-noremap <C-@> <C-]>
 
 "hexhighlight
 nmap <leader>h :call HexHighlight()<Return>
