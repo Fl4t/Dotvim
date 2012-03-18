@@ -10,7 +10,7 @@
 " F6  :
 " F7  :
 " F8  :
-" F9  :
+" F9  : Gundo
 " F10 : Toggle List
 " F11 : NerdTree
 " F12 : Taglist
@@ -174,6 +174,10 @@ nnoremap <silent> <F11> :NERDTreeToggle<CR>
 
 " Plugin TagList
 nnoremap <silent> <F12> :TlistToggle<CR>
+
+" Plugin Gundo
+nnoremap <silent> <F9> :GundoToggle<CR>
+
 "}}}
 " autoCommand"{{{
 if has("autocmd")
@@ -223,6 +227,9 @@ set directory=$HOME/.vim/swapfile " dossier des .swp
 set undodir=$HOME/.vim/undofile   " dossier des .un
 "}}}
 "Plugins"{{{
+" indent-guides
+let g:indent_guides_start_level = 2
+
 " vim-powerline
 let g:Powerline_symbols = 'fancy' "fancy symbols
 
