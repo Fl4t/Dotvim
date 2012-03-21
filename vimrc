@@ -55,7 +55,8 @@ set nospell            " pas de correction orthographique par défaut
 set magic              " Mode magic pour les expressions régulières
 "}}}
 "Interface"{{{
-set relativenumber            " Numero de ligne dynamique à la position
+"set relativenumber            " Numero de ligne dynamique à la position
+set number                    " (temporaire) relativenumber lag trop
 set numberwidth=1             " 1 ligne = 1 numéro
 set shortmess=aTi             " format of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility"
