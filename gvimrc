@@ -7,9 +7,8 @@ elseif has("unix")
   set guifont=Monaco\ 8
 endif
 
-" En dark pour faire la différence entre le terminal et macvim
-set bg=dark
-set fuoptions=maxvert,maxhorz " fullscreen options (MacVim), redimensionne vim au maximum quand j'enleve le mode plein ecran
+" fullscreen options (MacVim), redimensionne vim au maximum quand j'enleve le mode plein ecran
+set fuoptions=maxvert,maxhorz
 
 " fullscreen au lancement
 au GUIEnter * set fullscreen

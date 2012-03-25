@@ -74,7 +74,6 @@ set laststatus=2              " toujours voir la barre de statut
 "Couleurs"{{{
 syntax on               " activer les couleurs
 colorscheme solarized   " colorscheme
-set bg=light            " light pour le terminal
 "}}}
 "Indentation"{{{
 set expandtab           " insère des espaces au lieu de tab
