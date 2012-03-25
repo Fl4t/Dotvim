@@ -28,9 +28,10 @@
 " <Enter> : insère une ligne en dessous
 
 "General"{{{
-" Plugin Pathogen (à mettre devant filetype)
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+" Pathogen 2.0
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+call pathogen#infect() " Activer pathogen
+Helptags               " Pour sourcer les help.txt
 filetype plugin indent on
 set complete=.,w,b,t   " paramètre de complétion
 set nocompatible       " leave the old ways behind...
