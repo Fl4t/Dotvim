@@ -244,6 +244,9 @@ hi! link TagListFileName Underlined
 let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
 " Mettre la fenetre taglist a droite.
 let Tlist_Use_Right_Window = 1
+
+" Plugin MRU
+let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
 "}}}
 "Langages"{{{
 "Langage C"{{{
