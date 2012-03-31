@@ -75,6 +75,7 @@ set laststatus=2              " toujours voir la barre de statut
 "Couleurs"{{{
 syntax on               " activer les couleurs
 colorscheme solarized   " colorscheme
+set bg=dark             " version sombre de solarized
 "}}}
 "Indentation"{{{
 set expandtab           " insère des espaces au lieu de tab
