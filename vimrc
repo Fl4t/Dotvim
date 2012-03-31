@@ -268,6 +268,9 @@ function! Flatex()
   " Largeur de texte standard
   set tw=72
 
+  " filetype
+  set ft=tex
+
   " Sauvegarde et compilation PDFLaTeX (-> PDF)
   noremap <leader>C <ESC>:w<CR>:!pdflatex %<.tex<CR><CR>
 
