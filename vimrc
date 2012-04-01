@@ -103,9 +103,6 @@ else
   map <leader>fn ]s
   map <leader>fp [s
 
-  " Close all the buffers
-  map <leader>bda :1,300 bd!<cr>
-
   " Use the arrows to something usefull
   map <right> :bn<cr>
   map <left> :bp<cr>
