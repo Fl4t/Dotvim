@@ -89,6 +89,10 @@ else
   set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
   "}}}
   " Commandes"{{{
+
+  " fix this shit
+  nnoremap q: :q
+
   " Aller au dossier du fichier courant
   nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
