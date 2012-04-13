@@ -1,5 +1,6 @@
 " ---General--------------------------------------------------
 " Pathogen 2.0"{{{
+filetype off
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect() " Activer pathogen
 Helptags               " Sourcing help file
