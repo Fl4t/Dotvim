@@ -5,6 +5,7 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect() " Activer pathogen
 Helptags               " Sourcing help file
 filetype plugin indent on
+set nocompatible       " leave the old ways behind...
 "}}}
 "Couleurs"{{{
 syntax on               " activer les couleurs
@@ -24,7 +25,6 @@ if &readonly
 "General"{{{
 else
   set complete=.,w,b,t   " paramètre de complétion
-  set nocompatible       " leave the old ways behind...
   set history=400        " historique des commandes vim
   set shell=/bin/zsh     " langage shell par défaut
   set encoding=utf-8     " UTF-8
@@ -91,6 +91,17 @@ else
   "}}}
   " Commandes"{{{
 
+  " Permet de placer au milieu de l'écran l'occurence de la recherche
+  nnoremap n nzzzv
+  nnoremap N Nzzzv
+
+  " Permet d'aller au debut et a la fin d'une ligne plus facilement
+  noremap H ^
+  noremap L g_
+
+  " Focus le replis ou je suis"
+  nnoremap <leader>z zMzvzz
+
   " fix this shit
   nnoremap q: :q
 
@@ -115,6 +126,15 @@ else
   " Use Q for formatting the current paragraph (or visual selection)
   vmap Q gq
   nmap Q gqap
+
+  " contraire de [J]oin
+  nnoremap S i<cr><esc><right>
+
+  " Completion de fichiers
+  inoremap <c-f> <c-x><c-f>
+
+  " Completion de lignes
+  inoremap <c-l> <c-x><c-l>
 
   " Utiliser p en mode visuel pour remplacer le texte sélectionne par le texte
   " yanker précédemment
