@@ -109,7 +109,7 @@ else
   nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
   " Mapping pour éditer le vimrc et le sourcer
-  nmap <silent> <leader>ev :e $MYVIMRC<CR> " Modifier le vimrc
+  nmap <silent> <leader>ev :vsplit $MYVIMRC<CR> " Modifier le vimrc
   nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
 
   " mapping français
