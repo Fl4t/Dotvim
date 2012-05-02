@@ -138,3 +138,6 @@
 	path = bundle/piv
 	url = https://github.com/spf13/PIV.git
   ignore = dirty
+[submodule "bundle/zencoding"]
+	path = bundle/zencoding
+	url = https://github.com/mattn/zencoding-vim.git

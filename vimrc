@@ -40,7 +40,6 @@ else
   set virtualedit=all    " pour ce déplacer même si il n'y a pas de caractère
   set hidden             " permet le switch de buffer meme si on a pas sauvegardé
   set lazyredraw         " Don't update the display while executing macros
-  set tm=500             " Délai raccourci-clavier
   set gdefault           " Ne pas taper le g de /truc/truc/g
   set nospell            " pas de correction orthographique par défaut
   set magic              " Mode magic pour les expressions régulières
