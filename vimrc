@@ -71,7 +71,7 @@ else
   "Édition"{{{
   set nostartofline                   " conserve la colonne
   let g:loaded_matchparen=1           " désactive le sur-lignage des paires de parenthèses
-  set scrolloff=10                    " laisser des lignes en dessus et dessous"
+  set scrolloff=999                   " laisser des lignes en dessus et dessous"
   set nowrap                          " pas de retour a la ligne par défaut
   set diffopt=filler,iwhite,vertical  " Options pour le mode diff
 
