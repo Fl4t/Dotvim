@@ -175,8 +175,8 @@ else
   " Plugin NERD Tree
   nnoremap <silent> <F11> :NERDTreeToggle<CR>
 
-  " Plugin TagList
-  nnoremap <silent> <F12> :TlistToggle<CR>
+  " Plugin Tagbar
+  nnoremap <silent> <F12> :TagbarToggle<CR>
 
   " Plugin Gundo
   nnoremap <silent> <F9> :GundoToggle<CR>
@@ -244,12 +244,8 @@ else
         \ '\.embed\.manifest$', '\.embed\.manifest.res$',
         \ '\.intermediate\.manifest$', '^mt.dep$' ]
 
-  " Plugin Taglist
-  hi! link TagListFileName Underlined
-  " Donne le chemain pour le plugin Taglist de vim.
-  let Tlist_Ctags_Cmd = '/opt/local/bin/ctags'
-  " Mettre la fenetre taglist a droite.
-  let Tlist_Use_Right_Window = 1
+  " Plugin Tagbar
+  let g:tagbar_width = 31 " like NERDTree
 
   " Plugin MRU
   let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
