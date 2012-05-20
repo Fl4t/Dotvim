@@ -188,7 +188,7 @@ else
     au BufNewFile,BufRead *.vb set ft=vbnet
 
     " Moteur de template twig
-    au BufNewFile,BufRead *.twig set ft=html
+    au BufNewFile,BufRead *.twig set ft=htmldjango
 
     " Supprime automatiquement les espaces de fin de ligne
     au BufWritePre * :%s/\s\+$//e
