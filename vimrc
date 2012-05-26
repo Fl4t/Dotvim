@@ -20,9 +20,9 @@ if &readonly
   set cmdheight=1
   set nonumber
   set noloadplugins
-"}}}
-" ---$EDITOR---------------------------------------------------
-"General"{{{
+  "}}}
+  " ---$EDITOR---------------------------------------------------
+  "General"{{{
 else
   set complete=.,w,b,t   " paramètre de complétion
   set history=400        " historique des commandes vim
@@ -170,7 +170,7 @@ else
   nmap <leader>h :call HexHighlight()<Return>
 
   " Plugin MRU
-  noremap <silent> <Leader>m :MRU<cr> let MRU_Add_Menu=0
+  noremap <silent> <Leader>m :MRU<cr>
 
   " Plugin NERD Tree
   nnoremap <silent> <F11> :NERDTreeToggle<CR>
