@@ -248,7 +248,7 @@ else
   let g:tagbar_width = 31 " like NERDTree
 
   " Plugin MRU
-  let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*'
+  let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^/.git/.*'
   "}}}
   "Langages"{{{
   "Langage C"{{{
