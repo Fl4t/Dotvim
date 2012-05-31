@@ -90,10 +90,6 @@
 	path = bundle/command-t
 	url = https://github.com/wincent/Command-T.git
   ignore = dirty
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-  ignore = dirty
 [submodule "bundle/vim-getafe"]
 	path = bundle/vim-getafe
 	url = https://github.com/larssmit/vim-getafe.git
