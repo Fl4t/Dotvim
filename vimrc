@@ -111,9 +111,6 @@ else
   nmap <silent> <leader>ev :vsplit $MYVIMRC<CR> " Modifier le vimrc
   nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
 
-  " mapping français
-  map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
-
   " faute suivante/précédente
   map <leader>fn ]s
   map <leader>fp [s
@@ -147,9 +144,6 @@ else
   map <S-Enter> O<ESC>
   map <Enter> o<ESC>
 
-  " Voir les espaces/tab en trop
-  nnoremap <F10> :set nolist!<CR>
-
   " permet de pouvoir enregistrer sans taper sudo
   cmap w!! w !sudo tee % > /dev/null
 
@@ -172,17 +166,24 @@ else
   " Plugin MRU
   noremap <silent> <Leader>m :MRU<cr>
 
-  " Plugin NERD Tree
-  nnoremap <silent> <F11> :NERDTreeToggle<CR>
+  " F1 - F12"{{{
+  " mapping français
+  map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 
-  " Plugin Tagbar
-  nnoremap <silent> <F12> :TagbarToggle<CR>
   " Toggle relative/absolute numbering
   nnoremap <F3> :call NumberToggle()<CR>
 
   " Plugin Gundo
   nnoremap <silent> <F9> :GundoToggle<CR>
 
+  " Voir les espaces/tab en trop
+  nnoremap <F10> :set nolist!<CR>
+
+  " Plugin NERD Tree
+  nnoremap <silent> <F11> :NERDTreeToggle<CR>
+
+  " Plugin Tagbar
+  nnoremap <silent> <F12> :TagbarToggle<CR>"}}}
   "}}}
   " autoCommand"{{{
   if has("autocmd")
