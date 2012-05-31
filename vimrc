@@ -177,6 +177,8 @@ else
 
   " Plugin Tagbar
   nnoremap <silent> <F12> :TagbarToggle<CR>
+  " Toggle relative/absolute numbering
+  nnoremap <F3> :call NumberToggle()<CR>
 
   " Plugin Gundo
   nnoremap <silent> <F9> :GundoToggle<CR>
@@ -285,4 +287,15 @@ else
     noremap <leader>C <ESC>:w<CR>:!javac %<.java<CR>
   endfunction
 endif
+"}}}
+" Custom Functions"{{{
+
+" Toggle relative/absolute numbering
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
 "}}}
