@@ -233,6 +233,7 @@ else
   set undodir=$HOME/.vim/undofile   " dossier des .un
   "}}}
   "Plugins"{{{
+
   " indent-guides
   let g:indent_guides_start_level = 2
 
@@ -274,6 +275,9 @@ else
 
     " filetype
     set ft=tex
+
+    " Activer la correction dans les fichier tex
+    setlocal spell spelllang=fr
 
     " Sauvegarde et compilation PDFLaTeX (-> PDF)
     noremap <leader>C <ESC>:w<CR>:!pdflatex %<.tex<CR><CR>
