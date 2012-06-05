@@ -18,10 +18,6 @@
 	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
   ignore = dirty
-[submodule "bundle/checksyntax"]
-	path = bundle/checksyntax
-	url = https://github.com/tomtom/checksyntax_vim.git
-  ignore = dirty
 [submodule "bundle/enter-ident"]
 	path = bundle/enter-ident
 	url = https://github.com/vim-scripts/Enter-Indent.git
