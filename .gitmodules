@@ -138,3 +138,6 @@
 	path = bundle/languageTool
 	url = https://github.com/vim-scripts/LanguageTool.git
   ignore = dirty
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
