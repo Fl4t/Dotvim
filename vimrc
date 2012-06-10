@@ -163,9 +163,6 @@ else
   "hexhighlight
   nmap <leader>h :call HexHighlight()<Return>
 
-  " Plugin MRU
-  noremap <silent> <Leader>m :MRU<cr>
-
   " F1 - F12"{{{
   " mapping français
   map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
@@ -250,9 +247,6 @@ else
 
   " Plugin Tagbar
   let g:tagbar_width = 31 " like NERDTree
-
-  " Plugin MRU
-  let MRU_Exclude_Files = '^/tmp/.*\|^/var/tmp/.*\|^/.git/.*'
   "}}}
   "Langages"{{{
   "Langage C"{{{

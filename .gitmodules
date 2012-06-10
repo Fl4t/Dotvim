@@ -34,10 +34,6 @@
 	path = bundle/zenburn
 	url = https://github.com/vim-scripts/Zenburn.git
   ignore = dirty
-[submodule "bundle/mru"]
-	path = bundle/mru
-	url = https://github.com/vim-scripts/mru.vim.git
-  ignore = dirty
 [submodule "bundle/vbnet"]
 	path = bundle/vbnet
 	url = https://github.com/vim-scripts/vbnet.vim.git
