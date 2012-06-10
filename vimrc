@@ -167,6 +167,12 @@ else
   "hexhighlight
   nmap <leader>h :call HexHighlight()<Return>
 
+  " Diff.
+  nnoremap <silent><Leader>do :diffoff!<CR>
+  nnoremap <silent><Leader>dg :diffget<CR>:diffupdate<CR>
+  nnoremap <silent><Leader>dp :diffput<CR>:diffupdate<CR>
+  nnoremap <silent><Leader>du :diffupdate<CR>
+
   " F1 - F12"{{{
   " mapping français
   map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
