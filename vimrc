@@ -90,6 +90,10 @@ else
   "}}}
   " Commandes"{{{
 
+  " Display-wise up/down movement instead of linewise.
+  noremap j gj
+  noremap k gk
+
   " Permet de placer au milieu de l'écran l'occurence de la recherche
   nnoremap n nzzzv
   nnoremap N Nzzzv
