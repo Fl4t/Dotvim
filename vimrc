@@ -173,6 +173,11 @@ else
   nnoremap <silent><Leader>dp :diffput<CR>:diffupdate<CR>
   nnoremap <silent><Leader>du :diffupdate<CR>
 
+  " CtrlP
+  nnoremap <leader>b :CtrlPBuffer<CR>
+  nnoremap <leader>m :CtrlPMRU<CR>
+  nnoremap <leader>t :CtrlP<CR>
+
   " F1 - F12"{{{
   " mapping français
   map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
