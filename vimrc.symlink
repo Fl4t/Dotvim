@@ -246,6 +246,9 @@ else
   "}}}
   "Plugins"{{{
 
+  " LanguageTool
+  let g:languagetool_jar=$HOME.'/.languagetool/LanguageTool.jar'
+
   " indent-guides
   let g:indent_guides_start_level = 2
 
