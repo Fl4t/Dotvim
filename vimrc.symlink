@@ -253,6 +253,51 @@ else
   "}}}
   "Plugins"{{{
 
+  " neocomplcache"{{{
+  let g:neocomplcache_enable_at_startup = 1
+  let g:neocomplcache_enable_camel_case_completion = 1
+  let g:neocomplcache_enable_smart_case = 1
+  let g:neocomplcache_enable_underbar_completion = 1
+  let g:neocomplcache_min_syntax_length = 3
+  let g:neocomplcache_enable_auto_delimiter = 1
+
+  " AutoComplPop like behavior.
+  let g:neocomplcache_enable_auto_select = 0
+
+  " <CR>: close popup
+  inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+
+  " Enable omni completion.
+  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+  " Enable heavy omni completion.
+  if !exists('g:neocomplcache_omni_patterns')
+    let g:neocomplcache_omni_patterns = {}
+  endif
+  let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+  "}}}
+
+  " OmniComplete"{{{
+  if has("autocmd") && exists("+omnifunc")
+    autocmd Filetype *
+          \if &omnifunc == "" |
+          \setlocal omnifunc=syntaxcomplete#Complete |
+          \endif
+  endif
+
+  " some convenient mappings
+  inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+  inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+  " automatically open and close the popup menu / preview window
+  au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+  set completeopt=menu,preview,longest
+  "}}}
+
   " CtrlP
   let g:ctrlp_working_path_mode = 2
   let g:ctrlp_custom_ignore = {
