@@ -206,6 +206,9 @@ else
   "}}}
   " autoCommand"{{{
   if has("autocmd")
+    " Auto-cd
+    au BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+
     " Plugin VB.NET highlighting
     au BufNewFile,BufRead *.vb set ft=vbnet
 
@@ -247,9 +250,9 @@ else
   set autowriteall " sauvegarde auto quand on quitte ou qu'on change de buffer
   set backup      " sauvegarde
   set writebackup " écrit le backup avant d'écrire le vrai fichier
-  set backupdir=$HOME/.vim/savefile " dossier des .backup
-  set directory=$HOME/.vim/swapfile " dossier des .swp
-  set undodir=$HOME/.vim/undofile   " dossier des .un
+  set backupdir=$HOME/Documents/vimsave/savefile " dossier des .backup
+  set directory=$HOME/Documents/vimsave/swapfile " dossier des .swp
+  set undodir=$HOME/Documents/vimsave/undofile   " dossier des .un
   "}}}
   "Plugins"{{{
 
