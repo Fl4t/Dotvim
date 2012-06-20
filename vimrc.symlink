@@ -199,6 +199,9 @@ else
   "}}}
   " autoCommand"{{{
   if has("autocmd")
+    " Auto-cd
+    au BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+
     " Plugin VB.NET highlighting
     au BufNewFile,BufRead *.vb set ft=vbnet
 
