@@ -56,7 +56,7 @@
   ignore = dirty
 [submodule "bundle/warez"]
 	path = bundle/warez
-	url = git@github.com:Fl4t/warez-colorscheme.git
+	url = https://github.com/Fl4t/warez-colorscheme.git
   ignore = dirty
 [submodule "bundle/snippets"]
 	path = bundle/snippets
