@@ -180,16 +180,16 @@ else
 
   " F1 - F12"{{{
   " mapping français
-  map <silent> <F2> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
+  map <silent> <F1> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 
   " Toggle relative/absolute numbering
-  nnoremap <F3> :call NumberToggle()<CR>
-
-  " Plugin Gundo
-  nnoremap <silent> <F9> :GundoToggle<CR>
+  nnoremap <F2> :call NumberToggle()<CR>
 
   " Voir les espaces/tab en trop
-  nnoremap <F10> :set nolist!<CR>
+  nnoremap <F3> :set nolist!<CR>
+
+  " Plugin Gundo
+  nnoremap <silent> <F10> :GundoToggle<CR>
 
   " Plugin NERD Tree
   nnoremap <silent> <F11> :NERDTreeToggle<CR>
