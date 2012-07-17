@@ -269,7 +269,8 @@ else
   let g:neocomplcache_enable_auto_select = 0
 
   " <CR>: close popup
-  inoremap <expr><CR> pumvisible() ? neocomplcache#close_popup() : "\<CR>"
+  inoremap <expr><CR> pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
+  inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 
   " Enable omni completion.
   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -294,8 +295,8 @@ else
   endif
 
   " some convenient mappings
-  inoremap <expr> <Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
-  inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+  inoremap <expr><Esc> pumvisible() ? "\<C-e>" : "\<Esc>"
+  inoremap <expr><CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
   " automatically open and close the popup menu / preview window
   au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
