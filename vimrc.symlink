@@ -59,7 +59,7 @@ else
   set guicursor=a:blinkon0      " pas de curseur qui clignote
   set cmdheight=2               " 1 ligne en dessous de statusline
   set laststatus=2              " toujours voir la barre de statut
-  ""}}}
+  "}}}
   "Indentation"{{{
   set expandtab           " insère des espaces au lieu de tab
   set tabstop=2           " nombre d'espaces par tab
@@ -245,7 +245,7 @@ else
   "Fichier/Backup"{{{
   set undofile    " undo fonctionne après avoir fermé le fichier
   set autoread    " recharge auto quand un fichier est modifié
-  set autowriteall " sauvegarde auto quand on quitte ou qu'on change de buffer
+  set autowrite   " sauvegarde auto quand on change de buffer
   set backup      " sauvegarde
   set writebackup " écrit le backup avant d'écrire le vrai fichier
   set backupdir=$HOME/Documents/vimsave/savefile " dossier des .backup
@@ -365,6 +365,7 @@ else
     noremap <leader>C <ESC>:w<CR>:!javac %<.java<CR>
   endfunction
 endif
+"}}}
 "}}}
 " Custom Functions"{{{
 
