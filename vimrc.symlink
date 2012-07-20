@@ -42,7 +42,6 @@ else
   set lazyredraw         " Don't update the display while executing macros
   set gdefault           " Ne pas taper le g de /truc/truc/g
   set nospell            " pas de correction orthographique par défaut
-  set magic              " Mode magic pour les expressions régulières
   "}}}
   "Interface"{{{
   "set relativenumber            " Numero de ligne dynamique à la position
@@ -237,7 +236,6 @@ else
   set incsearch           " increment search
   set ignorecase          " case-insensitive search
   set smartcase           " uppercase causes case-sensitive search
-  set wrapscan            " la recherche reprend au depart
   "}}}
   "Buffer/Fenêtres/Tabs"{{{
   set hidden          " Pour pouvoir changer de buffer sans sauvegarder
