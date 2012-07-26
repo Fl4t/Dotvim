@@ -89,6 +89,9 @@ else
   "}}}
   " Commandes"{{{
 
+  " Backquotes -> é
+  noremap é `
+
   " Fugitive
   noremap <leader>gs :Gstatus<CR>
   noremap <leader>gd :Gdiff<CR>
