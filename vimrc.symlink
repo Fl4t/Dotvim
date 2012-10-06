@@ -380,7 +380,7 @@ else
   "Java"{{{
   function! Fjava()
     " Sauvegarde et compilation
-    noremap <leader>C <ESC>:w<CR>:!javac %<.java<CR>
+    noremap <leader>C <ESC>:w<CR>:!jc<CR>
   endfunction
 endif
 "}}}
