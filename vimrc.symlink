@@ -211,6 +211,10 @@ else
   "}}}
   " autoCommand"{{{
   if has("autocmd")
+
+    " Sauve a la perte du focus
+    au FocusLost * :wa
+
     " Auto-cd
     au BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
