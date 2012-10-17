@@ -89,6 +89,9 @@ else
   "}}}
   " Commandes"{{{
 
+  " Re-selectionner le texte précédemment collé
+  nnoremap <leader>v V`]
+
   " Backquotes -> é
   noremap é `
 
