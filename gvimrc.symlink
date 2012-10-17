@@ -1,7 +1,7 @@
 if has("macunix")
   " pas de scrollbars, pas de menu et autre truc moche et inutile
   set guioptions=ac
-  set guifont=Monaco\ for\ Powerline:h12
+  set guifont=Menlo\ for\ Powerline:h13
 elseif has("unix")
   set guioptions=aciM
   set guifont=Monaco\ 8
