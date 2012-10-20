@@ -76,22 +76,11 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 "}}}
 " Commandes"{{{
 
-" Clam easyer
-nnoremap ! :Clam<space>
-vnoremap ! :ClamVisual<space>
-
 " Re-selectionner le texte précédemment collé
 nnoremap <leader>v V`]
 
 " Backquotes -> é
 noremap é `
-
-" Fugitive
-noremap <leader>gs :Gstatus<CR>
-noremap <leader>gd :Gdiff<CR>
-noremap <leader>gc :Gcommit<CR>
-noremap <leader>gb :Gblame<CR>
-noremap <leader>gl :Glog<CR>
 
 " Display-wise up/down movement instead of linewise.
 noremap j gj
@@ -167,38 +156,17 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
-"hexhighlight
-nmap <leader>h :call HexHighlight()<Return>
-
 " Diff.
 nnoremap <silent><Leader>do :diffoff!<CR>
 nnoremap <silent><Leader>dg :diffget<CR>:diffupdate<CR>
 nnoremap <silent><Leader>dp :diffput<CR>:diffupdate<CR>
 nnoremap <silent><Leader>du :diffupdate<CR>
 
-" CtrlP
-nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
-nnoremap <leader>t :CtrlP<CR>
-
-" F1 - F12"{{{
 " mapping français
 map <silent> <F1> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 
-" Toggle relative/absolute numbering
-nnoremap <F2> :call NumberToggle()<CR>
-
 " Voir les espaces/tab en trop
 nnoremap <F3> :set nolist!<CR>
-
-" Plugin Gundo
-nnoremap <silent> <F10> :GundoToggle<CR>
-
-" Plugin NERD Tree
-nnoremap <silent> <F11> :NERDTreeToggle<CR>
-
-" Plugin Tagbar
-nnoremap <silent> <F12> :TagbarToggle<CR>"}}}
 "}}}
 " autoCommand"{{{
 if has("autocmd")
@@ -254,15 +222,33 @@ set directory=$HOME/Documents/vimsave/swapfile " dossier des .swp
 set undodir=$HOME/Documents/vimsave/undofile   " dossier des .un
 "}}}
 "Plugins"{{{
+" Plugin Gundo"{{{
+nnoremap <silent> <F10> :GundoToggle<CR>
+"}}}
+" Fugitive"{{{
+noremap <leader>gs :Gstatus<CR>
+noremap <leader>gd :Gdiff<CR>
+noremap <leader>gc :Gcommit<CR>
+noremap <leader>gb :Gblame<CR>
+noremap <leader>gl :Glog<CR>
+"}}}
+" Clam easyer"{{{
+nnoremap ! :Clam<space>
+vnoremap ! :ClamVisual<space>
+"}}}
+" CtrlP"{{{
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>t :CtrlP<CR>
 
 let ctrlp_filter_greps = "".
-    \ "egrep -iv '\\.(" .
-    \ "jar|class|swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po" .
-    \ ")$' | " .
-    \ "egrep -v '^(\\./)?(" .
-    \ "deploy/|lib/|classes/|libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|docs/build/" .
-    \ ")'"
-
+      \ "egrep -iv '\\.(" .
+      \ "jar|class|swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po" .
+      \ ")$' | " .
+      \ "egrep -v '^(\\./)?(" .
+      \ "deploy/|lib/|classes/|libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|docs/build/" .
+      \ ")'"
+"}}}
 "Neocomplcache"{{{
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -330,12 +316,17 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'"}}}
-
-" LanguageTool
+"hexhighlight"{{{
+nmap <leader>h :call HexHighlight()<Return>
+"}}}
+" LanguageTool"{{{
 let g:languagetool_jar=$HOME.'/.languagetool/dist/LanguageTool.jar'
-
-" vim-powerline
+"}}}
+" vim-powerline"{{{
 let g:Powerline_symbols = 'fancy' "fancy symbols
+"}}}
+" NERDTree"{{{
+nnoremap <silent> <F11> :NERDTreeToggle<CR>
 
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
@@ -344,9 +335,11 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
       \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
       \ '\.embed\.manifest$', '\.embed\.manifest.res$',
       \ '\.intermediate\.manifest$', '^mt.dep$' ]
-
-" Plugin Tagbar
+"}}}
+" Plugin Tagbar"{{{
+nnoremap <silent> <F12> :TagbarToggle<CR>
 let g:tagbar_width = 31 " like NERDTree
+"}}}
 "}}}
 "Langages"{{{
 "Langage C"{{{
@@ -390,6 +383,8 @@ endfunction
 "Custom Functions"{{{
 
 " Toggle relative/absolute numbering
+nnoremap <F2> :call NumberToggle()<CR>
+
 function! NumberToggle()
   if(&relativenumber == 1)
     set number
@@ -425,12 +420,13 @@ function! s:NextTextObject(motion, dir)
   let c = nr2char(getchar())
 
   if c ==# "b"
-      let c = "("
+    let c = "("
   elseif c ==# "B"
-      let c = "{"
+    let c = "{"
   elseif c ==# "r"
-      let c = "["
+    let c = "["
   endif
 
   exe "normal! ".a:dir.c."v".a:motion.c
-endfunction"}}}
+endfunction
+"}}}
