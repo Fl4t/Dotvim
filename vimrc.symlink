@@ -24,9 +24,8 @@ set mousehide          " hide mouse when typing
 let mapleader=","      " change la touche par défaut de vim qui est \
 set clipboard=unnamed  " yank et aussi copier en mémoire tampon
 set shellslash         " c'est Derek qui le dit alors chut.
-set cpoptions +=$      " pour avoir un dollars lorsque l'on change, touche c
+set cpoptions+=$       " pour avoir un dollars lorsque l'on change, touche c
 set virtualedit=all    " pour ce déplacer même si il n'y a pas de caractère
-set hidden             " permet le switch de buffer meme si on a pas sauvegardé
 set lazyredraw         " Don't update the display while executing macros
 set gdefault           " Ne pas taper le g de /truc/truc/g
 set nospell            " pas de correction orthographique par défaut
@@ -255,6 +254,14 @@ set directory=$HOME/Documents/vimsave/swapfile " dossier des .swp
 set undodir=$HOME/Documents/vimsave/undofile   " dossier des .un
 "}}}
 "Plugins"{{{
+
+let ctrlp_filter_greps = "".
+    \ "egrep -iv '\\.(" .
+    \ "jar|class|swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po" .
+    \ ")$' | " .
+    \ "egrep -v '^(\\./)?(" .
+    \ "deploy/|lib/|classes/|libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|docs/build/" .
+    \ ")'"
 
 "Neocomplcache"{{{
 " Disable AutoComplPop.
