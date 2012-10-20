@@ -334,9 +334,6 @@ let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'"}}}
 " LanguageTool
 let g:languagetool_jar=$HOME.'/.languagetool/dist/LanguageTool.jar'
 
-" indent-guides
-let g:indent_guides_start_level = 2
-
 " vim-powerline
 let g:Powerline_symbols = 'fancy' "fancy symbols
 

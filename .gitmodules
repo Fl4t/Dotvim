@@ -34,14 +34,6 @@
 	path = bundle/zenburn
 	url = https://github.com/vim-scripts/Zenburn.git
   ignore = dirty
-[submodule "bundle/vbnet"]
-	path = bundle/vbnet
-	url = https://github.com/vim-scripts/vbnet.vim.git
-  ignore = dirty
-[submodule "bundle/matrix"]
-	path = bundle/matrix
-	url = https://github.com/vim-scripts/matrix.vim--Yang.git
-  ignore = dirty
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = https://github.com/garbas/vim-snipmate.git
@@ -54,10 +46,6 @@
 	path = bundle/tlib-vim
 	url = https://github.com/tomtom/tlib_vim.git
   ignore = dirty
-[submodule "bundle/warez"]
-	path = bundle/warez
-	url = https://github.com/Fl4t/warez-colorscheme.git
-  ignore = dirty
 [submodule "bundle/snippets"]
 	path = bundle/snippets
 	url = https://github.com/honza/snipmate-snippets.git
@@ -65,10 +53,6 @@
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
-  ignore = dirty
-[submodule "bundle/matchtag"]
-	path = bundle/matchtag
-	url = https://github.com/gregsexton/MatchTag.git
   ignore = dirty
 [submodule "bundle/molokai"]
 	path = bundle/molokai
@@ -97,10 +81,6 @@
 [submodule "bundle/help-vim"]
 	path = bundle/help-vim
 	url = https://github.com/juanpabloaj/help.vim.git
-  ignore = dirty
-[submodule "bundle/indent-guides"]
-	path = bundle/indent-guides
-	url = https://github.com/nathanaelkane/vim-indent-guides.git
   ignore = dirty
 [submodule "bundle/vim-pathogen"]
 	path = bundle/vim-pathogen
