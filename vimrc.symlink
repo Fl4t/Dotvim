@@ -77,6 +77,10 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
 "}}}
 " Commandes"{{{
 
+" Clam easyer
+nnoremap ! :Clam<space>
+vnoremap ! :ClamVisual<space>
+
 " Re-selectionner le texte précédemment collé
 nnoremap <leader>v V`]
 
