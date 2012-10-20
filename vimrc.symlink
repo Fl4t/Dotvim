@@ -63,7 +63,7 @@ set diffopt=filler,iwhite,vertical  " Options pour le mode diff
 
 " Permet de voir les espaces et tab en trop
 set nolist
-set listchars=tab:▸\ ,trail:✖,eol:¬
+set listchars=tab:▸\ ,trail:✖,eol:¬,extends:❯,precedes:❮
 "}}}
 "Replis"{{{
 set foldenable          " ferme les replis existant par défaut
@@ -398,7 +398,7 @@ function! NumberToggle()
   endif
 endfunc
 "}}}
-"Next and Last {{{
+"Next and Last"{{{
 "
 " Motion for "next/last object". "Last" here means "previous", not "final".
 " Unfortunately the "p" motion was already taken for paragraphs.
@@ -433,4 +433,4 @@ function! s:NextTextObject(motion, dir)
   endif
 
   exe "normal! ".a:dir.c."v".a:motion.c
-endfunction
+endfunction"}}}
