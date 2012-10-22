@@ -222,6 +222,17 @@ set writebackup " écrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/Documents/vimsave/savefile " dossier des .backup
 set directory=$HOME/Documents/vimsave/swapfile " dossier des .swp
 set undodir=$HOME/Documents/vimsave/undofile   " dossier des .un
+
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
 "}}}
 "Plugins"{{{
 " Plugin Gundo"{{{
