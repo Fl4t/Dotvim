@@ -187,8 +187,10 @@ if has("autocmd")
   au BufWritePre * :%s/\s\+$//e
 
   " saute a la dernière position du curseur sauf pour les commits
-  au BufReadPost * if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$")
-        \| exe "normal! g`\"" | endif
+  au BufReadPost *
+      \ if &filetype !~ '^git\c' && line("'\"") > 0 && line("'\"") <= line("$") |
+      \ execute 'normal! g`"zvzz' |
+      \ endif
 
   " Fonctions pour fichiers LaTeX
   au BufEnter,BufNewFile *.tex	exe Flatex()
