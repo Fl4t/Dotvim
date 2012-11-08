@@ -14,6 +14,7 @@ elseif has("unix")
 
   set guioptions=aciM
   set guifont=Menlo\ for\ Powerline\ 12
+  winsize 999 999
 
 endif
 
