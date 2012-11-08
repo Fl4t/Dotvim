@@ -13,7 +13,7 @@ if has("macunix")
 elseif has("unix")
 
   set guioptions=aciM
-  set guifont=Menlo\ for\ Powerline:h13
+  set guifont=Menlo\ for\ Powerline\ 12
 
 endif
 
