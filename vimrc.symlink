@@ -97,9 +97,6 @@ noremap L g_
 " Focus le replis ou je suis"
 nnoremap <leader>z zMzvzz
 
-" fix this shit
-nnoremap q: :q
-
 " Aller au dossier du fichier courant
 nnoremap ,cd :cd %:p:h<CR>:pwd<CR>
 
