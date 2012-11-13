@@ -352,7 +352,7 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
 nnoremap <silent> <F12> :TagbarToggle<CR>
 let g:tagbar_width = 31 " like NERDTree
 if has("unix")
-  let g:tagbar_ctags_bin='~/bin/ctags'
+  let g:tagbar_ctags_bin='/home/infoetu/stechelj/bin/ctags'
 endif
 "}}}
 "}}}
