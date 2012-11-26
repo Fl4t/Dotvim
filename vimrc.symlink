@@ -72,7 +72,7 @@ set foldminlines=2      " nombre de ligne mini pour replis
 set fillchars=fold:·    " affiche des ... après le nom du replis
 
 " Ces commandes ouvre les replis
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo"
+set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 "}}}
 " Commandes"{{{
 
@@ -167,9 +167,6 @@ nnoremap <F3> :set nolist!<CR>
 "}}}
 " autoCommand"{{{
 if has("autocmd")
-
-  " Sauve a la perte du focus
-  au FocusLost * :wa
 
   " Auto-cd au répertoire root si il existe, courant sinon
   function! s:setcwd()
