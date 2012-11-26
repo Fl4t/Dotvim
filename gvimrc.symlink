@@ -20,3 +20,6 @@ endif
 
 " pas de clignotement etc
 au GUIEnter * set vb t_vb=
+
+" pas de ... pour les folds
+set fillchars=fold:\ ,
