@@ -360,6 +360,9 @@ let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
 " Plugin Tagbar"{{{
 nnoremap <silent> <F12> :TagbarToggle<CR>
 let g:tagbar_width = 31 " like NERDTree
+if !has("unix")
+  let g:tagbar_ctags_bin = $HOME.'/bin/ctags'
+end if
 "}}}
 "}}}
 "Langages"{{{
