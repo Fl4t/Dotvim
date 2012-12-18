@@ -239,6 +239,11 @@ if !isdirectory(expand(&directory))
 endif
 "}}}
 "Plugins"{{{
+" Syntastic"{{{
+let g:syntastic_quiet_warnings=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_enable_balloons = 0
+"}}}
 " Plugin Gundo"{{{
 nnoremap <silent> <F10> :GundoToggle<CR>
 "}}}
@@ -249,7 +254,7 @@ noremap <leader>gc :Gcommit<CR>
 noremap <leader>gb :Gblame<CR>
 noremap <leader>gl :Glog<CR>
 "}}}
-" Clam easyer"{{{
+" Clam easier"{{{
 nnoremap ! :Clam<space>
 vnoremap ! :ClamVisual<space>
 "}}}
