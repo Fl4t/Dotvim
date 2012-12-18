@@ -58,10 +58,6 @@
 	path = bundle/molokai
 	url = https://github.com/mrtazz/molokai.vim.git
   ignore = dirty
-[submodule "bundle/vim-powerline"]
-	path = bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
-  ignore = dirty
 [submodule "bundle/vim-getafe"]
 	path = bundle/vim-getafe
 	url = https://github.com/larssmit/vim-getafe.git
@@ -128,3 +124,6 @@
 [submodule "bundle/clam"]
 	path = bundle/clam
 	url = https://github.com/sjl/clam.vim.git
+[submodule "bundle/powerline"]
+	path = bundle/powerline
+	url = https://github.com/Lokaltog/powerline.git
