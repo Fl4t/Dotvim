@@ -2,7 +2,7 @@ if has("macunix")
 
   " pas de scrollbars, pas de menu et autre truc moche et inutile
   set guioptions=ac
-  set guifont=Menlo\ for\ Powerline:h12
+  set guifont=PragmataPro\ for\ Powerline:h13
 
   " fullscreen options (MacVim), redimensionne vim au maximum quand j'enleve le mode plein ecran
   set fuoptions=maxvert,maxhorz
