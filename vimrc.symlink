@@ -260,18 +260,16 @@ vnoremap ! :ClamVisual<space>
 "}}}
 " CtrlP"{{{
 nnoremap <leader>b :CtrlPBuffer<CR>
-nnoremap <leader>m :CtrlPMRU<CR>
+nnoremap <leader>m :CtrlPMRUFiles<CR>
 nnoremap <leader>t :CtrlP<CR>
 
-let ctrlp_filter_greps = "".
-      \ "egrep -iv '\\.(" .
-      \ "jar|class|swp|swo|log|so|o|pyc|jpe?g|png|gif|mo|po" .
-      \ ")$' | " .
-      \ "egrep -v '^(\\./)?(" .
-      \ "deploy/|lib/|classes/|libs/|deploy/vendor/|.git/|.hg/|.svn/|.*migrations/|docs/build/" .
-      \ ")'"
-
 let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|/private/.*' " MacOSX/Linux
+
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+	\ }
 "}}}
   "Neocomplcache"{{{
 if exists('g:loaded_neocomplcache')
