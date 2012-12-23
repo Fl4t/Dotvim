@@ -267,7 +267,7 @@ let g:ctrlp_mruf_exclude = '/tmp/.*\|/temp/.*\|/private/.*' " MacOSX/Linux
 
 let g:ctrlp_custom_ignore = {
 	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
-	\ 'file': '\v\.(exe|so|dll)$',
+	\ 'file': '\v\.(exe|so|dll|class)$',
 	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 	\ }
 "}}}
