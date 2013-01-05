@@ -130,3 +130,6 @@
 [submodule "bundle/smartpairs"]
 	path = bundle/smartpairs
 	url = https://github.com/gorkunov/smartpairs.vim.git
+[submodule "bundle/smartgf"]
+	path = bundle/smartgf
+	url = https://github.com/gorkunov/smartgf.vim.git
