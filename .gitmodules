@@ -133,3 +133,6 @@
 [submodule "bundle/smartgf"]
 	path = bundle/smartgf
 	url = https://github.com/gorkunov/smartgf.vim.git
+[submodule "bundle/rails"]
+	path = bundle/rails
+	url = https://github.com/tpope/vim-rails.git
