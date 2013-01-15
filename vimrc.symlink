@@ -404,7 +404,7 @@ endfunction
 "Java"{{{
 function! Fjava()
   " Sauvegarde et compilation
-  noremap <leader>C <ESC>:w<CR>:!jc<CR>
+  noremap <leader>C <ESC>:w<CR>:!javac %<CR>
 endfunction
 "}}}
 "}}}
