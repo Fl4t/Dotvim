@@ -37,7 +37,6 @@ set numberwidth=1             " 1 ligne = 1 numéro
 set shortmess=aTi             " format of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility"
 set noshowmode                " vim-powerline le fait très bien
-set showcmd                   " voir les touches tapées
 set wildmenu                  " menu en carré
 set wim=list:longest,full     " la tronche des possibilité de complétion
 set wildignore=*.o,*.bak,*.pyc,*.swp,*.jpg,*.gif,*.png
