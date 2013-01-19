@@ -345,9 +345,6 @@ nmap <leader>h :call HexHighlight()<Return>
 " LanguageTool"{{{
 let g:languagetool_jar=$HOME.'/.languagetool/LanguageTool.jar'
 "}}}
-" powerline"{{{
-source $HOME/.vim/bundle/powerline/powerline/ext/vim/powerline.vim
-"}}}
 " NERDTree"{{{
 nnoremap <silent> <F11> :NERDTreeToggle<CR>
 
