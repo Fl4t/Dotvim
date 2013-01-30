@@ -351,7 +351,7 @@ nnoremap <silent> <F11> :NERDTreeToggle<CR>
 " Show the bookmarks table on startup
 let NERDTreeShowBookmarks=1
 " Don't display these kinds of files
-let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
+let NERDTreeIgnore=[ '\.class$', '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
       \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
       \ '\.embed\.manifest$', '\.embed\.manifest.res$',
       \ '\.intermediate\.manifest$', '^mt.dep$' ]
