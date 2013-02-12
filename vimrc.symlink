@@ -163,6 +163,9 @@ map <silent> <F1> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
 
 " Voir les espaces/tab en trop
 nnoremap <F3> :set nolist!<CR>
+
+" Mode copier/coller
+nnoremap <F4> :set paste!<CR>
 "}}}
 " autoCommand"{{{
 if has("autocmd")
