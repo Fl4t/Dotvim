@@ -90,10 +90,6 @@
 	path = bundle/badwolf
 	url = https://github.com/sjl/badwolf.git
   ignore = dirty
-[submodule "bundle/zencoding"]
-	path = bundle/zencoding
-	url = https://github.com/mattn/zencoding-vim.git
-  ignore = dirty
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
