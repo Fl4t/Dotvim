@@ -170,6 +170,10 @@ nnoremap <F4> :set paste!<CR>
 " autoCommand"{{{
 if has("autocmd")
 
+  " Always show line numbers, but only in current window.
+  au WinEnter * setlocal number
+  au WinLeave * setlocal nonumber
+
   " Auto-cd au répertoire root si il existe, courant sinon
   function! s:setcwd()
     let cph = expand('%:p:h', 1)
