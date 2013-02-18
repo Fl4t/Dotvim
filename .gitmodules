@@ -34,10 +34,6 @@
 	path = bundle/zenburn
 	url = https://github.com/vim-scripts/Zenburn.git
   ignore = dirty
-[submodule "bundle/snipmate"]
-	path = bundle/snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-  ignore = dirty
 [submodule "bundle/vim-addon-mw-utils"]
 	path = bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
@@ -45,10 +41,6 @@
 [submodule "bundle/tlib-vim"]
 	path = bundle/tlib-vim
 	url = https://github.com/tomtom/tlib_vim.git
-  ignore = dirty
-[submodule "bundle/snippets"]
-	path = bundle/snippets
-	url = https://github.com/honza/snipmate-snippets.git
   ignore = dirty
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
