@@ -253,6 +253,9 @@ if !isdirectory(expand(&directory))
 endif
 "}}}
 "Plugins"{{{
+" UltiSnips"{{{
+imap <c-b> <esc>:call UltiSnips_ListSnippets()<cr>
+"}}}
 " Powerline"{{{
 set rtp+=~/.powerline/powerline/bindings/vim
 if ! has('gui_running')
