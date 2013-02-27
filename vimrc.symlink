@@ -75,6 +75,11 @@ set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 "}}}
 " Commandes"{{{
 
+" C-p/C-n par defaut ne filtre pas les commandes de l'historique alors que
+" Up/Down le fait. Exemple ":pw" va trouver dabord ":pwd" dans l'historique.
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+
 " Re-selectionner le texte précédemment collé
 nnoremap <leader>v V`]
 
@@ -93,7 +98,7 @@ nnoremap N Nzzzv
 noremap H ^
 noremap L g_
 
-" Focus le replis ou je suis"
+" Focus le replis ou je suis
 nnoremap <leader>z zMzvzz
 
 " Aller au dossier du fichier courant
