@@ -215,6 +215,9 @@ if has("autocmd")
 
   " Fonctions pour fichiers Java
   au BufEnter,BufNewFile *.java exe Fjava()
+
+  " Fonctions pour fichiers Perl
+  au BufEnter,BufNewFile *.pl exe Fperl()
 endif
 "}}}
 "Recherche"{{{
@@ -355,6 +358,15 @@ endfunction
 function! Fjava()
   " Sauvegarde et compilation
   noremap <leader>C <ESC>:w<CR>:!javac %<CR>
+endfunction
+"}}}
+"Perl"{{{
+function! Fperl()
+  " Execution du script courant
+  noremap <leader>C <ESC>:w<CR>:!perl %<CR>
+
+  " K cherche dans perldoc
+  set keywordprg=perldoc\ -f
 endfunction
 "}}}
 "}}}
