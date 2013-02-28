@@ -105,9 +105,6 @@
 	path = bundle/vim-distinguished
 	url = https://github.com/Lokaltog/vim-distinguished.git
   ignore = dirty
-[submodule "bundle/clam"]
-	path = bundle/clam
-	url = https://github.com/sjl/clam.vim.git
 [submodule "bundle/smartpairs"]
 	path = bundle/smartpairs
 	url = https://github.com/gorkunov/smartpairs.vim.git
