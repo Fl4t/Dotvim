@@ -22,20 +22,14 @@ set backspace=2        " règle le comportement de backspace
 set mouse=a            " active la souris pour toujours
 set mousehide          " hide mouse when typing
 let mapleader=","      " change la touche par défaut de vim qui est \
-set clipboard=unnamed  " yank et aussi copier en mémoire tampon
-set shellslash         " c'est Derek qui le dit alors chut.
+set clipboard=unnamed  " yank est aussi copié en mémoire tampon
+set shellslash         " Les / sont remplacées par \ sur windows
 set cpoptions+=$       " pour avoir un dollars lorsque l'on change, touche c
 set virtualedit=all    " pour ce déplacer même si il n'y a pas de caractère
 set lazyredraw         " Don't update the display while executing macros
-set gdefault           " Ne pas taper le g de /truc/truc/g
-set nospell            " pas de correction orthographique par défaut
 "}}}
 "Interface"{{{
-"set relativenumber            " Numero de ligne dynamique à la position
 set number                    " (temporaire) relativenumber lag trop
-set numberwidth=1             " 1 ligne = 1 numéro
-set shortmess=aTi             " format of messages (avoids 'hit enter')
-set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility"
 set cursorline                " Affiche la ligne courante en surbrillance
 set noshowmode                " vim-powerline le fait très bien
 set wildmenu                  " menu en carré
@@ -55,34 +49,32 @@ set shiftwidth=2        " pareil mais pour >> <<
 set shiftround          " tab toujours multiple de shiftwidth
 "}}}
 "Édition"{{{
-set nostartofline                   " conserve la colonne
 let g:loaded_matchparen=1           " désactive le sur-lignage des paires de parenthèses
 set scrolloff=999                   " laisser des lignes en dessus et dessous"
 set nowrap                          " pas de retour a la ligne par défaut
 set diffopt=filler,iwhite,vertical  " Options pour le mode diff
 
 " Permet de voir les espaces et tab en trop
-set nolist
 set listchars=tab:▸\ ,trail:✖,eol:¬,extends:❯,precedes:❮
 "}}}
 "Replis"{{{
 set foldenable          " ferme les replis existant par défaut
 set foldmethod=marker   " c'est les marqueurs qui délimite les replis
 set foldminlines=2      " nombre de ligne mini pour replis
-set fillchars=fold:·    " affiche des ... après le nom du replis
+set fillchars=fold:·    " affiche des ··· après le nom du replis
 
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 "}}}
 " Commandes"{{{
 
+" Activer les expressions régulières de Perl
+nmap / /\v
+
 " C-p/C-n par defaut ne filtre pas les commandes de l'historique alors que
 " Up/Down le fait. Exemple ":pw" va trouver dabord ":pwd" dans l'historique.
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
-
-" Re-selectionner le texte précédemment collé
-nnoremap <leader>v V`]
 
 " Backquotes -> é
 noremap é `
@@ -113,10 +105,6 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR> " Sourcer le vimrc
 map <leader>fn ]s
 map <leader>fp [s
 
-" Use the arrows to something usefull
-map <right> :bn<cr>
-map <left> :bp<cr>
-
 " Use Q for formatting the current paragraph (or visual selection)
 vmap Q gq
 nmap Q gqap
@@ -129,14 +117,6 @@ inoremap <c-f> <c-x><c-f>
 
 " Completion de lignes
 inoremap <c-l> <c-x><c-l>
-
-" Utiliser p en mode visuel pour remplacer le texte sélectionne par le texte
-" yanker précédemment
-vnoremap p <Esc>:let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
-
-"simple matching pairs easily, with Tab
-nnoremap <Tab> %
-vnoremap <Tab> %
 
 " awesome, inserts new line without going into insert mode
 map <S-Enter> O<ESC>
@@ -176,10 +156,6 @@ nnoremap <F4> :set paste!<CR>
 " autoCommand"{{{
 if has("autocmd")
 
-  " Always show line numbers, but only in current window.
-  au WinEnter * setlocal number
-  au WinLeave * setlocal nonumber
-
   " Auto-cd au répertoire root si il existe, courant sinon
   function! s:setcwd()
     let cph = expand('%:p:h', 1)
@@ -190,14 +166,7 @@ if has("autocmd")
     endfo
     exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
   endfunction
-
   autocmd BufEnter * call s:setcwd()
-
-  " Plugin VB.NET highlighting
-  au BufNewFile,BufRead *.vb set ft=vbnet
-
-  " Moteur de template twig
-  au BufNewFile,BufRead *.twig set ft=htmldjango
 
   " Supprime automatiquement les espaces de fin de ligne
   au BufWritePre * :%s/\s\+$//e
@@ -229,7 +198,6 @@ set smartcase           " uppercase causes case-sensitive search
 "}}}
 "Buffer/Fenêtres/Tabs"{{{
 set hidden          " Pour pouvoir changer de buffer sans sauvegarder
-set wmh=1           " Nombre minimal de lignes pour une fenêtre
 set splitbelow      " ouvre un nouveau fichier en dessous du précédent
 "}}}
 "Fichier/Backup"{{{
