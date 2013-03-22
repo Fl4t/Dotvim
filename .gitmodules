@@ -119,3 +119,6 @@
 [submodule "bundle/greduan-solarized"]
 	path = bundle/greduan-solarized
 	url = https://github.com/Greduan/vim-colors-solarized.git
+[submodule "bundle/zencoding"]
+	path = bundle/zencoding
+	url = https://github.com/mattn/zencoding-vim.git
