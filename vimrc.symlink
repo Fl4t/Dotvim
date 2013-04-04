@@ -19,7 +19,6 @@ set encoding=utf-8     " UTF-8
 set fileencoding=utf-8 " UTF-8
 set fileformat=unix
 set backspace=2        " règle le comportement de backspace
-set mouse=a            " active la souris pour toujours
 set mousehide          " hide mouse when typing
 let mapleader=","      " change la touche par défaut de vim qui est \
 set clipboard=unnamed  " yank est aussi copié en mémoire tampon
