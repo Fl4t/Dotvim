@@ -30,10 +30,6 @@
 	path = bundle/zenburn
 	url = https://github.com/vim-scripts/Zenburn.git
   ignore = dirty
-[submodule "bundle/vim-addon-mw-utils"]
-	path = bundle/vim-addon-mw-utils
-	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-  ignore = dirty
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
