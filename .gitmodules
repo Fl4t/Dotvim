@@ -58,10 +58,6 @@
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
   ignore = dirty
-[submodule "bundle/gundo"]
-	path = bundle/gundo
-	url = https://github.com/sjl/gundo.vim.git
-  ignore = dirty
 [submodule "bundle/help-vim"]
 	path = bundle/help-vim
 	url = https://github.com/juanpabloaj/help.vim.git
