@@ -113,9 +113,6 @@
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule "bundle/gitgutter"]
-	path = bundle/gitgutter
-	url = https://github.com/airblade/vim-gitgutter.git
 [submodule "bundle/greduan-solarized"]
 	path = bundle/greduan-solarized
 	url = https://github.com/Greduan/vim-colors-solarized.git
