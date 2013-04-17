@@ -34,10 +34,6 @@
 	path = bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
   ignore = dirty
-[submodule "bundle/tlib-vim"]
-	path = bundle/tlib-vim
-	url = https://github.com/tomtom/tlib_vim.git
-  ignore = dirty
 [submodule "bundle/easymotion"]
 	path = bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
