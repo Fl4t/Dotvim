@@ -6,10 +6,6 @@
 	path = bundle/matchit
 	url = https://github.com/vim-scripts/matchit.zip.git
   ignore = dirty
-[submodule "bundle/nerd-commenter"]
-	path = bundle/nerd-commenter
-	url = https://github.com/vim-scripts/The-NERD-Commenter.git
-  ignore = dirty
 [submodule "bundle/nerd-tree"]
 	path = bundle/nerd-tree
 	url = https://github.com/scrooloose/nerdtree.git
