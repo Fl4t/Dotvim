@@ -58,7 +58,7 @@ set listchars=tab:▸\ ,trail:✖,eol:¬,extends:❯,precedes:❮
 set foldenable          " ferme les replis existant par défaut
 set foldmethod=marker   " c'est les marqueurs qui délimite les replis
 set foldminlines=2      " nombre de ligne mini pour replis
-set fillchars=fold:·    " affiche des ··· après le nom du replis
+set fillchars=fold:\ ,  " n'affiche après le nom du replis
 
 " Ces commandes ouvre les replis
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
