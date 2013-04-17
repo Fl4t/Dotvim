@@ -221,6 +221,9 @@ if !isdirectory(expand(&directory))
 endif
 "}}}
 "Plugins"{{{
+" Signify"{{{
+let g:signify_sign_color_inherit_from_linenr = 1
+"}}}
 " UltiSnips"{{{
 imap <c-b> <esc>:call UltiSnips_ListSnippets()<cr>
 "}}}
@@ -280,7 +283,7 @@ let NERDTreeIgnore=[ '\.class$', '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$
       \ '\.embed\.manifest$', '\.embed\.manifest.res$',
       \ '\.intermediate\.manifest$', '^mt.dep$' ]
 "}}}
-" Plugin Tagbar"{{{
+" Tagbar"{{{
 nnoremap <silent> <F12> :TagbarToggle<CR>
 let g:tagbar_width = 31 " like NERDTree
 if !has("mac")
