@@ -42,10 +42,6 @@
 	path = bundle/easymotion
 	url = https://github.com/Lokaltog/vim-easymotion.git
   ignore = dirty
-[submodule "bundle/molokai"]
-	path = bundle/molokai
-	url = https://github.com/mrtazz/molokai.vim.git
-  ignore = dirty
 [submodule "bundle/vim-getafe"]
 	path = bundle/vim-getafe
 	url = https://github.com/larssmit/vim-getafe.git
