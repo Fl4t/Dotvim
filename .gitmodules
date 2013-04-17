@@ -50,10 +50,6 @@
 	path = bundle/vim-getafe
 	url = https://github.com/larssmit/vim-getafe.git
   ignore = dirty
-[submodule "bundle/vim-extradite"]
-	path = bundle/vim-extradite
-	url = https://github.com/int3/vim-extradite.git
-  ignore = dirty
 [submodule "bundle/vim-repeat"]
 	path = bundle/vim-repeat
 	url = https://github.com/tpope/vim-repeat.git
