@@ -8,8 +8,6 @@ set nocompatible       " leave the old ways behind...
 "}}}
 "Couleurs"{{{
 syntax on               " activer les couleurs
-colorscheme solarized   " colorscheme
-set bg=dark             " version sombre de solarized
 "}}}
 "General"{{{
 set complete=.,w,b,t   " paramètre de complétion
@@ -224,6 +222,11 @@ if !isdirectory(expand(&directory))
 endif
 "}}}
 "Plugins"{{{
+" Solarized"{{{
+let g:solarized_underline = 0
+colorscheme solarized   " colorscheme
+set bg=dark             " version sombre de solarized
+"}}}
 " Signify"{{{
 let g:signify_sign_color_inherit_from_linenr = 1
 "}}}
