@@ -62,10 +62,6 @@
 	path = bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen.git
   ignore = dirty
-[submodule "bundle/abbott"]
-	path = bundle/abbott
-	url = https://github.com/bcat/abbott.vim.git
-  ignore = dirty
 [submodule "bundle/badwolf"]
 	path = bundle/badwolf
 	url = https://github.com/sjl/badwolf.git
