@@ -69,10 +69,6 @@
 [submodule "bundle/vim-pasta"]
 	path = bundle/vim-pasta
 	url = https://github.com/sickill/vim-pasta.git
-[submodule "bundle/vim-distinguished"]
-	path = bundle/vim-distinguished
-	url = https://github.com/Lokaltog/vim-distinguished.git
-  ignore = dirty
 [submodule "bundle/smartpairs"]
 	path = bundle/smartpairs
 	url = https://github.com/gorkunov/smartpairs.vim.git
