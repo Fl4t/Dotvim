@@ -274,6 +274,7 @@ nmap <leader>h :call HexHighlight()<Return>
 "}}}
 " LanguageTool"{{{
 let g:languagetool_jar=$HOME.'/.languagetool/LanguageTool.jar'
+let g:languagetool_disable_rules="FRENCH_WHITESPACE,COMMA_PARENTHESIS_WHITESPACE,UNPAIRED_BRACKETS,WHITESPACE_RULE,EN_QUOTES,HUNSPELL_NO_SUGGEST_RULE"
 "}}}
 " NERDTree"{{{
 nnoremap <silent> <F11> :NERDTreeToggle<CR>
