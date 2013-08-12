@@ -233,16 +233,8 @@ let g:signify_sign_color_inherit_from_linenr = 1
 " UltiSnips"{{{
 imap <c-b> <esc>:call UltiSnips_ListSnippets()<cr>
 "}}}
-" Powerline"{{{
-set rtp+=~/.powerline/powerline/bindings/vim
-if ! has('gui_running')
-    set ttimeoutlen=10
-    augroup FastEscape
-        autocmd!
-        au InsertEnter * set timeoutlen=0
-        au InsertLeave * set timeoutlen=1000
-    augroup END
-endif
+" Airline"{{{
+let g:airline_powerline_fonts=1
 "}}}
 " Syntastic"{{{
 let g:syntastic_quiet_warnings=1
