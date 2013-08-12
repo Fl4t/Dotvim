@@ -72,9 +72,6 @@
 [submodule "bundle/greduan-solarized"]
 	path = bundle/greduan-solarized
 	url = https://github.com/Greduan/vim-colors-solarized.git
-[submodule "bundle/zencoding"]
-	path = bundle/zencoding
-	url = https://github.com/mattn/zencoding-vim.git
 [submodule "bundle/tabular"]
 	path = bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
@@ -87,3 +84,6 @@
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "bundle/emmet"]
+	path = bundle/emmet
+	url = https://github.com/mattn/emmet-vim.git
