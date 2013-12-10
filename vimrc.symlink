@@ -285,10 +285,7 @@ let NERDTreeIgnore=[ '\.class$', '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$
 " Tagbar"{{{
 nnoremap <silent> <F12> :TagbarToggle<CR>
 let g:tagbar_width = 31 " like NERDTree
-if !has("mac")
-  let g:tagbar_ctags_bin = $HOME.'/bin/ctags'
-endif
-
+let g:tagbar_ctags_bin = '/bin/ctags'
 "}}}
 "}}}
 "Langages"{{{
