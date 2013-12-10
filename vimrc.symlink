@@ -209,7 +209,7 @@ set writebackup " écrit le backup avant d'écrire le vrai fichier
 set backupdir=$HOME/Documents/vimsave/savefile " dossier des .backup
 set directory=$HOME/Documents/vimsave/swapfile " dossier des .swp
 
-if v:version == 703 " FU 7.2
+if v:version > 702 " FU 7.2
   set undodir=$HOME/Documents/vimsave/undofile   " dossier des .un
   " Make those folders automatically if they don't already exist.
   if !isdirectory(expand(&undodir))
