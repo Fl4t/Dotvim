@@ -38,6 +38,10 @@ set noerrorbells              " pas de clignotement quand erreur
 set guicursor=a:blinkon0      " pas de curseur qui clignote
 set cmdheight=2               " 1 ligne en dessous de statusline
 set laststatus=2              " toujours voir la barre de statut
+
+" Ajoute un marqueur quand je dépasse la valeur de textwidth
+"highlight ColorColumn ctermbg=white "personnalise la couleur
+call matchadd('ColorColumn', '\%81v', 100)
 "}}}
 "Indentation"{{{
 set expandtab           " insère des espaces au lieu de tab
