@@ -24,6 +24,7 @@ set shellslash         " Les / sont remplacées par \ sur windows
 set cpoptions+=$       " pour avoir un dollars lorsque l'on change, touche c
 set virtualedit=all    " pour ce déplacer même si il n'y a pas de caractère
 set lazyredraw         " Don't update the display while executing macros
+set spelllang=fr       " Défini la langue pour le correcteur orthographique
 "}}}
 "Interface"{{{
 set number                    " (temporaire) relativenumber lag trop
@@ -140,15 +141,6 @@ nnoremap <silent><Leader>do :diffoff!<CR>
 nnoremap <silent><Leader>dg :diffget<CR>:diffupdate<CR>
 nnoremap <silent><Leader>dp :diffput<CR>:diffupdate<CR>
 nnoremap <silent><Leader>du :diffupdate<CR>
-
-" mapping français
-map <silent> <F1> "<Esc>:silent setlocal spell! spelllang=fr<CR>"
-
-" Voir les espaces/tab en trop
-nnoremap <F3> :set nolist!<CR>
-
-" Mode copier/coller
-nnoremap <F4> :set paste!<CR>
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
@@ -335,19 +327,6 @@ function! Fperl()
   set keywordprg=perldoc\ -f
 endfunction
 "}}}
-"}}}
-"Custom Functions"{{{
-
-" Toggle relative/absolute numbering
-nnoremap <F2> :call NumberToggle()<CR>
-
-function! NumberToggle()
-  if(&relativenumber == 1)
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
 "}}}
 "Next and Last"{{{
 "
